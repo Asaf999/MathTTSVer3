@@ -1,0 +1,436 @@
+metadata:
+  category: limits_and_series
+  description: Limits, sequences, series, and convergence notations
+  version: 1.0.0
+patterns:
+- id: limit_basic
+  name: Basic limit
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 of \3
+  priority: 1350
+  tags:
+  - limit
+  - basic
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_with_parentheses
+  name: Limit with parentheses
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\}\s*\(([^)]+)\)
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 of \3
+  priority: 1360
+  tags:
+  - limit
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_no_braces
+  name: Limit without braces
+  pattern: \\lim_\{?([a-zA-Z])\s*\\to\s*([^\s}]+)\}?\s*([^\s\(]+)
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 of \3
+  priority: 1340
+  tags:
+  - limit
+  - simple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_to_infinity
+  name: Limit to infinity
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*\\infty\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches infinity
+  priority: 1380
+  tags:
+  - limit
+  - infinity
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_to_negative_infinity
+  name: Limit to negative infinity
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*-\\infty\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches negative infinity
+  priority: 1380
+  tags:
+  - limit
+  - infinity
+  - negative
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_to_zero
+  name: Limit to zero
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*0\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches zero
+  priority: 1370
+  tags:
+  - limit
+  - zero
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_from_right
+  name: Right-hand limit
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\^\+\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 from the right
+  priority: 1390
+  tags:
+  - limit
+  - one_sided
+  - right
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_from_left
+  name: Left-hand limit
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\^-\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 from the left
+  priority: 1390
+  tags:
+  - limit
+  - one_sided
+  - left
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_from_above
+  name: Limit from above
+  pattern: \\lim_\{([^{}]+)\s*\\downarrow\s*([^{}]+)\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 from above
+  priority: 1380
+  tags:
+  - limit
+  - one_sided
+  - above
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_from_below
+  name: Limit from below
+  pattern: \\lim_\{([^{}]+)\s*\\uparrow\s*([^{}]+)\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches \2 from below
+  priority: 1380
+  tags:
+  - limit
+  - one_sided
+  - below
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_superior
+  name: Limit superior
+  pattern: \\limsup_\{([^{}]+)\s*\\to\s*([^{}]+)\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    superior as \1 approaches \2
+  priority: 1370
+  tags:
+  - limit
+  - superior
+  - limsup
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_inferior
+  name: Limit inferior
+  pattern: \\liminf_\{([^{}]+)\s*\\to\s*([^{}]+)\}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    inferior as \1 approaches \2
+  priority: 1370
+  tags:
+  - limit
+  - inferior
+  - liminf
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: sum_finite
+  name: Finite sum
+  pattern: \\sum_\{([^{}]+)\s*=\s*([^{}]+)\}\^\{([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the the sum from \1 equals \2 to \3 of \4, which reveals
+    the mathematical relationship.
+  priority: 1320
+  tags:
+  - sum
+  - finite
+  - series
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sum_infinite
+  name: Infinite sum
+  pattern: \\sum_\{([^{}]+)\s*=\s*([^{}]+)\}\^\\infty\s*([^\s\(]+)
+  output_template: We have the the sum from \1 equals \2 to infinity of \4, which
+    reveals the mathematical relationship.
+  priority: 1330
+  tags:
+  - sum
+  - infinite
+  - series
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sum_no_bounds
+  name: Sum without bounds
+  pattern: \\sum\s*([^\s\(]+)
+  output_template: We have the the sum of \1, which reveals the mathematical relationship.
+  priority: 1280
+  tags:
+  - sum
+  - unbounded
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sum_over_set
+  name: Sum over set
+  pattern: \\sum_\{([^{}]+)\s*\\in\s*([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the the sum over \1 in \2 of \3, which reveals the mathematical
+    relationship.
+  priority: 1310
+  tags:
+  - sum
+  - set
+  - indexed
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: product_finite
+  name: Finite product
+  pattern: \\prod_\{([^{}]+)\s*=\s*([^{}]+)\}\^\{([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the the product from \1 equals \2 to \3 of \4, which reveals
+    the mathematical relationship.
+  priority: 1320
+  tags:
+  - product
+  - finite
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: product_infinite
+  name: Infinite product
+  pattern: \\prod_\{([^{}]+)\s*=\s*([^{}]+)\}\^\\infty\s*([^\s\(]+)
+  output_template: We have the the product from \1 equals \2 to infinity of \3, which
+    reveals the mathematical relationship.
+  priority: 1330
+  tags:
+  - product
+  - infinite
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: series_geometric
+  name: Geometric series
+  pattern: \\sum_\{n=0\}\^\\infty\s*r\^n
+  output_template: We have the geometric series
+  priority: 1380
+  tags:
+  - series
+  - geometric
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: series_harmonic
+  name: Harmonic series
+  pattern: \\sum_\{n=1\}\^\\infty\s*\\frac\{1\}\{n\}
+  output_template: We have the harmonic series
+  priority: 1380
+  tags:
+  - series
+  - harmonic
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: series_taylor
+  name: Taylor series
+  pattern: \\sum_\{n=0\}\^\\infty\s*\\frac\{f\^\{\(n\)\}\(a\)\}\{n!\}
+  output_template: We have the Taylor series
+  priority: 1380
+  tags:
+  - series
+  - taylor
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sequence_notation
+  name: Sequence notation
+  pattern: \\\{([^{}]+)\\\}_\{([^{}]+)\}
+  output_template: We have the sequence \1 sub \2, which reveals the mathematical
+    relationship.
+  priority: 1300
+  tags:
+  - sequence
+  - notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sequence_limit
+  name: Sequence limit
+  pattern: \\lim_\{n\s*\\to\s*\\infty\}\s*a_n
+  output_template: the the limit, which tells us the value the function approaches,
+    as n approaches infinity of a sub n
+  priority: 1360
+  tags:
+  - sequence
+  - limit
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: converges_to
+  name: Converges to
+  pattern: \\to
+  output_template: Let's explore  converges to , which reveals the mathematical relationship.
+  priority: 1200
+  contexts:
+  - convergence
+  tags:
+  - convergence
+  - arrow
+  naturalness_score: 6
+- id: converges_uniformly
+  name: Converges uniformly
+  pattern: \\rightrightarrows
+  output_template: Let's explore  converges uniformly to , which reveals the mathematical
+    relationship.
+  priority: 1220
+  tags:
+  - convergence
+  - uniform
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: converges_pointwise
+  name: Converges pointwise
+  pattern: \\rightarrow
+  output_template: Let's explore  converges pointwise to , which reveals the mathematical
+    relationship.
+  priority: 1210
+  contexts:
+  - convergence
+  tags:
+  - convergence
+  - pointwise
+  naturalness_score: 6
+- id: big_o
+  name: Big O notation
+  pattern: O\(([^)]+)\)
+  output_template: Let's explore big O of \1, which reveals the mathematical relationship.
+  priority: 1250
+  tags:
+  - asymptotic
+  - big_o
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: little_o
+  name: Little o notation
+  pattern: o\(([^)]+)\)
+  output_template: Let's explore little o of \1, which reveals the mathematical relationship.
+  priority: 1250
+  tags:
+  - asymptotic
+  - little_o
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: big_omega
+  name: Big Omega notation
+  pattern: \\Omega\(([^)]+)\)
+  output_template: Let's explore big Omega of \1, which reveals the mathematical relationship.
+  priority: 1250
+  tags:
+  - asymptotic
+  - big_omega
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: big_theta
+  name: Big Theta notation
+  pattern: \\Theta\(([^)]+)\)
+  output_template: Let's explore big Theta of \1, which reveals the mathematical relationship.
+  priority: 1250
+  tags:
+  - asymptotic
+  - big_theta
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: asymptotic_equivalent
+  name: Asymptotically equivalent
+  pattern: \\sim
+  output_template: Let's explore  is asymptotically equivalent to , which reveals
+    the mathematical relationship.
+  priority: 1240
+  contexts:
+  - limit
+  - asymptotic
+  tags:
+  - asymptotic
+  - equivalence
+  naturalness_score: 6
+- id: continuous_at
+  name: Continuous at point
+  pattern: \\text\{continuous at\}\s*([^\s]+)
+  output_template: Let's explore continuous at \1, which reveals the mathematical
+    relationship.
+  priority: 1290
+  tags:
+  - continuity
+  - point
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: differentiable_at
+  name: Differentiable at point
+  pattern: \\text\{differentiable at\}\s*([^\s]+)
+  output_template: Let's explore differentiable at \1, which reveals the mathematical
+    relationship.
+  priority: 1290
+  tags:
+  - differentiability
+  - point
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

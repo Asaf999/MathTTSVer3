@@ -1,0 +1,316 @@
+metadata:
+  category: mathematical_narratives
+  description: Stage 4 patterns for complex mathematical expressions with complete
+    storytelling
+  version: 4.0.0
+  stage: 4
+  naturalness_target: 100%
+patterns:
+- id: quadratic_formula_complete_story
+  name: Quadratic formula with full narrative
+  pattern: x\s*=\s*\frac\{-b\s*\pm\s*\sqrt\{b\^2\s*-\s*4ac\}\}\{2a\}
+  output_template: the solutions to our quadratic equation are given by x equals negative
+    b plus or minus the square root of the discriminant, b squared minus 4ac, all
+    divided by 2a. This beautiful formula tells us exactly where our parabola crosses
+    the x-axis
+  contexts:
+  - complete_explanation
+  - quadratic
+  - solutions
+  priority: 910
+  tags:
+  - formula
+  - stage4
+  - complete_narrative
+  naturalness_score: 6
+  semantic_understanding: quadratic_solutions
+- id: quadratic_discriminant_story
+  name: Discriminant interpretation with meaning
+  pattern: b\^2\s*-\s*4ac
+  output_template: 'b squared minus 4ac, the discriminant, which reveals the nature
+    of our solutions: positive means two real roots, zero means one repeated root,
+    and negative means complex conjugate roots'
+  contexts:
+  - discriminant
+  - interpretation
+  - roots
+  priority: 915
+  tags:
+  - discriminant
+  - stage4
+  - interpretation
+  naturalness_score: 6
+- id: euler_identity_complete_story
+  name: Euler's identity with wonder and context
+  pattern: e\^\{i\pi\}\s*\+\s*1\s*=\s*0
+  output_template: Euler's remarkable identity shows us that e raised to the power
+    of i pi plus 1 equals zero, beautifully connecting five fundamental mathematical
+    constants in one elegant equation. This has been called the most beautiful equation
+    in mathematics because it unites arithmetic, calculus, trigonometry, and complex
+    analysis
+  contexts:
+  - mathematical_beauty
+  - historical
+  - fundamental_constants
+  priority: 920
+  tags:
+  - euler
+  - stage4
+  - beauty
+  naturalness_score: 6
+- id: euler_formula_general_story
+  name: General Euler formula with explanation
+  pattern: e\^\{i\theta\}\s*=\s*\cos\(\theta\)\s*\+\s*i\sin\(\theta\)
+  output_template: Euler's formula tells us that e to the power of i theta equals
+    cosine theta plus i sine theta, revealing the profound connection between exponential
+    and trigonometric functions. This formula transforms our understanding of complex
+    numbers from algebraic objects to geometric rotations
+  contexts:
+  - euler_formula
+  - complex_analysis
+  - geometry
+  priority: 925
+  tags:
+  - euler
+  - stage4
+  - complex
+  naturalness_score: 6
+- id: pythagorean_theorem_story
+  name: Pythagorean theorem with geometric insight
+  pattern: a\^2\s*\+\s*b\^2\s*=\s*c\^2
+  output_template: a squared plus b squared equals c squared, the Pythagorean theorem,
+    which captures the fundamental relationship in right triangles. This ancient result
+    connects algebra to geometry, showing that the square built on the hypotenuse
+    has the same area as the squares on the other two sides combined
+  contexts:
+  - pythagorean
+  - geometry
+  - fundamental
+  priority: 930
+  tags:
+  - pythagorean
+  - stage4
+  - geometry
+  naturalness_score: 6
+- id: fundamental_theorem_complete_story
+  name: Fundamental theorem of calculus full narrative
+  pattern: \frac\{d\}\{dx\}\int_a\^x\s*f\(t\)\s*dt\s*=\s*f\(x\)
+  output_template: the fundamental theorem of calculus states that the derivative
+    with respect to x of the integral from a to x of f of t dt equals f of x. This
+    profound result shows that differentiation and integration are inverse operations,
+    like addition and subtraction, but for the continuous world of calculus
+  contexts:
+  - fundamental_theorem
+  - calculus_unity
+  - profound
+  priority: 935
+  tags:
+  - calculus
+  - stage4
+  - fundamental
+  naturalness_score: 6
+- id: taylor_series_story
+  name: Taylor series with intuitive explanation
+  pattern: f\(x\)\s*=\s*\sum_\{n=0\}\^\{\infty\}\s*\frac\{f\^\{\(n\)\}\(a\)\}\{n!\}\(x-a\)\^n
+  output_template: the Taylor series expansion tells us that f of x equals the sum
+    from n equals 0 to infinity of the nth derivative of f at point a, divided by
+    n factorial, times x minus a to the nth power. This remarkable formula lets us
+    approximate any smooth function as an infinite polynomial, capturing all the function's
+    behavior at a single point
+  contexts:
+  - taylor_series
+  - approximation
+  - infinite
+  priority: 940
+  tags:
+  - series
+  - stage4
+  - approximation
+  naturalness_score: 6
+- id: chain_rule_complete_narrative
+  name: Chain rule with complete conceptual story
+  pattern: \frac\{dy\}\{dx\}\s*=\s*\frac\{dy\}\{du\}\s*\cdot\s*\frac\{du\}\{dx\}
+  output_template: the chain rule for composite functions states that dy dx equals
+    dy du times du dx. Think of this as a relay race where the rate of change passes
+    through each function like a baton, with each function contributing its own rate
+    of change to the final result
+  contexts:
+  - chain_rule
+  - composition
+  - relay_metaphor
+  priority: 945
+  tags:
+  - derivative
+  - stage4
+  - metaphor
+  naturalness_score: 6
+- id: integration_by_parts_complete
+  name: Integration by parts with strategic insight
+  pattern: \int\s*u\s*dv\s*=\s*uv\s*-\s*\int\s*v\s*du
+  output_template: integration by parts tells us that the integral of u dv equals
+    u times v minus the integral of v du. This technique transforms our problem by
+    trading one integral for another, often simpler one. It's like mathematical judo
+    - using the structure of the problem against itself to find the solution
+  contexts:
+  - integration_technique
+  - strategy
+  - transformation
+  priority: 950
+  tags:
+  - integration
+  - stage4
+  - technique
+  naturalness_score: 6
+- id: binomial_theorem_story
+  name: Binomial theorem with combinatorial meaning
+  pattern: \(a\+b\)\^n\s*=\s*\sum_\{k=0\}\^n\s*\binom\{n\}\{k\}\s*a\^\{n-k\}\s*b\^k
+  output_template: the binomial theorem expands a plus b to the nth power as the sum
+    from k equals 0 to n of n choose k times a to the n minus k times b to the k.
+    Each term counts the number of ways to select k b's from n factors, revealing
+    the deep connection between algebra and combinatorics
+  contexts:
+  - binomial
+  - combinatorics
+  - expansion
+  priority: 955
+  tags:
+  - binomial
+  - stage4
+  - combinatorics
+  naturalness_score: 6
+- id: golden_ratio_complete_story
+  name: Golden ratio with aesthetic and natural connections
+  pattern: \phi\s*=\s*\frac\{1\+\sqrt\{5\}\}\{2\}\s*\approx\s*1\.618
+  output_template: the golden ratio phi equals one plus the square root of five, all
+    divided by two, approximately 1.618. This special number appears throughout nature
+    in spiral shells, flower petals, and galaxy formations, and has been used by artists
+    and architects for millennia to create aesthetically pleasing proportions
+  contexts:
+  - golden_ratio
+  - nature
+  - aesthetics
+  priority: 960
+  tags:
+  - golden_ratio
+  - stage4
+  - nature
+  naturalness_score: 6
+- id: epsilon_delta_story
+  name: Epsilon-delta definition with intuition
+  pattern: \forall\s*\epsilon\s*>\s*0\s*,\s*\exists\s*\delta\s*>\s*0
+  output_template: for every epsilon greater than zero, there exists a delta greater
+    than zero. This is the rigorous language of limits, where epsilon represents how
+    close we want to get to our target value, and delta tells us how close we need
+    to be to our starting point to guarantee that precision
+  contexts:
+  - limits
+  - rigorous
+  - epsilon_delta
+  priority: 965
+  tags:
+  - limits
+  - stage4
+  - rigorous
+  naturalness_score: 6
+- id: harmonic_series_story
+  name: Harmonic series with divergence insight
+  pattern: \sum_\{n=1\}\^\{\infty\}\s*\frac\{1\}\{n\}
+  output_template: the harmonic series, the sum from n equals 1 to infinity of one
+    over n, which surprisingly diverges to infinity despite each term getting smaller.
+    This counterintuitive result shows that infinitely many small numbers can still
+    add up to infinity if they don't shrink fast enough
+  contexts:
+  - series
+  - divergence
+  - counterintuitive
+  priority: 970
+  tags:
+  - series
+  - stage4
+  - divergence
+  naturalness_score: 6
+- id: geometric_series_story
+  name: Geometric series with real-world connection
+  pattern: \sum_\{n=0\}\^\{\infty\}\s*r\^n\s*=\s*\frac\{1\}\{1-r\}
+  output_template: the geometric series sum from n equals 0 to infinity of r to the
+    n equals one over one minus r, when the absolute value of r is less than one.
+    This formula captures everything from compound interest to the mathematics of
+    music, showing how repeated multiplication creates predictable patterns
+  contexts:
+  - series
+  - geometric
+  - applications
+  priority: 975
+  tags:
+  - series
+  - stage4
+  - applications
+  naturalness_score: 6
+- id: pi_definition_story
+  name: Pi with geometric and transcendental nature
+  pattern: \pi\s*=\s*\frac\{C\}\{d\}
+  output_template: pi equals the circumference C divided by the diameter d of any
+    circle, a constant that emerges from the geometry of circles but turns out to
+    be a transcendental number, meaning it cannot be expressed as the solution to
+    any polynomial equation with rational coefficients
+  contexts:
+  - pi
+  - geometry
+  - transcendental
+  priority: 980
+  tags:
+  - constants
+  - stage4
+  - pi
+  naturalness_score: 6
+- id: natural_log_story
+  name: Natural logarithm with growth interpretation
+  pattern: \ln\(x\)\s*=\s*\int_1\^x\s*\frac\{1\}\{t\}\s*dt
+  output_template: the natural logarithm of x equals the integral from 1 to x of one
+    over t dt, representing the area under the hyperbola from 1 to x. This function
+    measures continuous growth and appears naturally in problems involving rates of
+    change, making it truly 'natural'
+  contexts:
+  - logarithm
+  - natural
+  - growth
+  priority: 985
+  tags:
+  - logarithm
+  - stage4
+  - natural
+  naturalness_score: 6
+- id: gaussian_integral_story
+  name: Gaussian integral with surprising result
+  pattern: \int_\{-\infty\}\^\{\infty\}\s*e\^\{-x\^2\}\s*dx\s*=\s*\sqrt\{\pi\}
+  output_template: the Gaussian integral from negative infinity to infinity of e to
+    the negative x squared dx equals the square root of pi. This surprising result
+    connects the bell curve of probability to the geometry of circles, showing the
+    hidden unity in mathematics
+  contexts:
+  - gaussian
+  - probability
+  - surprising
+  priority: 990
+  tags:
+  - integral
+  - stage4
+  - gaussian
+  naturalness_score: 6
+- id: infinity_concept_story
+  name: Infinity with philosophical depth
+  pattern: \infty
+  output_template: infinity, a concept that represents the unbounded, the endless,
+    the larger than any number we can imagine. In mathematics, infinity is not a number
+    but a idea that helps us understand limits, series, and the structure of the mathematical
+    universe itself
+  contexts:
+  - infinity
+  - philosophy
+  - concept
+  priority: 995
+  tags:
+  - infinity
+  - stage4
+  - philosophy
+  naturalness_score: 6

@@ -1,0 +1,304 @@
+metadata:
+  category: educational_professor_style
+  description: Educational context patterns with professor-style mathematical introductions
+  version: 1.0.0
+patterns:
+- id: equation_introduction
+  name: Professor equation introduction
+  pattern: ([^=]+)\s*=\s*([^=]+)
+  output_template: we have the equation \1 equals \2
+  contexts:
+  - explanation
+  - theorem
+  - educational
+  priority: 1700
+  tags:
+  - equation
+  - professor_style
+  - introduction
+  naturalness_score: 6
+- id: equation_statement
+  name: Equation statement
+  pattern: ([^=]+)\s*=\s*([^=]+)
+  output_template: consider the equation \1 equals \2
+  contexts:
+  - problem_setup
+  - derivation
+  priority: 1690
+  tags:
+  - equation
+  - professor_style
+  - consideration
+  naturalness_score: 6
+- id: let_statement
+  name: Professor let statement
+  pattern: \\text{let}\s+([^=]+)\s*=\s*([^=]+)
+  output_template: let us define \1 to equal \2
+  contexts:
+  - proof
+  - definition
+  - setup
+  priority: 1720
+  tags:
+  - definition
+  - professor_style
+  - let
+  naturalness_score: 6
+- id: let_variable
+  name: Let variable definition
+  pattern: let\s+([a-zA-Z])\s*=\s*([^\s]+)
+  output_template: let the variable \1 be equal to \2
+  contexts:
+  - variable_definition
+  priority: 1710
+  tags:
+  - variable
+  - professor_style
+  - definition
+  naturalness_score: 6
+- id: therefore_statement
+  name: Therefore conclusion
+  pattern: \\therefore
+  output_template: therefore, we can conclude that
+  contexts:
+  - proof
+  - logical_conclusion
+  - derivation
+  priority: 1730
+  tags:
+  - logic
+  - professor_style
+  - conclusion
+  naturalness_score: 6
+- id: thus_statement
+  name: Thus statement
+  pattern: \\text{thus}
+  output_template: thus we see that
+  contexts:
+  - proof
+  - explanation
+  priority: 1720
+  tags:
+  - logic
+  - professor_style
+  - reasoning
+  naturalness_score: 6
+- id: hence_statement
+  name: Hence statement
+  pattern: \\text{hence}
+  output_template: hence it follows that
+  contexts:
+  - proof
+  - logical_deduction
+  priority: 1720
+  tags:
+  - logic
+  - professor_style
+  - deduction
+  naturalness_score: 6
+- id: consider_expression
+  name: Consider expression
+  pattern: \\text{Consider}\s+([^\s]+)
+  output_template: let us consider the expression \1
+  contexts:
+  - problem_introduction
+  - example
+  priority: 1700
+  tags:
+  - introduction
+  - professor_style
+  - consideration
+  naturalness_score: 6
+- id: evaluate_expression
+  name: Evaluate expression
+  pattern: \\text{Evaluate}\s+([^\s]+)
+  output_template: we need to evaluate the expression \1
+  contexts:
+  - problem_statement
+  - calculation
+  priority: 1690
+  tags:
+  - evaluation
+  - professor_style
+  - instruction
+  naturalness_score: 6
+- id: function_definition
+  name: Function definition introduction
+  pattern: ([a-zA-Z])\(([^)]+)\)\s*=\s*([^=]+)
+  output_template: we define the function \1 of \2 as \3
+  contexts:
+  - function_definition
+  - setup
+  priority: 1710
+  tags:
+  - function
+  - professor_style
+  - definition
+  naturalness_score: 6
+- id: function_given
+  name: Given function
+  pattern: \\text{Given}\s+([a-zA-Z])\(([^)]+)\)\s*=\s*([^=]+)
+  output_template: given that the function \1 of \2 equals \3
+  contexts:
+  - given_information
+  - premise
+  priority: 1720
+  tags:
+  - function
+  - professor_style
+  - given
+  naturalness_score: 6
+- id: proof_by_induction
+  name: Proof by induction
+  pattern: \\text{Proof by induction}
+  output_template: we will prove this statement using mathematical induction
+  contexts:
+  - proof_technique
+  priority: 1750
+  tags:
+  - proof
+  - professor_style
+  - induction
+  naturalness_score: 6
+- id: proof_by_contradiction
+  name: Proof by contradiction
+  pattern: \\text{Proof by contradiction}
+  output_template: let us prove this by assuming the contrary and reaching a contradiction
+  contexts:
+  - proof_technique
+  priority: 1750
+  tags:
+  - proof
+  - professor_style
+  - contradiction
+  naturalness_score: 6
+- id: step_one
+  name: Step one
+  pattern: \\text{Step 1}|Step\s+1
+  output_template: in the first step of our solution
+  contexts:
+  - step_by_step
+  - solution
+  priority: 1680
+  tags:
+  - steps
+  - professor_style
+  - organization
+  naturalness_score: 6
+- id: next_step
+  name: Next step
+  pattern: \\text{Next}|\\text{Step}\s+([2-9])
+  output_template: in the next step of our analysis
+  contexts:
+  - step_by_step
+  - continuation
+  priority: 1670
+  tags:
+  - steps
+  - professor_style
+  - progression
+  naturalness_score: 6
+- id: observe_that
+  name: Observe that
+  pattern: \\text{Observe that}|\\text{Note that}
+  output_template: we observe that
+  contexts:
+  - observation
+  - insight
+  priority: 1690
+  tags:
+  - observation
+  - professor_style
+  - insight
+  naturalness_score: 6
+- id: notice_that
+  name: Notice that
+  pattern: \\text{Notice that}
+  output_template: notice that
+  contexts:
+  - observation
+  - attention
+  priority: 1690
+  tags:
+  - observation
+  - professor_style
+  - attention
+  naturalness_score: 6
+- id: relationship_since
+  name: Since relationship
+  pattern: \\text{Since}\s+([^,]+),\s*([^.]+)
+  output_template: since we know that \1, it follows that \2
+  contexts:
+  - causal_reasoning
+  - logical_connection
+  priority: 1700
+  tags:
+  - relationship
+  - professor_style
+  - causality
+  naturalness_score: 6
+- id: relationship_because
+  name: Because relationship
+  pattern: \\text{Because}\s+([^,]+),\s*([^.]+)
+  output_template: because \1 holds true, we have \2
+  contexts:
+  - causal_reasoning
+  - justification
+  priority: 1700
+  tags:
+  - relationship
+  - professor_style
+  - justification
+  naturalness_score: 6
+- id: final_result
+  name: Final result
+  pattern: '\\text{Result}:|\\text{Answer}:'
+  output_template: our final result is
+  contexts:
+  - conclusion
+  - final_answer
+  priority: 1740
+  tags:
+  - conclusion
+  - professor_style
+  - result
+  naturalness_score: 6
+- id: solution_complete
+  name: Solution complete
+  pattern: \\text{QED}|\\blacksquare
+  output_template: this completes our solution
+  contexts:
+  - proof_completion
+  - solution_end
+  priority: 1750
+  tags:
+  - completion
+  - professor_style
+  - qed
+  naturalness_score: 6
+- id: in_other_words
+  name: In other words
+  pattern: \\text{In other words}
+  output_template: to express this differently
+  contexts:
+  - clarification
+  - rephrasing
+  priority: 1680
+  tags:
+  - clarification
+  - professor_style
+  - rephrasing
+  naturalness_score: 6
+- id: that_is
+  name: That is
+  pattern: \\text{That is}|\\text{i.e.}
+  output_template: that is to say
+  contexts:
+  - clarification
+  - explanation
+  priority: 1680
+  tags:
+  - clarification
+  - professor_style
+  - explanation
+  naturalness_score: 6

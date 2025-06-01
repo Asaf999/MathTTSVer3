@@ -1,0 +1,240 @@
+# Master pattern configuration file
+# This file defines the loading order and configuration for all pattern files
+
+metadata:
+  version: "1.0.0"
+  description: "Master configuration for MathTTS v3 pattern system"
+  
+# Pattern files to load in order of priority
+# Files are processed in the order listed, with later files potentially overriding earlier ones
+pattern_files:
+  # Special symbols and Greek letters (lowest priority)
+  - path: "special/symbols_greek.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Basic mathematical operations
+  - path: "basic/arithmetic.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Advanced mathematical functions
+  - path: "advanced/trigonometry.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  - path: "advanced/logarithms.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  - path: "advanced/number_theory.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Fractions (higher priority than basic operations)
+  - path: "basic/fractions.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Powers and roots
+  - path: "basic/powers_roots.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Algebra and equations
+  - path: "algebra/equations.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Geometry and vectors
+  - path: "geometry/vectors.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Set theory and logic
+  - path: "logic/set_theory.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Calculus patterns (high priority)
+  - path: "calculus/limits_series.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  - path: "calculus/integrals.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  - path: "calculus/derivatives.yaml"
+    enabled: true
+    priority_offset: 0
+    
+  # Statistics and probability
+  - path: "statistics/probability.yaml"
+    enabled: true
+    priority_offset: 0
+
+# Global pattern configuration
+global_config:
+  # Default pattern type if not specified
+  default_pattern_type: "REGEX"
+  
+  # Case sensitivity for pattern matching
+  case_sensitive: true
+  
+  # Enable pattern caching for performance
+  enable_caching: true
+  cache_size: 1000
+  
+  # Pattern compilation settings
+  compile_patterns: true
+  regex_flags:
+    - "UNICODE"
+    
+  # Pattern matching settings
+  matching:
+    # Maximum number of matches to process per expression
+    max_matches_per_pattern: 100
+    
+    # Whether to allow overlapping matches
+    allow_overlapping: false
+    
+    # Minimum pattern length to consider
+    min_pattern_length: 1
+    
+  # Output formatting
+  output:
+    # Whether to preserve spaces in output
+    preserve_spaces: true
+    
+    # Whether to capitalize first letter
+    capitalize_first: false
+    
+    # Default pause between matched segments (ms)
+    default_pause: 50
+
+# Context definitions
+contexts:
+  - name: "expression"
+    description: "Mathematical expression context"
+    
+  - name: "equation"
+    description: "Mathematical equation context"
+    
+  - name: "matrix"
+    description: "Matrix and linear algebra context"
+    
+  - name: "vector"
+    description: "Vector mathematics context"
+    
+  - name: "calculus"
+    description: "Calculus and analysis context"
+    
+  - name: "statistics"
+    description: "Statistics and probability context"
+    
+  - name: "set_theory"
+    description: "Set theory context"
+    
+  - name: "number_theory"
+    description: "Number theory context"
+    
+  - name: "geometry"
+    description: "Geometric context"
+    
+  - name: "physics"
+    description: "Physics and applied mathematics context"
+    
+  - name: "programming"
+    description: "Programming and computer science context"
+
+# Domain definitions
+domains:
+  - name: "general"
+    description: "General mathematical expressions"
+    default_priority: 1000
+    
+  - name: "calculus"
+    description: "Calculus and analysis"
+    default_priority: 1400
+    
+  - name: "algebra"
+    description: "Algebraic expressions"
+    default_priority: 1100
+    
+  - name: "geometry"
+    description: "Geometric expressions"
+    default_priority: 1200
+    
+  - name: "statistics"
+    description: "Statistical expressions"
+    default_priority: 1300
+    
+  - name: "logic"
+    description: "Logical expressions"
+    default_priority: 1150
+    
+  - name: "set_theory"
+    description: "Set theoretic expressions"
+    default_priority: 1150
+
+# Post-processing rules
+post_processing:
+  # Remove redundant spaces
+  - type: "normalize_spaces"
+    enabled: true
+    
+  # Convert number words
+  - type: "number_to_words"
+    enabled: true
+    languages: ["en"]
+    
+  # Handle ordinal numbers
+  - type: "ordinal_numbers"
+    enabled: true
+    
+  # Apply pronunciation rules
+  - type: "pronunciation_rules"
+    enabled: true
+    
+  # Natural speech adjustments
+  - type: "natural_speech"
+    enabled: true
+    rules:
+      - pattern: "\\s+of\\s+of\\s+"
+        replacement: " of "
+      - pattern: "\\s+the\\s+the\\s+"
+        replacement: " the "
+      - pattern: "\\s+to\\s+to\\s+"
+        replacement: " to "
+
+# Performance optimization settings
+optimization:
+  # Precompile all patterns on load
+  precompile_patterns: true
+  
+  # Use pattern indexing for faster lookup
+  use_pattern_index: true
+  index_type: "trie"
+  
+  # Pattern priority caching
+  cache_priority_order: true
+  
+  # Parallel processing settings
+  parallel_processing:
+    enabled: false
+    max_workers: 4
+    
+# Logging configuration
+logging:
+  # Log pattern matches
+  log_matches: false
+  
+  # Log performance metrics
+  log_performance: true
+  
+  # Log pattern compilation
+  log_compilation: true
+  
+  # Minimum log level
+  min_level: "INFO"

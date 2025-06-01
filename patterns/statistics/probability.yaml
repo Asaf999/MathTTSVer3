@@ -1,0 +1,548 @@
+metadata:
+  category: statistics_and_probability
+  description: Statistical measures, probability distributions, and related notations
+  version: 1.0.0
+patterns:
+- id: probability_basic
+  name: Basic probability
+  pattern: P\(([^)]+)\)
+  output_template: We have the probability of \1, which reveals the mathematical relationship.
+  priority: 1400
+  tags:
+  - probability
+  - basic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_conditional
+  name: Conditional probability
+  pattern: P\(([^|)]+)\|([^)]+)\)
+  output_template: We have the probability of \1 given \2, which reveals the mathematical
+    relationship.
+  priority: 1420
+  tags:
+  - probability
+  - conditional
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_joint
+  name: Joint probability
+  pattern: P\(([^,)]+),\s*([^)]+)\)
+  output_template: We have the probability of \1 and \2, which reveals the mathematical
+    relationship.
+  priority: 1410
+  tags:
+  - probability
+  - joint
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_intersection
+  name: Probability of intersection
+  pattern: P\(([^)]+)\s*\\cap\s*([^)]+)\)
+  output_template: We have the probability of \1 intersection \2, which reveals the
+    mathematical relationship.
+  priority: 1410
+  tags:
+  - probability
+  - intersection
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_union
+  name: Probability of union
+  pattern: P\(([^)]+)\s*\\cup\s*([^)]+)\)
+  output_template: We have the probability of \1 union \2, which reveals the mathematical
+    relationship.
+  priority: 1410
+  tags:
+  - probability
+  - union
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_complement
+  name: Probability of complement
+  pattern: P\(([^)]+)\^c\)
+  output_template: We have the probability of \1 complement, which reveals the mathematical
+    relationship.
+  priority: 1420
+  tags:
+  - probability
+  - complement
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: expected_value
+  name: Expected value
+  pattern: E\[([^\]]+)\]|\\mathbb\{E\}\[([^\]]+)\]
+  output_template: We have the expected value of \1\2, which reveals the mathematical
+    relationship.
+  priority: 1450
+  tags:
+  - statistics
+  - expectation
+  - moment
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: expected_value_conditional
+  name: Conditional expectation
+  pattern: E\[([^|\]]+)\|([^\]]+)\]
+  output_template: We have the expected value of \1 given \2, which reveals the mathematical
+    relationship.
+  priority: 1460
+  tags:
+  - statistics
+  - expectation
+  - conditional
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: variance
+  name: Variance
+  pattern: \\text\{Var\}\(([^)]+)\)|\\mathrm\{Var\}\(([^)]+)\)
+  output_template: We have the variance of \1\2, which reveals the mathematical relationship.
+  priority: 1450
+  tags:
+  - statistics
+  - variance
+  - moment
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: covariance
+  name: Covariance
+  pattern: \\text\{Cov\}\(([^,)]+),\s*([^)]+)\)
+  output_template: We have the covariance of \1 and \2, which reveals the mathematical
+    relationship.
+  priority: 1440
+  tags:
+  - statistics
+  - covariance
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: correlation
+  name: Correlation
+  pattern: \\text\{Corr\}\(([^,)]+),\s*([^)]+)\)|\\rho\(([^,)]+),\s*([^)]+)\)
+  output_template: We have the correlation between \1\3 and \2\4, which reveals the
+    mathematical relationship.
+  priority: 1440
+  tags:
+  - statistics
+  - correlation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: standard_deviation
+  name: Standard deviation
+  pattern: \\sigma|\\text\{SD\}\(([^)]+)\)
+  output_template: Let's explore sigma\1, which reveals the mathematical relationship.
+  priority: 1430
+  contexts:
+  - statistics
+  tags:
+  - statistics
+  - standard_deviation
+  naturalness_score: 6
+- id: mean
+  name: Mean
+  pattern: \\bar\{([^{}]+)\}|\\mu
+  output_template: Let's explore \1 bar, which reveals the mathematical relationship.
+  priority: 1480
+  contexts:
+  - statistics
+  tags:
+  - statistics
+  - mean
+  - average
+  naturalness_score: 6
+- id: sample_mean
+  name: Sample mean
+  pattern: \\overline\{X\}
+  output_template: Let's explore X bar, which reveals the mathematical relationship.
+  priority: 1490
+  tags:
+  - statistics
+  - mean
+  - sample
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: median
+  name: Median
+  pattern: \\text\{median\}\(([^)]+)\)
+  output_template: We have the median of \1, which reveals the mathematical relationship.
+  priority: 1420
+  tags:
+  - statistics
+  - median
+  - measure
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mode
+  name: Mode
+  pattern: \\text\{mode\}\(([^)]+)\)
+  output_template: We have the mode of \1, which reveals the mathematical relationship.
+  priority: 1420
+  tags:
+  - statistics
+  - mode
+  - measure
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: quantile
+  name: Quantile
+  pattern: Q_\{([^{}]+)\}
+  output_template: We have the \1 quantile, which reveals the mathematical relationship.
+  priority: 1410
+  tags:
+  - statistics
+  - quantile
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: percentile
+  name: Percentile
+  pattern: P_\{(\d+)\}
+  output_template: We have the \1th percentile, which reveals the mathematical relationship.
+  priority: 1410
+  tags:
+  - statistics
+  - percentile
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_normal
+  name: Normal distribution
+  pattern: \\mathcal\{N\}\(([^,)]+),\s*([^)]+)\)
+  output_template: Let's explore normal distribution with mean \1 and variance \2,
+    which reveals the mathematical relationship.
+  priority: 1470
+  tags:
+  - distribution
+  - normal
+  - gaussian
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_standard_normal
+  name: Standard normal
+  pattern: \\mathcal\{N\}\(0,\s*1\)
+  output_template: Let's explore standard normal distribution, which reveals the mathematical
+    relationship.
+  priority: 1480
+  tags:
+  - distribution
+  - normal
+  - standard
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_binomial
+  name: Binomial distribution
+  pattern: \\text\{Binomial\}\(([^,)]+),\s*([^)]+)\)|B\(([^,)]+),\s*([^)]+)\)
+  output_template: Let's explore binomial distribution with parameters \1\3 and \2\4,
+    which reveals the mathematical relationship.
+  priority: 1460
+  tags:
+  - distribution
+  - binomial
+  - discrete
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_poisson
+  name: Poisson distribution
+  pattern: \\text\{Poisson\}\(([^)]+)\)
+  output_template: Let's explore Poisson distribution with parameter \1, which reveals
+    the mathematical relationship.
+  priority: 1460
+  tags:
+  - distribution
+  - poisson
+  - discrete
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_exponential
+  name: Exponential distribution
+  pattern: \\text\{Exp\}\(([^)]+)\)
+  output_template: Let's explore exponential distribution with parameter \1, which
+    reveals the mathematical relationship.
+  priority: 1460
+  tags:
+  - distribution
+  - exponential
+  - continuous
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_uniform
+  name: Uniform distribution
+  pattern: \\text\{Uniform\}\(([^,)]+),\s*([^)]+)\)|U\(([^,)]+),\s*([^)]+)\)
+  output_template: Let's explore uniform distribution from \1\3 to \2\4, which reveals
+    the mathematical relationship.
+  priority: 1460
+  tags:
+  - distribution
+  - uniform
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_chi_squared
+  name: Chi-squared distribution
+  pattern: \\chi\^2_\{([^{}]+)\}
+  output_template: Let's explore chi-squared distribution with \1 degrees of freedom,
+    which reveals the mathematical relationship.
+  priority: 1470
+  tags:
+  - distribution
+  - chi_squared
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_t
+  name: Student's t-distribution
+  pattern: t_\{([^{}]+)\}
+  output_template: Let's explore t-distribution with \1 degrees of freedom, which
+    reveals the mathematical relationship.
+  priority: 1470
+  tags:
+  - distribution
+  - t_distribution
+  - student
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distribution_f
+  name: F-distribution
+  pattern: F_\{([^,{}]+),\s*([^{}]+)\}
+  output_template: Let's explore F-distribution with \1 and \2 degrees of freedom,
+    which reveals the mathematical relationship.
+  priority: 1470
+  tags:
+  - distribution
+  - f_distribution
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: random_variable_discrete
+  name: Discrete random variable
+  pattern: X\s*\\sim\s*([^\s]+)
+  output_template: Let's explore X follows \1, which reveals the mathematical relationship.
+  priority: 1380
+  contexts:
+  - probability
+  tags:
+  - random_variable
+  - distribution
+  naturalness_score: 6
+- id: random_variable_iid
+  name: Independent identically distributed
+  pattern: X_i\s*\\stackrel\{iid\}\{\\sim\}\s*([^\s]+)
+  output_template: Let's explore X sub i are i.i.d. \1, which reveals the mathematical
+    relationship.
+  priority: 1390
+  tags:
+  - random_variable
+  - iid
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: hypothesis_null
+  name: Null hypothesis
+  pattern: H_0\s*:\s*([^\s]+)
+  output_template: 'Let''s explore null hypothesis: \1, which reveals the mathematical
+    relationship.'
+  priority: 1400
+  tags:
+  - hypothesis
+  - testing
+  - 'null'
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: hypothesis_alternative
+  name: Alternative hypothesis
+  pattern: H_1\s*:\s*([^\s]+)|H_a\s*:\s*([^\s]+)
+  output_template: 'Let''s explore alternative hypothesis: \1\2, which reveals the
+    mathematical relationship.'
+  priority: 1400
+  tags:
+  - hypothesis
+  - testing
+  - alternative
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: p_value
+  name: P-value
+  pattern: p\text{-value}|p\s*=\s*(\d+\.\d+)
+  output_template: Let's explore p-value\1, which reveals the mathematical relationship.
+  priority: 1410
+  tags:
+  - hypothesis
+  - p_value
+  - testing
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: significance_level
+  name: Significance level
+  pattern: \\alpha\s*=\s*(\d+\.\d+)
+  output_template: Let's explore alpha beautifully equals \1, which reveals the mathematical
+    relationship.
+  priority: 1410
+  contexts:
+  - hypothesis_testing
+  tags:
+  - hypothesis
+  - significance
+  - alpha
+  naturalness_score: 6
+- id: confidence_interval
+  name: Confidence interval
+  pattern: \[(\d+)\%\s*CI\]|\[(\d+\.\d+),\s*(\d+\.\d+)\]
+  output_template: Let's explore \1 percent confidence interval\2 to \3, which reveals
+    the mathematical relationship.
+  priority: 1420
+  tags:
+  - statistics
+  - confidence_interval
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: summation_statistics
+  name: Statistical sum
+  pattern: \\sum_\{i=1\}\^n\s*X_i
+  output_template: the the sum from i equals 1 to n of X sub i
+  priority: 1350
+  tags:
+  - statistics
+  - sum
+  - notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: product_statistics
+  name: Statistical product
+  pattern: \\prod_\{i=1\}\^n\s*X_i
+  output_template: the the product from i equals 1 to n of X sub i
+  priority: 1350
+  tags:
+  - statistics
+  - product
+  - notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: likelihood_function
+  name: Likelihood function
+  pattern: L\(\\theta\|([^)]+)\)
+  output_template: We have the likelihood of theta given \1, which reveals the mathematical
+    relationship.
+  priority: 1430
+  tags:
+  - statistics
+  - likelihood
+  - inference
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_likelihood
+  name: Log-likelihood
+  pattern: \\ell\(\\theta\)
+  output_template: We have the log-likelihood of theta
+  priority: 1430
+  tags:
+  - statistics
+  - likelihood
+  - log
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: estimator_hat
+  name: Estimator with hat
+  pattern: \\hat\{([^{}]+)\}
+  output_template: Let's explore \1 hat, which reveals the mathematical relationship.
+  priority: 1400
+  contexts:
+  - statistics
+  tags:
+  - statistics
+  - estimator
+  naturalness_score: 6
+- id: estimator_tilde
+  name: Estimator with tilde
+  pattern: \\tilde\{([^{}]+)\}
+  output_template: Let's explore \1 tilde, which reveals the mathematical relationship.
+  priority: 1400
+  contexts:
+  - statistics
+  tags:
+  - statistics
+  - estimator
+  naturalness_score: 6
+- id: entropy
+  name: Entropy
+  pattern: H\(([^)]+)\)
+  output_template: We have the entropy of \1, which reveals the mathematical relationship.
+  priority: 1380
+  contexts:
+  - information_theory
+  tags:
+  - information
+  - entropy
+  naturalness_score: 6
+- id: mutual_information
+  name: Mutual information
+  pattern: I\(([^;)]+);\s*([^)]+)\)
+  output_template: We have the mutual information between \1 and \2, which reveals
+    the mathematical relationship.
+  priority: 1380
+  tags:
+  - information
+  - mutual_information
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

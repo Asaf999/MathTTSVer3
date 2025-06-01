@@ -1,0 +1,280 @@
+metadata:
+  category: concept_explanations
+  description: Stage 3 patterns for deep conceptual mathematical explanations
+  version: 3.0.0
+  stage: 3
+  naturalness_target: 95%
+patterns:
+- id: derivative_geometric_perspective_stage3
+  name: Derivative as geometric slope with insight
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: the derivative of \1 with respect to \2, which geometrically represents
+    the slope of the tangent line at any point, revealing how steeply the function
+    climbs or descends
+  contexts:
+  - geometric_interpretation
+  - visual_learning
+  - conceptual
+  priority: 1110
+  tags:
+  - derivative
+  - stage3
+  - geometric
+  naturalness_score: 6
+  semantic_understanding: geometric_slope
+- id: derivative_physical_perspective_stage3
+  name: Derivative as rate of change with meaning
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: the derivative of \1 with respect to \2, which physically measures
+    the instantaneous rate of change, telling us how quickly \1 responds to changes
+    in \2
+  contexts:
+  - physical_interpretation
+  - motion
+  - rates
+  priority: 1115
+  tags:
+  - derivative
+  - stage3
+  - physical
+  naturalness_score: 6
+  semantic_understanding: rate_of_change
+- id: integral_area_perspective_stage3
+  name: Integral as area with visual meaning
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\\s]+)\s*d([a-zA-Z])
+  output_template: the definite integral from \1 to \2 of \3 with respect to \4, which
+    calculates the exact area under the curve, capturing the accumulated effect of
+    \3 over the interval
+  contexts:
+  - area_interpretation
+  - accumulation
+  - visual
+  priority: 1120
+  tags:
+  - integral
+  - stage3
+  - area
+  naturalness_score: 6
+  semantic_understanding: area_accumulation
+- id: integral_antiderivative_perspective_stage3
+  name: Integral as reverse differentiation with connection
+  pattern: \\int\s*([^d\\s]+)\s*d([a-zA-Z])
+  output_template: the integral of \1 with respect to \2, which reverses the differentiation
+    process, finding the function whose derivative is \1 - a beautiful example of
+    mathematical symmetry
+  contexts:
+  - antiderivative
+  - reverse_process
+  - symmetry
+  priority: 1125
+  tags:
+  - integral
+  - stage3
+  - antiderivative
+  naturalness_score: 6
+  semantic_understanding: reverse_differentiation
+- id: limit_approach_perspective_stage3
+  name: Limit as approaching behavior with meaning
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\}\s*([^\\s\\(]+)
+  output_template: the limit as \1 approaches \2 of \3, which examines the function's
+    behavior as we get arbitrarily close to \2, revealing what value the function
+    wants to reach even if it can't quite get there
+  contexts:
+  - approaching_behavior
+  - boundary_analysis
+  - intuitive
+  priority: 1130
+  tags:
+  - limit
+  - stage3
+  - approaching
+  naturalness_score: 6
+  semantic_understanding: boundary_behavior
+- id: limit_infinity_perspective_stage3
+  name: Limit at infinity with conceptual meaning
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*\\infty\}\s*([^\\s\\(]+)
+  output_template: the limit as \1 approaches infinity of \2, which reveals the function's
+    long-term behavior, showing us where the function is heading as we venture into
+    the infinite
+  contexts:
+  - infinity_behavior
+  - long_term
+  - conceptual
+  priority: 1135
+  tags:
+  - limit
+  - stage3
+  - infinity
+  naturalness_score: 6
+  semantic_understanding: infinite_behavior
+- id: function_mapping_perspective_stage3
+  name: Function as mapping with purpose
+  pattern: ([a-zA-Z])\\(([^)]+)\\)\\s*=\\s*([^=]+)
+  output_template: we define the function \1 of \2 to equal \3, creating a mathematical
+    machine that transforms each input \2 into a unique output, establishing a precise
+    relationship between quantities
+  contexts:
+  - function_definition
+  - mapping
+  - transformation
+  priority: 1140
+  tags:
+  - function
+  - stage3
+  - mapping
+  naturalness_score: 6
+  semantic_understanding: input_output_mapping
+- id: chain_rule_conceptual_stage3
+  name: Chain rule with conceptual explanation
+  pattern: \\frac\{d\\s*([^{}]+)\}\{d\\s*([^{}]+)\}\\s*\\frac\{d\\s*([^{}]+)\}\{d\\s*([^{}]+)\}
+  output_template: by the chain rule, we multiply the derivative of \1 with respect
+    to \3 by the derivative of \3 with respect to \4, because when functions are composed
+    like nested boxes, their rates of change multiply to give us the overall rate
+  contexts:
+  - chain_rule
+  - composition
+  - nested_functions
+  priority: 1150
+  tags:
+  - derivative
+  - stage3
+  - chain_rule
+  naturalness_score: 6
+  semantic_understanding: composition_rates
+- id: fundamental_theorem_perspective_stage3
+  name: Fundamental theorem connection with wonder
+  pattern: \\frac\{d\}\{d([a-zA-Z])}\\int_\{([^{}]+)\}\^\{([a-zA-Z])\}\s*([^d\\s]+)\s*dt
+  output_template: by the fundamental theorem of calculus, the derivative with respect
+    to \1 of the integral from \2 to \1 of \4 with respect to t simply equals \4 evaluated
+    at \1 - this remarkable result connects the two main operations of calculus in
+    perfect harmony
+  contexts:
+  - fundamental_theorem
+  - calculus_connection
+  - harmony
+  priority: 1155
+  tags:
+  - calculus
+  - stage3
+  - fundamental
+  naturalness_score: 6
+  semantic_understanding: calculus_unity
+- id: continuity_concept_stage3
+  name: Continuity with intuitive meaning
+  pattern: \\text{continuous}\\s+at\\s+([^\\s]+)
+  output_template: continuous at \1, meaning the function has no sudden jumps or breaks
+    at this point - you could draw it without lifting your pencil, creating a smooth,
+    uninterrupted curve
+  contexts:
+  - continuity
+  - smoothness
+  - intuitive
+  priority: 1160
+  tags:
+  - continuity
+  - stage3
+  - smoothness
+  naturalness_score: 6
+  semantic_understanding: unbroken_flow
+- id: differentiability_concept_stage3
+  name: Differentiability with geometric insight
+  pattern: \\text{differentiable}\\s+at\\s+([^\\s]+)
+  output_template: differentiable at \1, which means the function has a well-defined
+    tangent line at this point - the curve is not only continuous but also smooth
+    enough that we can find its exact slope
+  contexts:
+  - differentiability
+  - tangent_line
+  - smoothness
+  priority: 1165
+  tags:
+  - differentiability
+  - stage3
+  - tangent
+  naturalness_score: 6
+  semantic_understanding: smooth_slope
+- id: euler_identity_stage3
+  name: Euler's identity with awe
+  pattern: e\^\{i\\pi\}\\s*\\+\\s*1\\s*=\\s*0
+  output_template: 'Euler''s breathtaking identity: e to the power of i pi plus 1
+    equals zero. This equation is often called the most beautiful in mathematics because
+    it elegantly connects five fundamental constants in a single, simple relationship'
+  contexts:
+  - euler_identity
+  - mathematical_beauty
+  - elegance
+  priority: 1170
+  tags:
+  - euler
+  - stage3
+  - beauty
+  naturalness_score: 6
+  semantic_understanding: mathematical_beauty
+- id: golden_ratio_stage3
+  name: Golden ratio with natural connection
+  pattern: \\phi|\\frac\{1\\+\\sqrt\{5\}\}\{2\}
+  output_template: the golden ratio phi, which equals one plus the square root of
+    five all divided by two, a number that appears throughout nature and art, representing
+    perfect proportion and aesthetic harmony
+  contexts:
+  - golden_ratio
+  - nature
+  - harmony
+  priority: 1175
+  tags:
+  - golden_ratio
+  - stage3
+  - nature
+  naturalness_score: 6
+  semantic_understanding: natural_proportion
+- id: derivative_integral_bridge_stage3
+  name: Derivative-integral conceptual bridge
+  pattern: \\frac\{d\}\{d([a-zA-Z])}\\left\[\\int\\s*([^d\\s]+)\\s*d([a-zA-Z])\\right\]
+  output_template: the derivative with respect to \1 of the integral of \2 with respect
+    to \3, which beautifully demonstrates how differentiation and integration are
+    inverse operations - like addition and subtraction, they undo each other's effects
+  contexts:
+  - inverse_operations
+  - conceptual_bridge
+  - symmetry
+  priority: 1180
+  tags:
+  - calculus
+  - stage3
+  - inverse
+  naturalness_score: 6
+  semantic_understanding: inverse_symmetry
+- id: substitution_strategy_stage3
+  name: Substitution with strategic thinking
+  pattern: \\text{Let}\\s+([a-zA-Z])\\s*=\\s*([^\\s]+)
+  output_template: let's make the strategic substitution \1 equals \2, which will
+    transform our complex expression into something more manageable - this is like
+    changing our perspective to see the problem from a clearer angle
+  contexts:
+  - substitution
+  - strategy
+  - transformation
+  priority: 1185
+  tags:
+  - strategy
+  - stage3
+  - substitution
+  naturalness_score: 6
+  semantic_understanding: strategic_transformation
+- id: integration_by_parts_strategy_stage3
+  name: Integration by parts with insight
+  pattern: \\int\\s*([^d\\s]+)\\s*d([^d\\s]+)\\s*=\\s*([^d\\s]+)([^d\\s]+)\\s*-\\s*\\int\\s*([^d\\s]+)\\s*d([^d\\s]+)
+  output_template: using integration by parts, we transform \1 d\2 into \3\4 minus
+    the integral of \5 d\6, strategically trading one integral for another that might
+    be easier to solve - like rearranging furniture to create a clearer path
+  contexts:
+  - integration_by_parts
+  - strategy
+  - transformation
+  priority: 1190
+  tags:
+  - integration
+  - stage3
+  - strategy
+  naturalness_score: 6
+  semantic_understanding: integral_transformation

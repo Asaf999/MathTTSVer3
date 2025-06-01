@@ -1,0 +1,463 @@
+metadata:
+  category: integrals
+  description: Definite integrals, indefinite integrals, and various integration notations
+  version: 1.0.0
+patterns:
+- id: integral_indefinite_basic
+  name: Basic indefinite integral
+  pattern: \\int\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    of \1 with respect to \2
+  priority: 1400
+  tags:
+  - integral
+  - indefinite
+  - basic
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_indefinite_parentheses
+  name: Indefinite integral with parentheses
+  pattern: \\int\s*\(([^)]+)\)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    of \1 with respect to \2
+  priority: 1420
+  tags:
+  - integral
+  - indefinite
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_indefinite_complex
+  name: Indefinite integral complex expression
+  pattern: \\int\s*([^\\]+)\s*\\,?\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    of \1 with respect to \2
+  priority: 1380
+  tags:
+  - integral
+  - indefinite
+  - complex
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_definite_educational
+  name: Educational definite integral
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: we evaluate the definite integral from \1 to \2 of the function
+    \3 with respect to \4
+  contexts:
+  - educational
+  - step_by_step
+  - evaluation
+  priority: 1470
+  tags:
+  - integral
+  - definite
+  - educational
+  naturalness_score: 6
+- id: integral_definite_basic
+  name: Basic definite integral
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the integral from \1 to \2 of \3 with respect to \4, which
+    reveals the mathematical relationship - the cornerstone of area and accumulation
+    calculations.
+  contexts:
+  - calculation
+  - formula
+  priority: 1450
+  tags:
+  - integral
+  - definite
+  - basic
+  naturalness_score: 6
+- id: integral_definite_parentheses
+  name: Definite integral with parentheses
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*\(([^)]+)\)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from \1 to \2 of \3 with respect to \4
+  priority: 1460
+  tags:
+  - integral
+  - definite
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_definite_no_braces
+  name: Definite integral without braces
+  pattern: \\int_([a-zA-Z0-9])\^([a-zA-Z0-9])\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from \1 to \2 of \3 with respect to \4
+  priority: 1440
+  tags:
+  - integral
+  - definite
+  - simple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_zero_to_infinity
+  name: Integral from 0 to infinity
+  pattern: \\int_0\^\\infty\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from 0 to infinity of \1 with respect to \2
+  priority: 1480
+  tags:
+  - integral
+  - definite
+  - infinity
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_negative_to_positive_infinity
+  name: Integral from negative to positive infinity
+  pattern: \\int_\{-\\infty\}\^\{\\infty\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from negative infinity to infinity of \1 with respect to \2
+  priority: 1480
+  tags:
+  - integral
+  - definite
+  - infinity
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_zero_to_one
+  name: Integral from 0 to 1
+  pattern: \\int_0\^1\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from 0 to 1 of \1 d \2
+  priority: 1470
+  tags:
+  - integral
+  - definite
+  - unit
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_zero_to_pi
+  name: Integral from 0 to pi
+  pattern: \\int_0\^\\pi\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from 0 to pi of \1 d \2
+  priority: 1470
+  tags:
+  - integral
+  - definite
+  - pi
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_double
+  name: Double integral
+  pattern: \\iint\s*([^d\s]+)\s*d([a-zA-Z])\s*d([a-zA-Z])
+  output_template: We have the double the integral, which calculates the area under
+    the curve, of \1 d \2 d \3
+  priority: 1420
+  tags:
+  - integral
+  - double
+  - multiple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_double_bounds
+  name: Double integral with bounds
+  pattern: \\iint_\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])\s*d([a-zA-Z])
+  output_template: We have the double the integral, which calculates the area under
+    the curve, over \1 of \2 d \3 d \4
+  priority: 1440
+  tags:
+  - integral
+  - double
+  - bounds
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_triple
+  name: Triple integral
+  pattern: \\iiint\s*([^d\s]+)\s*d([a-zA-Z])\s*d([a-zA-Z])\s*d([a-zA-Z])
+  output_template: We have the triple the integral, which calculates the area under
+    the curve, of \1 d \2 d \3 d \4
+  priority: 1420
+  tags:
+  - integral
+  - triple
+  - multiple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_triple_bounds
+  name: Triple integral with bounds
+  pattern: \\iiint_\{([^{}]+)\}\s*([^d\s]+)\s*dV
+  output_template: We have the triple the integral, which calculates the area under
+    the curve, over \1 of \2 d V
+  priority: 1440
+  tags:
+  - integral
+  - triple
+  - volume
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_iterated
+  name: Iterated integral
+  pattern: \\int\s*\\int\s*([^d\s]+)\s*d([a-zA-Z])\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    the integral, which calculates the area under the curve, of \1 d \2 d \3
+  priority: 1400
+  tags:
+  - integral
+  - iterated
+  - multiple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_line
+  name: Line integral
+  pattern: \\oint\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the line the integral, which calculates the area under
+    the curve, of \1 d \2
+  priority: 1430
+  tags:
+  - integral
+  - line
+  - contour
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_line_bounds
+  name: Line integral with curve
+  pattern: \\oint_\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the line the integral, which calculates the area under
+    the curve, around \1 of \2 d \3
+  priority: 1450
+  tags:
+  - integral
+  - line
+  - curve
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_line_vector
+  name: Line integral vector notation
+  pattern: \\int_\{([^{}]+)\}\s*([^\\]+)\s*\\cdot\s*d\\vec\{([^{}]+)\}
+  output_template: We have the line the integral, which calculates the area under
+    the curve, along \1 of \2 dot d \3 vector
+  priority: 1460
+  tags:
+  - integral
+  - line
+  - vector
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_surface
+  name: Surface integral
+  pattern: \\iint_\{([^{}]+)\}\s*([^d\s]+)\s*dS
+  output_template: We have the surface the integral, which calculates the area under
+    the curve, over \1 of \2 d S
+  priority: 1440
+  tags:
+  - integral
+  - surface
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_surface_vector
+  name: Surface integral vector
+  pattern: \\iint_\{([^{}]+)\}\s*([^\\]+)\s*\\cdot\s*d\\vec\{S\}
+  output_template: We have the surface the integral, which calculates the area under
+    the curve, over \1 of \2 dot d S vector
+  priority: 1450
+  tags:
+  - integral
+  - surface
+  - vector
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_volume
+  name: Volume integral
+  pattern: \\iiint_\{([^{}]+)\}\s*([^d\s]+)\s*dV
+  output_template: We have the volume the integral, which calculates the area under
+    the curve, over \1 of \2 d V
+  priority: 1440
+  tags:
+  - integral
+  - volume
+  - triple
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_improper_infinity
+  name: Improper integral to infinity
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*\\infty\}\s*\\int_\{([^{}]+)\}\^\{\1\}
+  output_template: We have the the limit as \1 approaches infinity of the the integral,
+    which calculates the area under the curve, from \2 to \1
+  priority: 1350
+  tags:
+  - integral
+  - improper
+  - limit
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_principal_value
+  name: Principal value integral
+  pattern: \\mathcal\{P\}\\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the principal value the integral, which calculates the
+    area under the curve, from \1 to \2 of \3 d \4
+  priority: 1430
+  tags:
+  - integral
+  - principal_value
+  - cauchy
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_differential_form
+  name: Integral of differential form
+  pattern: \\int_\{([^{}]+)\}\s*\\omega
+  output_template: We have the the integral, which calculates the area under the curve,
+    over \1 of omega - the cornerstone of area and accumulation calculations.
+  priority: 1410
+  tags:
+  - integral
+  - differential_form
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_path
+  name: Path integral
+  pattern: \\int_\{([^{}]+)\}\s*([^\\]+)\s*\\,\s*d\\ell
+  output_template: We have the path the integral, which calculates the area under
+    the curve, along \1 of \2 d ell
+  priority: 1420
+  tags:
+  - integral
+  - path
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_lebesgue
+  name: Lebesgue integral
+  pattern: \\int_\{([^{}]+)\}\s*([^d\s]+)\s*d\\mu
+  output_template: We have the the integral, which calculates the area under the curve,
+    over \1 of \2 with respect to the measure mu
+  priority: 1390
+  tags:
+  - integral
+  - lebesgue
+  - measure
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_stieltjes
+  name: Stieltjes integral
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])\(([^)]+)\)
+  output_template: We have the Stieltjes the integral, which calculates the area under
+    the curve, from \1 to \2 of \3 with respect to \4 of \5
+  priority: 1380
+  tags:
+  - integral
+  - stieltjes
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_operator
+  name: Integral operator
+  pattern: \\int\s*K\(([^,]+),\s*([^)]+)\)\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    of K of \1 comma \2 times \3 d \4
+  priority: 1370
+  tags:
+  - integral
+  - operator
+  - kernel
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_gaussian
+  name: Gaussian integral
+  pattern: \\int_\{-\\infty\}\^\{\\infty\}\s*e\^\{-x\^2\}\s*dx
+  output_template: the Gaussian the integral, which calculates the area under the
+    curve,
+  priority: 1490
+  tags:
+  - integral
+  - gaussian
+  - special
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_fresnel
+  name: Fresnel integral
+  pattern: \\int_0\^x\s*\\(sin|cos)\(t\^2\)\s*dt
+  output_template: the Fresnel the integral, which calculates the area under the curve,
+  priority: 1490
+  tags:
+  - integral
+  - fresnel
+  - special
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_by_parts
+  name: Integration by parts
+  pattern: \[([^\]]+)\]_\{([^{}]+)\}\^\{([^{}]+)\}\s*-\s*\\int
+  output_template: Let's explore \1 evaluated from \2 to \3 minus the the integral,
+    which calculates the area under the curve,
+  priority: 1360
+  tags:
+  - integral
+  - by_parts
+  - evaluation
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_substitution
+  name: Integral with substitution
+  pattern: \\int\s*([^d\s]+)\s*d([a-zA-Z])\s*\\bigg\|_\{([^{}]+)\}
+  output_template: We have the the integral, which calculates the area under the curve,
+    of \1 d \2 where \3
+  priority: 1350
+  tags:
+  - integral
+  - substitution
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area

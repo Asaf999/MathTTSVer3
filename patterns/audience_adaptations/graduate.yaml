@@ -1,0 +1,302 @@
+metadata:
+  category: audience_graduate
+  description: Mathematical language adapted for graduate students - concise yet precise
+  version: 1.0.0
+  audience_level: graduate
+patterns:
+- id: derivative_graduate_concise
+  name: Concise derivative for graduates
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: Let's explore \1 prime with respect to \2, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - advanced_calculation
+  - research
+  priority: 1750
+  tags:
+  - derivative
+  - graduate
+  - concise
+  naturalness_score: 6
+- id: partial_derivative_graduate
+  name: Partial derivative for graduates
+  pattern: \\frac\{\\partial\s*([^{}]+)\}\{\\partial\s*([^{}]+)\}
+  output_template: Let's explore partial \1 partial \2, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - multivariable
+  - advanced
+  priority: 1750
+  tags:
+  - derivative
+  - graduate
+  - partial
+  naturalness_score: 6
+- id: integral_graduate_measure
+  name: Integral with measure theory
+  pattern: \\int_\{([^{}]+)\}\s*([^d\s]+)\s*d\\mu
+  output_template: Let's explore integral over \1 of \2 with respect to measure mu,
+    which reveals the mathematical relationship - the cornerstone of area and accumulation
+    calculations.
+  audience: graduate
+  contexts:
+  - measure_theory
+  - advanced_analysis
+  priority: 1780
+  tags:
+  - integral
+  - graduate
+  - measure_theory
+  naturalness_score: 6
+- id: integral_graduate_standard
+  name: Standard integral for graduates
+  pattern: \\int\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the integral, which calculates the area under the curve,
+    of \1 d \2 - the cornerstone of area and accumulation calculations.
+  audience: graduate
+  contexts:
+  - calculation
+  - standard
+  priority: 1740
+  tags:
+  - integral
+  - graduate
+  - standard
+  naturalness_score: 6
+- id: limit_superior_graduate
+  name: Limit superior for graduates
+  pattern: \\limsup_\{([^{}]+)\}
+  output_template: Let's explore limit superior over \1, which reveals the mathematical
+    relationship - the foundation of calculus and continuity.
+  audience: graduate
+  contexts:
+  - real_analysis
+  - advanced
+  priority: 1770
+  tags:
+  - limit
+  - graduate
+  - analysis
+  naturalness_score: 6
+- id: essential_supremum_graduate
+  name: Essential supremum
+  pattern: \\text{ess sup}
+  output_template: Let's explore essential supremum, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - measure_theory
+  - functional_analysis
+  priority: 1780
+  tags:
+  - supremum
+  - graduate
+  - measure
+  naturalness_score: 6
+- id: homeomorphism_graduate
+  name: Homeomorphism
+  pattern: \\cong|\\approx
+  output_template: Let's explore is homeomorphic to, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - topology
+  - equivalence
+  priority: 1770
+  tags:
+  - topology
+  - graduate
+  - equivalence
+  naturalness_score: 6
+- id: fiber_bundle_graduate
+  name: Fiber bundle
+  pattern: \\pi:\s*E\s*\\to\s*B
+  output_template: Let's explore fiber bundle pi from E to B, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - differential_geometry
+  - topology
+  priority: 1790
+  tags:
+  - topology
+  - graduate
+  - bundle
+  naturalness_score: 6
+- id: exact_sequence_graduate
+  name: Exact sequence
+  pattern: 0\s*\\to\s*([^\\]+)\\to\s*([^\\]+)\\to\s*([^\\]+)\\to\s*0
+  output_template: Let's explore exact sequence zero to \1 to \2 to \3 to zero, which
+    reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - algebra
+  - homological
+  priority: 1780
+  tags:
+  - algebra
+  - graduate
+  - exact_sequence
+  naturalness_score: 6
+- id: tensor_product_graduate
+  name: Tensor product
+  pattern: ([^\\]+)\\otimes\s*([^\\]+)
+  output_template: Let's explore \1 tensor \2, which reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - algebra
+  - tensor
+  priority: 1760
+  tags:
+  - algebra
+  - graduate
+  - tensor
+  naturalness_score: 6
+- id: banach_space_graduate
+  name: Banach space
+  pattern: \\mathcal\{B\}
+  output_template: Let's explore Banach space B, which reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - functional_analysis
+  - normed_spaces
+  priority: 1770
+  tags:
+  - analysis
+  - graduate
+  - banach
+  naturalness_score: 6
+- id: hilbert_space_graduate
+  name: Hilbert space
+  pattern: \\mathcal\{H\}
+  output_template: Let's explore Hilbert space H, which reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - functional_analysis
+  - inner_product
+  priority: 1770
+  tags:
+  - analysis
+  - graduate
+  - hilbert
+  naturalness_score: 6
+- id: lie_derivative_graduate
+  name: Lie derivative
+  pattern: \\mathcal\{L\}_\{([^{}]+)\}
+  output_template: Let's explore Lie derivative along \1, which reveals the mathematical
+    relationship - a fundamental concept in understanding change.
+  audience: graduate
+  contexts:
+  - differential_geometry
+  - lie_groups
+  priority: 1780
+  tags:
+  - geometry
+  - graduate
+  - lie
+  naturalness_score: 6
+- id: connection_graduate
+  name: Connection
+  pattern: \\nabla_\{([^{}]+)\}
+  output_template: Let's explore covariant derivative in direction \1, which reveals
+    the mathematical relationship - a fundamental concept in understanding change.
+  audience: graduate
+  contexts:
+  - differential_geometry
+  - connection
+  priority: 1770
+  tags:
+  - geometry
+  - graduate
+  - connection
+  naturalness_score: 6
+- id: zeta_function_graduate
+  name: Riemann zeta function
+  pattern: \\zeta\(([^)]+)\)
+  output_template: Let's explore zeta function of \1, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - number_theory
+  - analytic
+  priority: 1770
+  tags:
+  - number_theory
+  - graduate
+  - zeta
+  naturalness_score: 6
+- id: l_function_graduate
+  name: L-function
+  pattern: L\(([^,]+),\s*([^)]+)\)
+  output_template: Let's explore L function of \1 and \2, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - number_theory
+  - automorphic
+  priority: 1780
+  tags:
+  - number_theory
+  - graduate
+  - l_function
+  naturalness_score: 6
+- id: probability_measure_graduate
+  name: Probability measure
+  pattern: \\mathbb\{P\}\(([^)]+)\)
+  output_template: Let's explore probability of \1, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - probability
+  - measure_theory
+  priority: 1760
+  tags:
+  - probability
+  - graduate
+  - measure
+  naturalness_score: 6
+- id: expectation_graduate
+  name: Expectation
+  pattern: \\mathbb\{E\}\[([^\]]+)\]
+  output_template: Let's explore expectation of \1, which reveals the mathematical
+    relationship.
+  audience: graduate
+  contexts:
+  - probability
+  - statistics
+  priority: 1760
+  tags:
+  - probability
+  - graduate
+  - expectation
+  naturalness_score: 6
+- id: theorem_graduate
+  name: Theorem statement
+  pattern: \\begin\{theorem\}
+  output_template: theorem, which reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - research
+  - formal
+  priority: 1790
+  tags:
+  - research
+  - graduate
+  - theorem
+  naturalness_score: 6
+- id: proof_graduate
+  name: Proof
+  pattern: \\begin\{proof\}
+  output_template: Let's explore proof, which reveals the mathematical relationship.
+  audience: graduate
+  contexts:
+  - research
+  - formal
+  priority: 1790
+  tags:
+  - research
+  - graduate
+  - proof
+  naturalness_score: 6

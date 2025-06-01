@@ -1,0 +1,1021 @@
+metadata:
+  category: special_symbols_and_greek
+  description: Greek alphabet, special mathematical symbols, and miscellaneous notations
+  version: 1.0.0
+patterns:
+- id: alpha_variable
+  name: Alpha as variable
+  pattern: \\alpha
+  output_template: Let's explore alpha, which reveals the mathematical relationship.
+  contexts:
+  - variable
+  - simple_expression
+  priority: 920
+  tags:
+  - greek
+  - variable
+  - context_aware
+  naturalness_score: 6
+- id: alpha_parameter
+  name: Alpha as parameter
+  pattern: \\alpha
+  output_template: the parameter alpha
+  contexts:
+  - parameter_definition
+  - statistical
+  priority: 930
+  tags:
+  - greek
+  - parameter
+  - context_aware
+  naturalness_score: 6
+- id: alpha_angle
+  name: Alpha as angle
+  pattern: \\alpha
+  output_template: angle alpha
+  contexts:
+  - geometry
+  - trigonometry
+  priority: 940
+  tags:
+  - greek
+  - angle
+  - context_aware
+  naturalness_score: 6
+- id: alpha_introduction
+  name: Alpha introduction
+  pattern: \\alpha
+  output_template: We have the Greek letter alpha, which reveals the mathematical
+    relationship.
+  contexts:
+  - definition
+  - explanation
+  - default
+  priority: 910
+  tags:
+  - greek
+  - introduction
+  - context_aware
+  naturalness_score: 6
+- id: beta_coefficient
+  name: Beta as coefficient
+  pattern: \\beta
+  output_template: the coefficient beta
+  contexts:
+  - regression
+  - statistical
+  - coefficient
+  priority: 930
+  tags:
+  - greek
+  - coefficient
+  - context_aware
+  naturalness_score: 6
+- id: beta_angle
+  name: Beta as angle
+  pattern: \\beta
+  output_template: angle beta
+  contexts:
+  - geometry
+  - trigonometry
+  priority: 940
+  tags:
+  - greek
+  - angle
+  - context_aware
+  naturalness_score: 6
+- id: beta_variable
+  name: Beta as variable
+  pattern: \\beta
+  output_template: Let's explore beta, which reveals the mathematical relationship.
+  contexts:
+  - variable
+  - simple_expression
+  priority: 920
+  tags:
+  - greek
+  - variable
+  - context_aware
+  naturalness_score: 6
+- id: beta_introduction
+  name: Beta introduction
+  pattern: \\beta
+  output_template: We have the Greek letter beta, which reveals the mathematical relationship.
+  contexts:
+  - definition
+  - explanation
+  - default
+  priority: 910
+  tags:
+  - greek
+  - introduction
+  - context_aware
+  naturalness_score: 6
+- id: greek_gamma
+  name: Gamma
+  pattern: \\gamma
+  output_template: We have the Greek letter gamma
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_delta
+  name: Delta
+  pattern: \\delta
+  output_template: We have the Greek letter delta
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_epsilon
+  name: Epsilon
+  pattern: \\epsilon
+  output_template: We have the Greek letter epsilon
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_varepsilon
+  name: Var epsilon
+  pattern: \\varepsilon
+  output_template: We have the Greek letter epsilon
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_zeta
+  name: Zeta
+  pattern: \\zeta
+  output_template: We have the Greek letter zeta
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_eta
+  name: Eta
+  pattern: \\eta
+  output_template: We have the Greek letter eta
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_theta
+  name: Theta
+  pattern: \\theta
+  output_template: We have the Greek letter theta
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_vartheta
+  name: Var theta
+  pattern: \\vartheta
+  output_template: We have the Greek letter theta
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_iota
+  name: Iota
+  pattern: \\iota
+  output_template: We have the Greek letter iota
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_kappa
+  name: Kappa
+  pattern: \\kappa
+  output_template: We have the Greek letter kappa
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_lambda
+  name: Lambda
+  pattern: \\lambda
+  output_template: We have the Greek letter lambda
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_mu
+  name: Mu
+  pattern: \\mu
+  output_template: We have the Greek letter mu
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_nu
+  name: Nu
+  pattern: \\nu
+  output_template: We have the Greek letter nu
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_xi
+  name: Xi
+  pattern: \\xi
+  output_template: We have the Greek letter xi
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_pi
+  name: Pi
+  pattern: \\pi
+  output_template: We have the Greek letter pi
+  priority: 910
+  tags:
+  - greek
+  - lowercase
+  - letter
+  - constant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_varpi
+  name: Var pi
+  pattern: \\varpi
+  output_template: We have the Greek letter pi
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_rho
+  name: Rho
+  pattern: \\rho
+  output_template: We have the Greek letter rho
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_varrho
+  name: Var rho
+  pattern: \\varrho
+  output_template: We have the Greek letter rho
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_sigma
+  name: Sigma
+  pattern: \\sigma
+  output_template: We have the Greek letter sigma
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_varsigma
+  name: Var sigma
+  pattern: \\varsigma
+  output_template: We have the Greek letter sigma
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_tau
+  name: Tau
+  pattern: \\tau
+  output_template: We have the Greek letter tau
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_upsilon
+  name: Upsilon
+  pattern: \\upsilon
+  output_template: We have the Greek letter upsilon
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_phi
+  name: Phi
+  pattern: \\phi
+  output_template: We have the Greek letter phi
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_varphi
+  name: Var phi
+  pattern: \\varphi
+  output_template: We have the Greek letter phi
+  priority: 890
+  tags:
+  - greek
+  - lowercase
+  - variant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_chi
+  name: Chi
+  pattern: \\chi
+  output_template: We have the Greek letter chi
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_psi
+  name: Psi
+  pattern: \\psi
+  output_template: We have the Greek letter psi
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_omega
+  name: Omega
+  pattern: \\omega
+  output_template: We have the Greek letter omega
+  priority: 900
+  tags:
+  - greek
+  - lowercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_gamma
+  name: Capital Gamma
+  pattern: \\Gamma
+  output_template: We have the capital Greek letter gamma
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_delta
+  name: Capital Delta
+  pattern: \\Delta
+  output_template: We have the capital Greek letter delta
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_theta
+  name: Capital Theta
+  pattern: \\Theta
+  output_template: We have the capital Greek letter theta
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_lambda
+  name: Capital Lambda
+  pattern: \\Lambda
+  output_template: We have the capital Greek letter lambda
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_xi
+  name: Capital Xi
+  pattern: \\Xi
+  output_template: We have the capital Greek letter xi
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_pi
+  name: Capital Pi
+  pattern: \\Pi
+  output_template: We have the capital Greek letter pi
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_sigma
+  name: Capital Sigma
+  pattern: \\Sigma
+  output_template: We have the capital Greek letter sigma
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_phi
+  name: Capital Phi
+  pattern: \\Phi
+  output_template: We have the capital Greek letter phi
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_psi
+  name: Capital Psi
+  pattern: \\Psi
+  output_template: We have the capital Greek letter psi
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_capital_omega
+  name: Capital Omega
+  pattern: \\Omega
+  output_template: We have the capital Greek letter omega
+  priority: 910
+  tags:
+  - greek
+  - uppercase
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: infinity
+  name: Infinity
+  pattern: \\infty
+  output_template: We have the symbol infinity
+  priority: 950
+  tags:
+  - symbol
+  - special
+  - infinity
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: nabla
+  name: Nabla
+  pattern: \\nabla
+  output_template: We have the nabla operator
+  priority: 920
+  tags:
+  - symbol
+  - operator
+  - nabla
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: partial
+  name: Partial
+  pattern: \\partial
+  output_template: We have the partial symbol
+  priority: 920
+  tags:
+  - symbol
+  - derivative
+  - partial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: hbar
+  name: H-bar
+  pattern: \\hbar
+  output_template: We have the Planck constant h bar
+  priority: 910
+  tags:
+  - symbol
+  - physics
+  - planck
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: aleph
+  name: Aleph
+  pattern: \\aleph
+  output_template: We have the Hebrew letter aleph
+  priority: 900
+  tags:
+  - symbol
+  - hebrew
+  - cardinal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: beth
+  name: Beth
+  pattern: \\beth
+  output_template: We have the Hebrew letter beth
+  priority: 900
+  tags:
+  - symbol
+  - hebrew
+  - cardinal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_right
+  name: Right arrow
+  pattern: \\rightarrow|\\to
+  output_template: Let's explore  approaches , which reveals the mathematical relationship.
+  priority: 850
+  tags:
+  - arrow
+  - right
+  - direction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_left
+  name: Left arrow
+  pattern: \\leftarrow|\\gets
+  output_template: Let's explore  is derived from , which reveals the mathematical
+    relationship.
+  priority: 850
+  tags:
+  - arrow
+  - left
+  - direction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_both
+  name: Both ways arrow
+  pattern: \\leftrightarrow
+  output_template: Let's explore  is logically equivalent to , which reveals the mathematical
+    relationship.
+  priority: 860
+  tags:
+  - arrow
+  - bidirectional
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_up
+  name: Up arrow
+  pattern: \\uparrow
+  output_template: Let's explore  the upward pointing arrow , which reveals the mathematical
+    relationship.
+  priority: 840
+  tags:
+  - arrow
+  - up
+  - direction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_down
+  name: Down arrow
+  pattern: \\downarrow
+  output_template: Let's explore  the downward pointing arrow , which reveals the
+    mathematical relationship.
+  priority: 840
+  tags:
+  - arrow
+  - down
+  - direction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_double_right
+  name: Double right arrow
+  pattern: \\Rightarrow
+  output_template: Let's explore  mathematically and logically implies , which reveals
+    the mathematical relationship.
+  priority: 870
+  tags:
+  - arrow
+  - implication
+  - logic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_double_left
+  name: Double left arrow
+  pattern: \\Leftarrow
+  output_template: Let's explore  is mathematically implied by , which reveals the
+    mathematical relationship.
+  priority: 870
+  tags:
+  - arrow
+  - implication
+  - logic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: arrow_double_both
+  name: Double both ways arrow
+  pattern: \\Leftrightarrow
+  output_template: Let's explore  is logically equivalent to , which reveals the mathematical
+    relationship.
+  priority: 880
+  tags:
+  - arrow
+  - equivalence
+  - logic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: dots_center
+  name: Center dots
+  pattern: \\cdots
+  output_template: Let's explore  and so on , which reveals the mathematical relationship.
+  priority: 800
+  tags:
+  - dots
+  - ellipsis
+  - center
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: dots_low
+  name: Low dots
+  pattern: \\ldots
+  output_template: Let's explore  and so on , which reveals the mathematical relationship.
+  priority: 800
+  tags:
+  - dots
+  - ellipsis
+  - low
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: dots_vertical
+  name: Vertical dots
+  pattern: \\vdots
+  output_template: Let's explore  the vertical ellipsis , which reveals the mathematical
+    relationship.
+  priority: 810
+  tags:
+  - dots
+  - ellipsis
+  - vertical
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: dots_diagonal
+  name: Diagonal dots
+  pattern: \\ddots
+  output_template: Let's explore  the diagonal ellipsis , which reveals the mathematical
+    relationship.
+  priority: 810
+  tags:
+  - dots
+  - ellipsis
+  - diagonal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: euler_constant
+  name: Euler's constant e
+  pattern: \\mathrm\{e\}|\\mathit\{e\}
+  output_template: We have the mathematical constant e
+  priority: 920
+  tags:
+  - constant
+  - euler
+  - exponential
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: imaginary_unit
+  name: Imaginary unit
+  pattern: \\mathrm\{i\}|\\mathit\{i\}
+  output_template: We have the imaginary unit i
+  priority: 920
+  contexts:
+  - complex
+  tags:
+  - constant
+  - imaginary
+  - complex
+  naturalness_score: 6
+- id: degree
+  name: Degree symbol
+  pattern: \^\\circ
+  output_template: Let's explore  degrees angle measure, which reveals the mathematical
+    relationship.
+  priority: 950
+  tags:
+  - symbol
+  - degree
+  - angle
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: prime
+  name: Prime symbol
+  pattern: ''''
+  output_template: ' the prime the derivative, which measures the rate of change,
+    notation'
+  priority: 930
+  tags:
+  - symbol
+  - prime
+  - derivative
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: star
+  name: Star
+  pattern: \\star
+  output_template: Let's explore  the star symbol , which reveals the mathematical
+    relationship.
+  priority: 820
+  tags:
+  - symbol
+  - star
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: dagger
+  name: Dagger
+  pattern: \\dagger
+  output_template: Let's explore  the dagger symbol , which reveals the mathematical
+    relationship.
+  priority: 820
+  tags:
+  - symbol
+  - dagger
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: bullet
+  name: Bullet
+  pattern: \\bullet
+  output_template: Let's explore  the bullet point , which reveals the mathematical
+    relationship.
+  priority: 820
+  tags:
+  - symbol
+  - bullet
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: angle_brackets
+  name: Angle brackets
+  pattern: \\langle([^\\]+)\\rangle
+  output_template: We have the inner the product of \1, which reveals the mathematical
+    relationship.
+  priority: 750
+  tags:
+  - bracket
+  - angle
+  - delimiter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: floor_brackets
+  name: Floor brackets
+  pattern: \\lfloor([^\\]+)\\rfloor
+  output_template: We have the floor function of \1, which reveals the mathematical
+    relationship.
+  priority: 760
+  tags:
+  - bracket
+  - floor
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ceiling_brackets
+  name: Ceiling brackets
+  pattern: \\lceil([^\\]+)\\rceil
+  output_template: We have the ceiling function of \1, which reveals the mathematical
+    relationship.
+  priority: 760
+  tags:
+  - bracket
+  - ceiling
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mathbb_font
+  name: Blackboard bold
+  pattern: \\mathbb\{([A-Z])\}
+  output_template: We have the blackboard bold \1, which reveals the mathematical
+    relationship.
+  priority: 850
+  contexts:
+  - not_set_theory
+  tags:
+  - font
+  - blackboard
+  - bold
+  naturalness_score: 6
+- id: mathcal_font
+  name: Calligraphic
+  pattern: \\mathcal\{([A-Z])\}
+  output_template: We have the calligraphic letter \1, which reveals the mathematical
+    relationship.
+  priority: 840
+  tags:
+  - font
+  - calligraphic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mathfrak_font
+  name: Fraktur
+  pattern: \\mathfrak\{([a-zA-Z])\}
+  output_template: We have the fraktur letter \1, which reveals the mathematical relationship.
+  priority: 840
+  tags:
+  - font
+  - fraktur
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mathscr_font
+  name: Script
+  pattern: \\mathscr\{([A-Z])\}
+  output_template: We have the script letter \1, which reveals the mathematical relationship.
+  priority: 840
+  tags:
+  - font
+  - script
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

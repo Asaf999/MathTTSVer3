@@ -1,0 +1,311 @@
+metadata:
+  category: speech_flow
+  description: Stage 3 patterns for natural speech transitions and mathematical storytelling
+    flow
+  version: 3.0.0
+  stage: 3
+  naturalness_target: 95%
+patterns:
+- id: story_beginning_exploration_stage3
+  name: Mathematical exploration introduction
+  pattern: \\text{Let's explore}\\s+(.+)
+  output_template: Let's embark on a mathematical adventure to explore \1. Our journey
+    will reveal fascinating connections and elegant patterns
+  contexts:
+  - exploration
+  - introduction
+  - adventure
+  priority: 1210
+  tags:
+  - flow
+  - stage3
+  - introduction
+  naturalness_score: 6
+- id: story_beginning_discovery_stage3
+  name: Mathematical discovery opening
+  pattern: \\text{Consider what happens when}\\s+(.+)
+  output_template: Imagine the mathematical landscape as we consider what happens
+    when \1. This investigation will lead us to surprising discoveries
+  contexts:
+  - discovery
+  - imagination
+  - investigation
+  priority: 1215
+  tags:
+  - flow
+  - stage3
+  - discovery
+  naturalness_score: 6
+- id: transition_building_stage3
+  name: Building on previous concepts
+  pattern: \\text{Building on}\\s+(.+)
+  output_template: Building on our understanding of \1, we now venture into deeper
+    mathematical territory. Each step forward illuminates new possibilities
+  contexts:
+  - building
+  - progression
+  - advancement
+  priority: 1220
+  tags:
+  - flow
+  - stage3
+  - building
+  naturalness_score: 6
+- id: transition_connecting_stage3
+  name: Connecting mathematical ideas
+  pattern: \\text{This connects to}\\s+(.+)
+  output_template: This beautifully connects to \1, revealing the underlying unity
+    in mathematics. Notice how these seemingly different ideas are actually close
+    relatives
+  contexts:
+  - connection
+  - unity
+  - relationship
+  priority: 1225
+  tags:
+  - flow
+  - stage3
+  - connection
+  naturalness_score: 6
+- id: revelation_first_stage3
+  name: First mathematical revelation
+  pattern: \\text{Notice that}\\s+(.+)
+  output_template: 'Notice something remarkable here: \1. This observation is our
+    first glimpse into a deeper mathematical truth'
+  contexts:
+  - observation
+  - first_insight
+  - glimpse
+  priority: 1230
+  tags:
+  - flow
+  - stage3
+  - revelation
+  naturalness_score: 6
+- id: revelation_deeper_stage3
+  name: Deeper mathematical insight
+  pattern: \\text{Furthermore|Moreover}\\s+(.+)
+  output_template: 'But there''s more to this story: \1. As we peel back the layers,
+    the mathematical beauty becomes even more apparent'
+  contexts:
+  - deeper_insight
+  - layers
+  - beauty
+  priority: 1235
+  tags:
+  - flow
+  - stage3
+  - deeper
+  naturalness_score: 6
+- id: emphasis_important_stage3
+  name: Emphasizing important concepts
+  pattern: \\text{This is crucial}\\s*:?\\s*(.+)
+  output_template: 'Here''s a crucial insight that we need to hold onto: \1. This
+    understanding will be our compass as we navigate more complex territory'
+  contexts:
+  - emphasis
+  - crucial
+  - guidance
+  priority: 1240
+  tags:
+  - flow
+  - stage3
+  - emphasis
+  naturalness_score: 6
+- id: pause_reflection_stage3
+  name: Reflective pause in explanation
+  pattern: \\text{Let's pause}\\s+(.+)
+  output_template: Let's pause for a moment to reflect on \1. Sometimes the most profound
+    insights emerge when we take time to truly understand what we've discovered
+  contexts:
+  - pause
+  - reflection
+  - understanding
+  priority: 1245
+  tags:
+  - flow
+  - stage3
+  - reflection
+  naturalness_score: 6
+- id: problem_approach_stage3
+  name: Approaching a mathematical problem
+  pattern: \\text{To solve this}\\s+(.+)
+  output_template: To solve \1, we'll need to be both strategic and creative. Let's
+    approach this like mathematical detectives, following clues to uncover the solution
+  contexts:
+  - problem_solving
+  - strategy
+  - detective
+  priority: 1250
+  tags:
+  - flow
+  - stage3
+  - problem
+  naturalness_score: 6
+- id: solution_emerging_stage3
+  name: Solution beginning to emerge
+  pattern: \\text{We're getting closer}\\s+(.+)
+  output_template: 'We''re getting closer to our solution: \1. I can sense we''re
+    on the right path as the mathematical pieces start falling into place'
+  contexts:
+  - progress
+  - emergence
+  - path
+  priority: 1255
+  tags:
+  - flow
+  - stage3
+  - progress
+  naturalness_score: 6
+- id: synthesis_bringing_together_stage3
+  name: Bringing ideas together
+  pattern: \\text{Bringing this together}\\s+(.+)
+  output_template: Bringing all these ideas together, we see that \1. It's beautiful
+    how individual mathematical concepts weave together to create a complete picture
+  contexts:
+  - synthesis
+  - weaving
+  - complete
+  priority: 1260
+  tags:
+  - flow
+  - stage3
+  - synthesis
+  naturalness_score: 6
+- id: conclusion_elegant_stage3
+  name: Elegant conclusion
+  pattern: \\text{In conclusion}\\s+(.+)
+  output_template: In conclusion, \1. This elegant result demonstrates the power and
+    beauty of mathematical thinking
+  contexts:
+  - conclusion
+  - elegance
+  - power
+  priority: 1265
+  tags:
+  - flow
+  - stage3
+  - conclusion
+  naturalness_score: 6
+- id: excitement_building_stage3
+  name: Building excitement for discovery
+  pattern: \\text{Here's where it gets interesting}\\s+(.+)
+  output_template: 'Here''s where our mathematical journey becomes truly exciting:
+    \1. This is the moment where abstract concepts transform into powerful tools'
+  contexts:
+  - excitement
+  - transformation
+  - power
+  priority: 1270
+  tags:
+  - flow
+  - stage3
+  - excitement
+  naturalness_score: 6
+- id: wonder_inspiring_stage3
+  name: Inspiring mathematical wonder
+  pattern: \\text{Isn't it amazing that}\\s+(.+)
+  output_template: Isn't it absolutely amazing that \1? These are the moments that
+    remind us why mathematics is often called the language of the universe
+  contexts:
+  - wonder
+  - amazement
+  - universe
+  priority: 1275
+  tags:
+  - flow
+  - stage3
+  - wonder
+  naturalness_score: 6
+- id: simplifying_complex_stage3
+  name: Simplifying complex concepts
+  pattern: \\text{To make this simpler}\\s+(.+)
+  output_template: To make this concept more accessible, let's think about \1. Sometimes
+    the most profound truths can be understood through simple analogies
+  contexts:
+  - simplification
+  - accessibility
+  - analogies
+  priority: 1280
+  tags:
+  - flow
+  - stage3
+  - simplification
+  naturalness_score: 6
+- id: complexity_embracing_stage3
+  name: Embracing mathematical complexity
+  pattern: \\text{This might seem complex}\\s+(.+)
+  output_template: This might seem complex at first, but \1. Remember, complexity
+    often hides elegant simplicity - we just need to find the right perspective
+  contexts:
+  - complexity
+  - elegance
+  - perspective
+  priority: 1285
+  tags:
+  - flow
+  - stage3
+  - complexity
+  naturalness_score: 6
+- id: persistence_encouraging_stage3
+  name: Encouraging mathematical persistence
+  pattern: \\text{Don't give up}\\s+(.+)
+  output_template: Don't give up on understanding \1. Every mathematician has wrestled
+    with challenging concepts - it's through this struggle that deep understanding
+    emerges
+  contexts:
+  - persistence
+  - struggle
+  - understanding
+  priority: 1290
+  tags:
+  - flow
+  - stage3
+  - persistence
+  naturalness_score: 6
+- id: achievement_celebrating_stage3
+  name: Celebrating mathematical achievement
+  pattern: \\text{You've mastered}\\s+(.+)
+  output_template: You've successfully mastered \1! This achievement represents not
+    just new knowledge, but a new way of seeing and understanding the mathematical
+    world
+  contexts:
+  - achievement
+  - mastery
+  - understanding
+  priority: 1295
+  tags:
+  - flow
+  - stage3
+  - achievement
+  naturalness_score: 6
+- id: story_continuation_stage3
+  name: Continuing the mathematical story
+  pattern: \\text{Our story continues}\\s+(.+)
+  output_template: Our mathematical story continues as \1. Each chapter in this journey
+    builds upon the last, creating a rich tapestry of understanding
+  contexts:
+  - continuation
+  - story
+  - tapestry
+  priority: 1205
+  tags:
+  - flow
+  - stage3
+  - continuation
+  naturalness_score: 6
+- id: chapter_closing_stage3
+  name: Closing a mathematical chapter
+  pattern: \\text{This completes}\\s+(.+)
+  output_template: This completes our exploration of \1. As we close this chapter,
+    we carry forward new insights that will illuminate future mathematical adventures
+  contexts:
+  - completion
+  - chapter
+  - insights
+  priority: 1298
+  tags:
+  - flow
+  - stage3
+  - completion
+  naturalness_score: 6

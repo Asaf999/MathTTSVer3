@@ -1,0 +1,448 @@
+patterns:
+- id: fraction_half
+  name: Special Fraction 1/2
+  description: Convert 1/2 to 'one half'
+  pattern: \frac{1}{2}
+  pattern_type: REGEX
+  output_template: Let's explore one half, which reveals the mathematical relationship.
+  priority: 1500
+  domain: general
+  contexts:
+  - ANY
+  examples:
+  - input: \frac{1}{2}
+    output: one half
+  - input: x = \frac{1}{2}
+    output: x equals one half
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+- id: fraction_third
+  name: Special Fraction 1/3
+  pattern: \frac{1}{3}
+  output_template: Let's explore one third, which reveals the mathematical relationship.
+  priority: 1500
+  domain: general
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_quarter
+  name: Special Fraction 1/4
+  pattern: \frac{1}{4}
+  output_template: Let's explore one quarter, which reveals the mathematical relationship.
+  priority: 1500
+  domain: general
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_two_thirds
+  name: Special Fraction 2/3
+  pattern: \frac{2}{3}
+  output_template: Let's explore two thirds, which reveals the mathematical relationship.
+  priority: 1500
+  domain: general
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_general
+  name: General Fraction
+  pattern: \frac{([^{}]+)}{([^{}]+)}
+  output_template: Let's explore \1 over \2, which reveals the mathematical relationship.
+  priority: 1000
+  domain: general
+  tags:
+  - fraction
+  - general
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_basic
+  name: Basic Derivative
+  pattern: \frac{d}{dx}\s*([^{\s]+)
+  output_template: We have the the derivative, which measures the rate of change,
+    of \1 with respect to x
+  priority: 1400
+  domain: calculus
+  pronunciation_hints:
+    emphasis: derivative
+  tags:
+  - derivative
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_second
+  name: Second Derivative
+  pattern: \frac{d^2([^}]*)}{dx^2}
+  output_template: We have the second the derivative, which measures the rate of change,
+    of \1 with respect to x
+  priority: 1450
+  domain: calculus
+  tags:
+  - derivative
+  - calculus
+  - second
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: partial_derivative
+  name: Partial Derivative
+  pattern: \frac{\partial\s*([^}]+)}{\partial\s*([^}]+)}
+  output_template: We have the partial the derivative, which measures the rate of
+    change, of \1 with respect to \2
+  priority: 1400
+  domain: calculus
+  tags:
+  - derivative
+  - partial
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: integral_definite
+  name: Definite Integral
+  pattern: \int_{([^}]+)}^{([^}]+)}\s*([^{}]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    from \1 to \2 of \3 with respect to \4
+  priority: 1400
+  domain: calculus
+  pronunciation_hints:
+    pause_before: 100
+  tags:
+  - integral
+  - definite
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: integral_indefinite
+  name: Indefinite Integral
+  pattern: \int\s*([^{\s]+)\s*d([a-zA-Z])
+  output_template: We have the the integral, which calculates the area under the curve,
+    of \1 with respect to \2
+  priority: 1300
+  domain: calculus
+  tags:
+  - integral
+  - indefinite
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - area
+- id: limit_basic
+  name: Basic Limit
+  pattern: \lim_{([^}]+)}\s*([^{\s]+)
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 of \2
+  priority: 1300
+  domain: calculus
+  tags:
+  - limit
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: limit_to_infinity
+  name: Limit to Infinity
+  pattern: \lim_{([a-zA-Z])\s*\to\s*\infty}
+  output_template: We have the the limit, which tells us the value the function approaches,
+    as \1 approaches infinity
+  priority: 1350
+  domain: calculus
+  tags:
+  - limit
+  - infinity
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - approaching
+- id: sum_notation
+  name: Sum Notation
+  pattern: \sum_{([^}]+)}^{([^}]+)}\s*([^{\s]+)
+  output_template: We have the the sum from \1 to \2 of \3, which reveals the mathematical
+    relationship.
+  priority: 1200
+  domain: general
+  tags:
+  - sum
+  - series
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: product_notation
+  name: Product Notation
+  pattern: \prod_{([^}]+)}^{([^}]+)}\s*([^{\s]+)
+  output_template: We have the the product from \1 to \2 of \3, which reveals the
+    mathematical relationship.
+  priority: 1200
+  domain: general
+  tags:
+  - product
+  - series
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: expected_value
+  name: Expected Value
+  pattern: \mathbb{E}\[([^\]]+)\]
+  output_template: We have the expected value of \1, which reveals the mathematical
+    relationship.
+  priority: 1400
+  domain: statistics
+  tags:
+  - statistics
+  - expectation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: variance
+  name: Variance
+  pattern: \text{Var}\(([^)]+)\)
+  output_template: We have the variance of \1, which reveals the mathematical relationship.
+  priority: 1400
+  domain: statistics
+  tags:
+  - statistics
+  - variance
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: probability_conditional
+  name: Conditional Probability
+  pattern: P\(([^|)]+)\|([^)]+)\)
+  output_template: We have the probability of \1 given \2, which reveals the mathematical
+    relationship.
+  priority: 1300
+  domain: statistics
+  tags:
+  - statistics
+  - probability
+  - conditional
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: square
+  name: Square
+  pattern: ([a-zA-Z])^2
+  output_template: Let's explore \1 squared, which reveals the mathematical relationship.
+  priority: 1200
+  domain: general
+  tags:
+  - power
+  - square
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: cube
+  name: Cube
+  pattern: ([a-zA-Z])^3
+  output_template: Let's explore \1 cubed, which reveals the mathematical relationship.
+  priority: 1200
+  domain: general
+  tags:
+  - power
+  - cube
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: square_root
+  name: Square Root
+  pattern: \sqrt{([^{}]+)}
+  output_template: We have the square root of \1, which reveals the mathematical relationship.
+  priority: 1100
+  domain: general
+  tags:
+  - root
+  - square
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_alpha
+  name: Greek Alpha
+  pattern: \alpha
+  output_template: Let's explore alpha, which reveals the mathematical relationship.
+  priority: 800
+  domain: general
+  tags:
+  - greek
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_beta
+  name: Greek Beta
+  pattern: \beta
+  output_template: Let's explore beta, which reveals the mathematical relationship.
+  priority: 800
+  domain: general
+  tags:
+  - greek
+  - letter
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greek_pi
+  name: Greek Pi
+  pattern: \pi
+  output_template: Let's explore pi, which reveals the mathematical relationship.
+  priority: 800
+  domain: general
+  tags:
+  - greek
+  - letter
+  - constant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sine
+  name: Sine Function
+  pattern: \sin\(([^)]+)\)
+  output_template: Let's explore sine of \1, which reveals the mathematical relationship.
+  priority: 900
+  domain: general
+  tags:
+  - trig
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: cosine
+  name: Cosine Function
+  pattern: \cos\(([^)]+)\)
+  output_template: Let's explore cosine of \1, which reveals the mathematical relationship.
+  priority: 900
+  domain: general
+  tags:
+  - trig
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: natural_log
+  name: Natural Logarithm
+  pattern: \ln\(([^)]+)\)
+  output_template: Let's explore natural log of \1, which reveals the mathematical
+    relationship.
+  priority: 900
+  domain: general
+  tags:
+  - log
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_union
+  name: Set Union
+  pattern: ([A-Z])\s*\cup\s*([A-Z])
+  output_template: Let's explore \1 union \2, which reveals the mathematical relationship.
+  priority: 1000
+  domain: set_theory
+  tags:
+  - set
+  - union
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_intersection
+  name: Set Intersection
+  pattern: ([A-Z])\s*\cap\s*([A-Z])
+  output_template: Let's explore \1 intersection \2, which reveals the mathematical
+    relationship.
+  priority: 1000
+  domain: set_theory
+  tags:
+  - set
+  - intersection
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: for_all
+  name: Universal Quantifier
+  pattern: \forall\s*([a-zA-Z])
+  output_template: Let's explore for all \1, which reveals the mathematical relationship.
+  priority: 1100
+  domain: logic
+  tags:
+  - logic
+  - quantifier
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: exists
+  name: Existential Quantifier
+  pattern: \exists\s*([a-zA-Z])
+  output_template: We have there exists \1, which reveals the mathematical relationship.
+  priority: 1100
+  domain: logic
+  tags:
+  - logic
+  - quantifier
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: infinity
+  name: Infinity
+  pattern: \infty
+  output_template: Let's explore infinity, which reveals the mathematical relationship.
+  priority: 900
+  domain: general
+  tags:
+  - symbol
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: approaches
+  name: Approaches Arrow
+  pattern: \to
+  output_template: Let's explore  approaches , which reveals the mathematical relationship.
+  priority: 850
+  domain: general
+  tags:
+  - symbol
+  - arrow
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

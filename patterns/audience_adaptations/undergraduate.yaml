@@ -1,0 +1,237 @@
+metadata:
+  category: audience_undergraduate
+  description: Mathematical language adapted for undergraduate students
+  version: 1.0.0
+  audience_level: undergraduate
+patterns:
+- id: fraction_undergraduate
+  name: Undergraduate fraction
+  pattern: \\frac\{1\}\{2\}
+  output_template: the fraction one half
+  audience: undergraduate
+  contexts:
+  - explanation
+  - step_by_step
+  priority: 1850
+  tags:
+  - fraction
+  - undergraduate
+  - educational
+  naturalness_score: 6
+- id: fraction_complex_undergraduate
+  name: Complex fraction for undergraduates
+  pattern: \\frac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  audience: undergraduate
+  contexts:
+  - detailed_explanation
+  priority: 1840
+  tags:
+  - fraction
+  - undergraduate
+  - detailed
+  naturalness_score: 6
+- id: derivative_undergraduate_explanation
+  name: Derivative explanation for undergraduates
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: the derivative, which measures the rate of change of \1 with respect
+    to \2
+  audience: undergraduate
+  contexts:
+  - first_introduction
+  - conceptual_explanation
+  priority: 1860
+  tags:
+  - derivative
+  - undergraduate
+  - conceptual
+  naturalness_score: 6
+- id: derivative_undergraduate_standard
+  name: Standard derivative for undergraduates
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: We have the derivative of \1 with respect to \2, which reveals
+    the mathematical relationship - a fundamental concept in understanding change.
+  audience: undergraduate
+  contexts:
+  - calculation
+  - problem_solving
+  priority: 1850
+  tags:
+  - derivative
+  - undergraduate
+  - standard
+  naturalness_score: 6
+- id: integral_undergraduate_explanation
+  name: Integral explanation for undergraduates
+  pattern: \\int_\{([^{}]+)\}\^\{([^{}]+)\}\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: the definite integral from \1 to \2, which calculates the area
+    under the curve \3 with respect to \4
+  audience: undergraduate
+  contexts:
+  - conceptual_introduction
+  - area_interpretation
+  priority: 1870
+  tags:
+  - integral
+  - undergraduate
+  - area_concept
+  naturalness_score: 6
+- id: integral_undergraduate_standard
+  name: Standard integral for undergraduates
+  pattern: \\int\s*([^d\s]+)\s*d([a-zA-Z])
+  output_template: We have the integral of \1 with respect to \2, which reveals the
+    mathematical relationship - the cornerstone of area and accumulation calculations.
+  audience: undergraduate
+  contexts:
+  - calculation
+  - antiderivative
+  priority: 1850
+  tags:
+  - integral
+  - undergraduate
+  - standard
+  naturalness_score: 6
+- id: limit_undergraduate_explanation
+  name: Limit explanation for undergraduates
+  pattern: \\lim_\{([^{}]+)\s*\\to\s*([^{}]+)\}\s*([^\s\(]+)
+  output_template: the limit as \1 approaches \2 of \3, which tells us the value the
+    function approaches
+  audience: undergraduate
+  contexts:
+  - conceptual_introduction
+  - behavior_explanation
+  priority: 1860
+  tags:
+  - limit
+  - undergraduate
+  - conceptual
+  naturalness_score: 6
+- id: function_undergraduate_definition
+  name: Function definition for undergraduates
+  pattern: ([a-zA-Z])\(([^)]+)\)\s*=\s*([^=]+)
+  output_template: we define the function \1 of \2 to be equal to \3
+  audience: undergraduate
+  contexts:
+  - function_definition
+  - setup
+  priority: 1860
+  tags:
+  - function
+  - undergraduate
+  - definition
+  naturalness_score: 6
+- id: equation_undergraduate_solving
+  name: Equation solving for undergraduates
+  pattern: ([^=]+)\s*=\s*([^=]+)
+  output_template: we have the equation \1 equals \2, which we need to solve
+  audience: undergraduate
+  contexts:
+  - problem_solving
+  - equation_setup
+  priority: 1850
+  tags:
+  - equation
+  - undergraduate
+  - solving
+  naturalness_score: 6
+- id: alpha_undergraduate_variable
+  name: Alpha as variable for undergraduates
+  pattern: \\alpha
+  output_template: We have the variable alpha, which reveals the mathematical relationship.
+  audience: undergraduate
+  contexts:
+  - variable_introduction
+  - parameter_explanation
+  priority: 1860
+  tags:
+  - greek
+  - undergraduate
+  - variable
+  naturalness_score: 6
+- id: theta_undergraduate_angle
+  name: Theta as angle for undergraduates
+  pattern: \\theta
+  output_template: We have the angle theta, which reveals the mathematical relationship.
+  audience: undergraduate
+  contexts:
+  - trigonometry
+  - geometry
+  priority: 1870
+  tags:
+  - greek
+  - undergraduate
+  - angle
+  naturalness_score: 6
+- id: power_undergraduate_explanation
+  name: Power explanation for undergraduates
+  pattern: ([a-zA-Z0-9]+)\^([0-9]+)
+  output_template: \1 raised to the power of \2, which means \1 multiplied by itself
+    \2 times
+  audience: undergraduate
+  contexts:
+  - power_introduction
+  - conceptual_explanation
+  priority: 1860
+  tags:
+  - power
+  - undergraduate
+  - conceptual
+  naturalness_score: 6
+- id: sqrt_undergraduate_explanation
+  name: Square root explanation for undergraduates
+  pattern: \\sqrt\{([^{}]+)\}
+  output_template: the square root of \1, which is the number that when multiplied
+    by itself gives \1
+  audience: undergraduate
+  contexts:
+  - root_introduction
+  - conceptual_explanation
+  priority: 1860
+  tags:
+  - root
+  - undergraduate
+  - conceptual
+  naturalness_score: 6
+- id: step_undergraduate_first
+  name: First step for undergraduates
+  pattern: \\text{Step 1}|Step\s+1
+  output_template: in our first step toward solving this problem
+  audience: undergraduate
+  contexts:
+  - step_by_step
+  - problem_solving
+  priority: 1870
+  tags:
+  - steps
+  - undergraduate
+  - guidance
+  naturalness_score: 6
+- id: step_undergraduate_next
+  name: Next step for undergraduates
+  pattern: \\text{Step}\s+([2-9])|\\text{Next}
+  output_template: in the next step of our solution process
+  audience: undergraduate
+  contexts:
+  - step_by_step
+  - continuation
+  priority: 1860
+  tags:
+  - steps
+  - undergraduate
+  - progression
+  naturalness_score: 6
+- id: therefore_undergraduate
+  name: Therefore for undergraduates
+  pattern: \\therefore
+  output_template: therefore, based on our work above, we can conclude that
+  audience: undergraduate
+  contexts:
+  - conclusion
+  - logical_reasoning
+  priority: 1870
+  tags:
+  - logic
+  - undergraduate
+  - conclusion
+  naturalness_score: 6

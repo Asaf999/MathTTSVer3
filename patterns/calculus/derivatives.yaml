@@ -1,0 +1,481 @@
+metadata:
+  category: derivatives
+  description: Ordinary derivatives, partial derivatives, and related notations
+  version: 1.0.0
+patterns:
+- id: derivative_leibniz
+  name: Leibniz notation
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: We have the derivative of \1 with respect to \2, which reveals
+    the mathematical relationship - a fundamental concept in understanding change.
+  priority: 1500
+  tags:
+  - derivative
+  - leibniz
+  - basic
+  naturalness_score: 6
+- id: derivative_leibniz_function
+  name: Leibniz notation with function
+  pattern: \\frac\{d\}\{d\s*([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the the derivative, which measures the rate of change,
+    of \2 with respect to \1
+  priority: 1520
+  tags:
+  - derivative
+  - leibniz
+  - function
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_leibniz_function_parens
+  name: Leibniz with function in parentheses
+  pattern: \\frac\{d\}\{d\s*([^{}]+)\}\s*\(([^)]+)\)
+  output_template: We have the the derivative, which measures the rate of change,
+    of \2 with respect to \1
+  priority: 1530
+  tags:
+  - derivative
+  - leibniz
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_leibniz_at_point
+  name: Leibniz at a point
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}\\bigg\|_{([^{}]+)}
+  output_template: We have the the derivative, which measures the rate of change,
+    of \1 with respect to \2 evaluated at \3
+  priority: 1540
+  tags:
+  - derivative
+  - leibniz
+  - evaluation
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_second_leibniz
+  name: Second derivative Leibniz
+  pattern: \\frac\{d\^2\s*([^{}]+)\}\{d\s*([^{}]+)\^2\}
+  output_template: We have the second the derivative, which measures the rate of change,
+    of \1 with respect to \2
+  priority: 1550
+  tags:
+  - derivative
+  - second
+  - leibniz
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_second_function
+  name: Second derivative with function
+  pattern: \\frac\{d\^2\}\{d\s*([^{}]+)\^2\}\s*([^\s\(]+)
+  output_template: We have the second the derivative, which measures the rate of change,
+    of \2 with respect to \1
+  priority: 1560
+  tags:
+  - derivative
+  - second
+  - function
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_nth_leibniz
+  name: Nth derivative Leibniz
+  pattern: \\frac\{d\^\{?([^{}]+)\}?\s*([^{}]+)\}\{d\s*([^{}]+)\^\{?\1\}?\}
+  output_template: Let's explore d to the \1 of \2 with respect to d \3 to the \1,
+    which reveals the mathematical relationship.
+  priority: 1540
+  tags:
+  - derivative
+  - higher_order
+  - leibniz
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_nth_function
+  name: Nth derivative with function
+  pattern: \\frac\{d\^\{?([^{}]+)\}?\}\{d\s*([^{}]+)\^\{?\1\}?\}\s*([^\s\(]+)
+  output_template: We have the \1 the derivative, which measures the rate of change,
+    of \3 with respect to \2
+  priority: 1530
+  tags:
+  - derivative
+  - higher_order
+  - function
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_prime_single
+  name: Single prime
+  pattern: ([a-zA-Z])'
+  output_template: Let's explore \1 prime, which reveals the mathematical relationship.
+  priority: 1580
+  tags:
+  - derivative
+  - prime
+  - first
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_prime_double
+  name: Double prime
+  pattern: ([a-zA-Z])''
+  output_template: Let's explore \1 double prime, which reveals the mathematical relationship.
+  priority: 1580
+  tags:
+  - derivative
+  - prime
+  - second
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_prime_triple
+  name: Triple prime
+  pattern: ([a-zA-Z])'''
+  output_template: Let's explore \1 triple prime, which reveals the mathematical relationship.
+  priority: 1580
+  tags:
+  - derivative
+  - prime
+  - third
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_prime_function
+  name: Function with prime
+  pattern: ([a-zA-Z])\(([^)]+)\)'
+  output_template: Let's explore \1 of \2 prime, which reveals the mathematical relationship.
+  priority: 1570
+  tags:
+  - derivative
+  - prime
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: derivative_dot_single
+  name: Single dot (time derivative)
+  pattern: \\dot\{([^{}]+)\}
+  output_template: Let's explore \1 dot, which reveals the mathematical relationship.
+  priority: 1560
+  contexts:
+  - physics
+  - mechanics
+  tags:
+  - derivative
+  - dot
+  - time
+  naturalness_score: 6
+- id: derivative_dot_double
+  name: Double dot (second time derivative)
+  pattern: \\ddot\{([^{}]+)\}
+  output_template: Let's explore \1 double dot, which reveals the mathematical relationship.
+  priority: 1560
+  contexts:
+  - physics
+  - mechanics
+  tags:
+  - derivative
+  - dot
+  - second
+  naturalness_score: 6
+- id: partial_derivative_basic
+  name: Basic partial derivative
+  pattern: \\frac\{\\partial\s*([^{}]+)\}\{\\partial\s*([^{}]+)\}
+  output_template: We have the partial the derivative, which measures the rate of
+    change, of \1 with respect to \2
+  priority: 1520
+  tags:
+  - derivative
+  - partial
+  - basic
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: partial_derivative_function
+  name: Partial derivative with function
+  pattern: \\frac\{\\partial\}\{\\partial\s*([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the partial the derivative, which measures the rate of
+    change, of \2 with respect to \1
+  priority: 1540
+  tags:
+  - derivative
+  - partial
+  - function
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: partial_derivative_second
+  name: Second partial derivative
+  pattern: \\frac\{\\partial\^2\s*([^{}]+)\}\{\\partial\s*([^{}]+)\^2\}
+  output_template: We have the second partial the derivative, which measures the rate
+    of change, of \1 with respect to \2
+  priority: 1550
+  tags:
+  - derivative
+  - partial
+  - second
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: partial_derivative_mixed
+  name: Mixed partial derivative
+  pattern: \\frac\{\\partial\^2\s*([^{}]+)\}\{\\partial\s*([^{}]+)\s*\\partial\s*([^{}]+)\}
+  output_template: We have the mixed partial the derivative, which measures the rate
+    of change, of \1 with respect to \2 and \3
+  priority: 1560
+  tags:
+  - derivative
+  - partial
+  - mixed
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: partial_subscript
+  name: Partial with subscript
+  pattern: \\partial_\{?([^{}\s]+)\}?\s*([^\s\(]+)
+  output_template: Let's explore partial \2 with respect to \1, which reveals the
+    mathematical relationship.
+  priority: 1500
+  tags:
+  - derivative
+  - partial
+  - subscript
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: partial_symbol_alone
+  name: Partial symbol
+  pattern: \\partial\s+([a-zA-Z])
+  output_template: Let's explore partial \1, which reveals the mathematical relationship.
+  priority: 1480
+  tags:
+  - derivative
+  - partial
+  - symbol
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: directional_derivative
+  name: Directional derivative
+  pattern: \\nabla_\{?([^{}]+)\}?\s*([^\s\(]+)
+  output_template: We have the directional the derivative, which measures the rate
+    of change, of \2 in the direction \1
+  priority: 1450
+  tags:
+  - derivative
+  - directional
+  - nabla
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: total_derivative
+  name: Total derivative
+  pattern: \\frac\{D\s*([^{}]+)\}\{D\s*([^{}]+)\}
+  output_template: We have the total the derivative, which measures the rate of change,
+    of \1 with respect to \2
+  priority: 1510
+  tags:
+  - derivative
+  - total
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_operator_D
+  name: D operator
+  pattern: D\s*([a-zA-Z])
+  output_template: Let's explore D \1, which reveals the mathematical relationship.
+  priority: 1400
+  contexts:
+  - operator
+  tags:
+  - derivative
+  - operator
+  - D
+  naturalness_score: 6
+- id: derivative_operator_D_power
+  name: D operator with power
+  pattern: D\^\{?([^{}\s]+)\}?\s*([a-zA-Z])
+  output_template: Let's explore D to the \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1420
+  contexts:
+  - operator
+  tags:
+  - derivative
+  - operator
+  - power
+  naturalness_score: 6
+- id: functional_derivative
+  name: Functional derivative
+  pattern: \\frac\{\\delta\s*([^{}]+)\}\{\\delta\s*([^{}]+)\}
+  output_template: We have the functional the derivative, which measures the rate
+    of change, of \1 with respect to \2
+  priority: 1490
+  tags:
+  - derivative
+  - functional
+  - variational
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: wirtinger_derivative
+  name: Wirtinger derivative
+  pattern: \\frac\{\\partial\s*([^{}]+)\}\{\\partial\s*\\bar\{([^{}]+)\}\}
+  output_template: We have the Wirtinger the derivative, which measures the rate of
+    change, of \1 with respect to \2 bar
+  priority: 1470
+  tags:
+  - derivative
+  - wirtinger
+  - complex
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: lie_derivative
+  name: Lie derivative
+  pattern: \\mathcal\{L\}_\{([^{}]+)\}\s*([^\s\(]+)
+  output_template: We have the Lie the derivative, which measures the rate of change,
+    of \2 along \1 - a fundamental concept in understanding change.
+  priority: 1460
+  tags:
+  - derivative
+  - lie
+  - differential_geometry
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: covariant_derivative
+  name: Covariant derivative
+  pattern: \\nabla_\{([^{}]+)\}\s*([^\s\(]+)
+  output_template: Let's explore nabla \1 of \2, which reveals the mathematical relationship.
+  priority: 1440
+  contexts:
+  - tensor
+  - differential_geometry
+  tags:
+  - derivative
+  - covariant
+  naturalness_score: 6
+- id: material_derivative
+  name: Material derivative
+  pattern: \\frac\{D\s*([^{}]+)\}\{Dt\}
+  output_template: We have the material the derivative, which measures the rate of
+    change, of \1 - a fundamental concept in understanding change.
+  priority: 1510
+  contexts:
+  - fluid_dynamics
+  tags:
+  - derivative
+  - material
+  - substantial
+  naturalness_score: 6
+- id: derivative_evaluated_at
+  name: Derivative evaluated at point
+  pattern: \\left\.\\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}\\right\|_\{([^{}]+)\}
+  output_template: We have the the derivative, which measures the rate of change,
+    of \1 with respect to \2 evaluated at \3
+  priority: 1570
+  tags:
+  - derivative
+  - evaluation
+  - point
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: derivative_chain_rule_educational
+  name: Chain rule educational explanation
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}\s*\\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: by the chain rule, the derivative of \1 with respect to \2 times
+    the derivative of \3 with respect to \4
+  contexts:
+  - educational
+  - step_by_step
+  - chain_rule
+  priority: 1600
+  tags:
+  - derivative
+  - chain_rule
+  - educational
+  naturalness_score: 6
+- id: derivative_chain_rule_simple
+  name: Chain rule simple
+  pattern: \\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}\s*\\frac\{d\s*([^{}]+)\}\{d\s*([^{}]+)\}
+  output_template: We have the derivative of \1 with respect to \2 times the derivative
+    of \3 with respect to \4, which reveals the mathematical relationship.
+  contexts:
+  - calculation
+  - formula
+  priority: 1580
+  tags:
+  - derivative
+  - chain_rule
+  - product
+  naturalness_score: 6
+- id: derivative_product_rule_educational
+  name: Product rule educational
+  pattern: \\frac\{d\}\{d([^{}]+)\}\s*\[([^\]]+)\s*\\cdot\s*([^\]]+)\]
+  output_template: using the product rule, the derivative of \2 times \3 with respect
+    to \1
+  contexts:
+  - educational
+  - product_rule
+  - step_by_step
+  priority: 1610
+  tags:
+  - derivative
+  - product_rule
+  - educational
+  naturalness_score: 6
+- id: derivative_quotient_rule_educational
+  name: Quotient rule educational
+  pattern: \\frac\{d\}\{d([^{}]+)\}\s*\[\\frac\{([^{}]+)\}\{([^{}]+)\}\]
+  output_template: applying the quotient rule to find the derivative of \2 over \3
+    with respect to \1
+  contexts:
+  - educational
+  - quotient_rule
+  - step_by_step
+  priority: 1610
+  tags:
+  - derivative
+  - quotient_rule
+  - educational
+  naturalness_score: 6
+- id: derivative_implicit_educational
+  name: Implicit differentiation educational
+  pattern: \\frac\{d\}\{d([^{}]+)\}\s*\[([^\]]+)\s*=\s*([^\]]+)\]
+  output_template: using implicit differentiation on the equation \2 equals \3 with
+    respect to \1
+  contexts:
+  - educational
+  - implicit_differentiation
+  priority: 1620
+  tags:
+  - derivative
+  - implicit
+  - educational
+  naturalness_score: 6

@@ -1,0 +1,595 @@
+metadata:
+  category: set_theory_and_logic
+  description: Sets, logic operations, quantifiers, and related notations
+  version: 1.0.0
+patterns:
+- id: set_membership
+  name: Element of
+  pattern: ([a-zA-Z0-9]+)\s*\\in\s*([A-Z])
+  output_template: Let's explore \1 is an element of \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - set
+  - membership
+  - element
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_not_member
+  name: Not element of
+  pattern: ([a-zA-Z0-9]+)\s*\\notin\s*([A-Z])
+  output_template: Let's explore \1 is not an element of \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - set
+  - membership
+  - negation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_contains
+  name: Set contains
+  pattern: ([A-Z])\s*\\ni\s*([a-zA-Z0-9]+)
+  output_template: Let's explore \1 contains \2, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - set
+  - membership
+  - contains
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_union
+  name: Set union
+  pattern: ([A-Z])\s*\\cup\s*([A-Z])
+  output_template: Let's explore \1 union \2, which reveals the mathematical relationship.
+  priority: 1220
+  tags:
+  - set
+  - operation
+  - union
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_intersection
+  name: Set intersection
+  pattern: ([A-Z])\s*\\cap\s*([A-Z])
+  output_template: Let's explore \1 intersection \2, which reveals the mathematical
+    relationship.
+  priority: 1220
+  tags:
+  - set
+  - operation
+  - intersection
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_difference
+  name: Set difference
+  pattern: ([A-Z])\s*\\setminus\s*([A-Z])
+  output_template: Let's explore \1 minus \2, which reveals the mathematical relationship.
+  priority: 1210
+  tags:
+  - set
+  - operation
+  - difference
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_symmetric_difference
+  name: Symmetric difference
+  pattern: ([A-Z])\s*\\triangle\s*([A-Z])
+  output_template: Let's explore \1 symmetric difference \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - set
+  - operation
+  - symmetric_difference
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_complement
+  name: Set complement
+  pattern: ([A-Z])\^c|\\overline\{([A-Z])\}
+  output_template: Let's explore \1\2 complement, which reveals the mathematical relationship.
+  priority: 1210
+  tags:
+  - set
+  - complement
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_cartesian_product
+  name: Cartesian product
+  pattern: ([A-Z])\s*\\times\s*([A-Z])
+  output_template: Let's explore \1 cross \2, which reveals the mathematical relationship.
+  priority: 1200
+  contexts:
+  - set_theory
+  tags:
+  - set
+  - cartesian
+  - product
+  naturalness_score: 6
+- id: set_subset
+  name: Subset
+  pattern: ([A-Z])\s*\\subset\s*([A-Z])
+  output_template: Let's explore \1 is a subset of \2, which reveals the mathematical
+    relationship.
+  priority: 1230
+  tags:
+  - set
+  - relation
+  - subset
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_subset_equal
+  name: Subset or equal
+  pattern: ([A-Z])\s*\\subseteq\s*([A-Z])
+  output_template: Let's explore \1 is a subset of or equal to \2, which reveals the
+    mathematical relationship.
+  priority: 1230
+  tags:
+  - set
+  - relation
+  - subset
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_proper_subset
+  name: Proper subset
+  pattern: ([A-Z])\s*\\subsetneq\s*([A-Z])
+  output_template: Let's explore \1 is a proper subset of \2, which reveals the mathematical
+    relationship.
+  priority: 1240
+  tags:
+  - set
+  - relation
+  - proper_subset
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_superset
+  name: Superset
+  pattern: ([A-Z])\s*\\supset\s*([A-Z])
+  output_template: Let's explore \1 is a superset of \2, which reveals the mathematical
+    relationship.
+  priority: 1230
+  tags:
+  - set
+  - relation
+  - superset
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_builder_notation
+  name: Set builder notation
+  pattern: \\\{([^|]+)\s*\|\s*([^}]+)\\\}
+  output_template: We have the set of \1 such that \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - set
+  - notation
+  - builder
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_roster_notation
+  name: Set roster notation
+  pattern: \\\{([^}]+)\\\}
+  output_template: We have the set containing \1, which reveals the mathematical relationship.
+  priority: 1240
+  tags:
+  - set
+  - notation
+  - roster
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: empty_set
+  name: Empty set
+  pattern: \\emptyset|\\varnothing
+  output_template: We have the empty set
+  priority: 1280
+  tags:
+  - set
+  - empty
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: universal_set
+  name: Universal set
+  pattern: \\mathcal\{U\}
+  output_template: We have the universal set
+  priority: 1270
+  tags:
+  - set
+  - universal
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_natural_numbers
+  name: Natural numbers
+  pattern: \\mathbb\{N\}
+  output_template: We have the natural numbers
+  priority: 1290
+  tags:
+  - set
+  - numbers
+  - natural
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_integers
+  name: Integers
+  pattern: \\mathbb\{Z\}
+  output_template: We have the integers, which reveals the mathematical relationship.
+  priority: 1290
+  tags:
+  - set
+  - numbers
+  - integers
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_rational_numbers
+  name: Rational numbers
+  pattern: \\mathbb\{Q\}
+  output_template: We have the rational numbers
+  priority: 1290
+  tags:
+  - set
+  - numbers
+  - rational
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_real_numbers
+  name: Real numbers
+  pattern: \\mathbb\{R\}
+  output_template: We have the real numbers
+  priority: 1290
+  tags:
+  - set
+  - numbers
+  - real
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_complex_numbers
+  name: Complex numbers
+  pattern: \\mathbb\{C\}
+  output_template: We have the complex numbers
+  priority: 1290
+  tags:
+  - set
+  - numbers
+  - complex
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: quantifier_forall
+  name: Universal quantifier
+  pattern: \\forall\s*([a-zA-Z])
+  output_template: Let's explore for all \1, which reveals the mathematical relationship.
+  priority: 1260
+  tags:
+  - logic
+  - quantifier
+  - universal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: quantifier_exists
+  name: Existential quantifier
+  pattern: \\exists\s*([a-zA-Z])
+  output_template: We have there exists \1, which reveals the mathematical relationship.
+  priority: 1260
+  tags:
+  - logic
+  - quantifier
+  - existential
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: quantifier_exists_unique
+  name: Unique existence
+  pattern: \\exists!\s*([a-zA-Z])
+  output_template: We have there exists a unique \1, which reveals the mathematical
+    relationship.
+  priority: 1270
+  tags:
+  - logic
+  - quantifier
+  - unique
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: quantifier_not_exists
+  name: Does not exist
+  pattern: \\nexists\s*([a-zA-Z])
+  output_template: We have there does not exist \1, which reveals the mathematical
+    relationship.
+  priority: 1270
+  tags:
+  - logic
+  - quantifier
+  - negation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_and
+  name: Logical and
+  pattern: ([^\s]+)\s*\\land\s*([^\s]+)
+  output_template: Let's explore \1 and \2, which reveals the mathematical relationship.
+  priority: 1180
+  tags:
+  - logic
+  - operation
+  - and
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_or
+  name: Logical or
+  pattern: ([^\s]+)\s*\\lor\s*([^\s]+)
+  output_template: Let's explore \1 or \2, which reveals the mathematical relationship.
+  priority: 1180
+  tags:
+  - logic
+  - operation
+  - or
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_not
+  name: Logical not
+  pattern: \\neg\s*([^\s]+)
+  output_template: Let's explore not \1, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - logic
+  - operation
+  - not
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_implies
+  name: Logical implication
+  pattern: ([^\s]+)\s*\\Rightarrow\s*([^\s]+)
+  output_template: Let's explore \1 implies \2, which reveals the mathematical relationship.
+  priority: 1200
+  tags:
+  - logic
+  - operation
+  - implies
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_iff
+  name: If and only if
+  pattern: ([^\s]+)\s*\\Leftrightarrow\s*([^\s]+)
+  output_template: Let's explore \1 if and only if \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - logic
+  - operation
+  - iff
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_equivalent
+  name: Logically equivalent
+  pattern: ([^\s]+)\s*\\equiv\s*([^\s]+)
+  output_template: Let's explore \1 is equivalent to \2, which reveals the mathematical
+    relationship.
+  priority: 1190
+  contexts:
+  - logic
+  tags:
+  - logic
+  - operation
+  - equivalent
+  naturalness_score: 6
+- id: logic_true
+  name: 'True'
+  pattern: \\top|\\text\{True\}
+  output_template: Let's explore true, which reveals the mathematical relationship.
+  priority: 1150
+  tags:
+  - logic
+  - truth
+  - 'true'
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: logic_false
+  name: 'False'
+  pattern: \\bot|\\text\{False\}
+  output_template: Let's explore false, which reveals the mathematical relationship.
+  priority: 1150
+  tags:
+  - logic
+  - truth
+  - 'false'
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: set_cardinality
+  name: Set cardinality
+  pattern: \|([A-Z])\|
+  output_template: We have the cardinality of \1, which reveals the mathematical relationship.
+  priority: 1210
+  contexts:
+  - set_theory
+  tags:
+  - set
+  - cardinality
+  - size
+  naturalness_score: 6
+- id: set_cardinality_hash
+  name: Set cardinality with hash
+  pattern: \#([A-Z])
+  output_template: We have the cardinality of \1, which reveals the mathematical relationship.
+  priority: 1200
+  tags:
+  - set
+  - cardinality
+  - hash
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_set
+  name: Power set
+  pattern: \\mathcal\{P\}\(([A-Z])\)|2\^\{([A-Z])\}
+  output_template: We have the power set of \1\2, which reveals the mathematical relationship.
+  priority: 1220
+  tags:
+  - set
+  - power_set
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: relation_binary
+  name: Binary relation
+  pattern: ([a-zA-Z])\s*R\s*([a-zA-Z])
+  output_template: Let's explore \1 is related to \2, which reveals the mathematical
+    relationship.
+  priority: 1160
+  contexts:
+  - relation
+  tags:
+  - relation
+  - binary
+  naturalness_score: 6
+- id: equivalence_class
+  name: Equivalence class
+  pattern: \[([a-zA-Z])\]
+  output_template: We have the equivalence class of \1, which reveals the mathematical
+    relationship.
+  priority: 1170
+  contexts:
+  - equivalence_relation
+  tags:
+  - relation
+  - equivalence
+  - class
+  naturalness_score: 6
+- id: function_mapping
+  name: Function mapping
+  pattern: f\s*:\s*([A-Z])\s*\\to\s*([A-Z])
+  output_template: Let's explore f from \1 to \2, which reveals the mathematical relationship.
+  priority: 1180
+  tags:
+  - function
+  - mapping
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: function_mapsto
+  name: Maps to
+  pattern: ([a-zA-Z])\s*\\mapsto\s*([^\s]+)
+  output_template: Let's explore \1 maps to \2, which reveals the mathematical relationship.
+  priority: 1170
+  tags:
+  - function
+  - mapsto
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: therefore
+  name: Therefore
+  pattern: \\therefore
+  output_template: We have therefore, which reveals the mathematical relationship.
+  priority: 1140
+  tags:
+  - logic
+  - proof
+  - therefore
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: because
+  name: Because
+  pattern: \\because
+  output_template: Let's explore because, which reveals the mathematical relationship.
+  priority: 1140
+  tags:
+  - logic
+  - proof
+  - because
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: qed
+  name: QED
+  pattern: \\square|\\blacksquare|\\text\{QED\}
+  output_template: Let's explore Q.E.D, which reveals the mathematical relationship.
+  priority: 1150
+  tags:
+  - logic
+  - proof
+  - qed
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: such_that
+  name: Such that
+  pattern: \\text\{s\.t\.\}|:\s*
+  output_template: Let's explore  such that , which reveals the mathematical relationship.
+  priority: 1100
+  contexts:
+  - set_builder
+  - logic
+  tags:
+  - logic
+  - notation
+  - such_that
+  naturalness_score: 6

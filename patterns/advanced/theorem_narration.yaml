@@ -1,0 +1,265 @@
+metadata:
+  category: theorem_narration
+  description: Stage 3 patterns for theorem statements, proofs, and mathematical reasoning
+  version: 3.0.0
+  stage: 3
+  naturalness_target: 95%
+patterns:
+- id: theorem_statement_stage3
+  name: Theorem statement with context
+  pattern: \\begin\{theorem\}\s*(.+?)\\end\{theorem\}
+  output_template: 'Let''s examine this fundamental theorem: \1. This result tells
+    us something profound about the mathematical structure we''re studying'
+  contexts:
+  - formal_mathematics
+  - theorem_statement
+  - educational
+  priority: 1010
+  tags:
+  - theorem
+  - stage3
+  - narrative
+  naturalness_score: 6
+  semantic_understanding: theorem_introduction
+- id: theorem_informal_stage3
+  name: Informal theorem presentation
+  pattern: \\text{Theorem}\s*([0-9\.]+)?:?\s*(.+)
+  output_template: 'Here''s a remarkable mathematical fact: \2. This theorem reveals
+    deep connections in our mathematical landscape'
+  contexts:
+  - educational
+  - discovery
+  - insight
+  priority: 1020
+  tags:
+  - theorem
+  - stage3
+  - discovery
+  naturalness_score: 6
+- id: proof_beginning_stage3
+  name: Proof introduction with storytelling
+  pattern: \\begin\{proof\}
+  output_template: Now let's embark on the journey to understand why this is true.
+    Our proof will unfold like a mathematical story
+  contexts:
+  - proof_start
+  - narrative
+  - educational
+  priority: 1030
+  tags:
+  - proof
+  - stage3
+  - storytelling
+  naturalness_score: 6
+- id: proof_step_stage3
+  name: Proof step with narrative flow
+  pattern: \\text{Step}\s+([0-9]+)\s*[:.]?\s*(.+)
+  output_template: In step \1 of our mathematical journey, \2. This moves us closer
+    to our destination
+  contexts:
+  - proof_progression
+  - step_by_step
+  - narrative
+  priority: 1040
+  tags:
+  - proof
+  - stage3
+  - progression
+  naturalness_score: 6
+- id: qed_stage3
+  name: Proof conclusion with satisfaction
+  pattern: \\qed|\\blacksquare|\\square
+  output_template: And there we have it! Our mathematical journey is complete, and
+    we've arrived at our desired conclusion
+  contexts:
+  - proof_completion
+  - satisfaction
+  - conclusion
+  priority: 1050
+  tags:
+  - proof
+  - stage3
+  - completion
+  naturalness_score: 6
+- id: because_reasoning_stage3
+  name: Causal reasoning with explanation
+  pattern: \\text{because}\s+(.+)
+  output_template: 'The reason this works is beautifully simple: \1. This logical
+    connection is what makes mathematics so elegant'
+  contexts:
+  - reasoning
+  - explanation
+  - logical_connection
+  priority: 1060
+  tags:
+  - reasoning
+  - stage3
+  - explanation
+  naturalness_score: 6
+- id: therefore_conclusion_stage3
+  name: Logical conclusion with emphasis
+  pattern: \\therefore\s+(.+)
+  output_template: 'This leads us to a powerful conclusion: \1. Notice how all our
+    previous work culminates in this moment'
+  contexts:
+  - conclusion
+  - logical_progression
+  - emphasis
+  priority: 1070
+  tags:
+  - conclusion
+  - stage3
+  - emphasis
+  naturalness_score: 6
+- id: concept_introduction_stage3
+  name: New concept introduction with wonder
+  pattern: \\text{Definition}\s*([0-9\.]+)?:?\s*(.+)
+  output_template: 'Let me introduce you to a fascinating mathematical concept: \2.
+    This idea will open new doors in our understanding'
+  contexts:
+  - definition
+  - concept_introduction
+  - wonder
+  priority: 1080
+  tags:
+  - definition
+  - stage3
+  - introduction
+  naturalness_score: 6
+- id: intuition_building_stage3
+  name: Intuitive explanation with metaphor
+  pattern: \\text{Intuition}:?\s*(.+)
+  output_template: 'To build your intuition, think of it this way: \1. This mental
+    picture will guide your understanding'
+  contexts:
+  - intuition
+  - metaphor
+  - understanding
+  priority: 1090
+  tags:
+  - intuition
+  - stage3
+  - metaphor
+  naturalness_score: 6
+- id: lemma_stage3
+  name: Lemma with purpose explanation
+  pattern: \\begin\{lemma\}\s*(.+?)\\end\{lemma\}
+  output_template: 'Before we tackle the main result, we need this helpful stepping
+    stone: \1. This lemma will be our key to unlocking the larger theorem'
+  contexts:
+  - lemma
+  - preparation
+  - stepping_stone
+  priority: 1015
+  tags:
+  - lemma
+  - stage3
+  - preparation
+  naturalness_score: 6
+- id: corollary_stage3
+  name: Corollary with connection emphasis
+  pattern: \\begin\{corollary\}\s*(.+?)\\end\{corollary\}
+  output_template: 'As a beautiful consequence of what we just proved, we get this
+    immediate result: \1. Notice how mathematics builds upon itself'
+  contexts:
+  - corollary
+  - consequence
+  - building
+  priority: 1025
+  tags:
+  - corollary
+  - stage3
+  - consequence
+  naturalness_score: 6
+- id: key_insight_stage3
+  name: Key insight with excitement
+  pattern: \\text{Key insight}:?\s*(.+)
+  output_template: 'Here''s the crucial insight that makes everything click: \1. This
+    is where the mathematical beauty really shines through'
+  contexts:
+  - insight
+  - breakthrough
+  - excitement
+  priority: 1035
+  tags:
+  - insight
+  - stage3
+  - breakthrough
+  naturalness_score: 6
+- id: observation_stage3
+  name: Mathematical observation with significance
+  pattern: \\text{Observe|Note|Notice}\s+that\s+(.+)
+  output_template: 'Let''s pause to notice something remarkable: \1. This observation
+    will prove to be more significant than it first appears'
+  contexts:
+  - observation
+  - significance
+  - pause
+  priority: 1045
+  tags:
+  - observation
+  - stage3
+  - significance
+  naturalness_score: 6
+- id: mathematical_journey_stage3
+  name: Complex proof as journey
+  pattern: \\text{Proof of Theorem}\s+([0-9\.]+)\s*(.+)
+  output_template: Let's embark on proving Theorem \1. Our mathematical expedition
+    will take us through \2, revealing hidden connections along the way
+  contexts:
+  - complex_proof
+  - journey
+  - expedition
+  priority: 1055
+  tags:
+  - proof
+  - stage3
+  - journey
+  naturalness_score: 6
+- id: mathematical_revelation_stage3
+  name: Moment of mathematical revelation
+  pattern: \\text{This shows that}\s+(.+)
+  output_template: 'This reveals something truly remarkable: \1. It''s moments like
+    these that demonstrate the profound elegance of mathematics'
+  contexts:
+  - revelation
+  - elegance
+  - profound
+  priority: 1065
+  tags:
+  - revelation
+  - stage3
+  - elegance
+  naturalness_score: 6
+- id: encouragement_complex_stage3
+  name: Encouragement for complex concepts
+  pattern: \\text{Don't worry if this seems difficult}
+  output_template: Don't worry if this seems challenging at first - even the greatest
+    mathematicians had to work through these ideas step by step. Let's explore this
+    together with patience and curiosity
+  contexts:
+  - encouragement
+  - difficulty
+  - patience
+  priority: 1075
+  tags:
+  - encouragement
+  - stage3
+  - emotional
+  naturalness_score: 6
+- id: celebration_understanding_stage3
+  name: Celebrating mathematical understanding
+  pattern: \\text{Well done}|\\text{Excellent}
+  output_template: Excellent! You've just grasped a concept that connects to some
+    of the deepest ideas in mathematics. This understanding will serve you well in
+    future explorations
+  contexts:
+  - celebration
+  - understanding
+  - achievement
+  priority: 1085
+  tags:
+  - celebration
+  - stage3
+  - achievement
+  naturalness_score: 6

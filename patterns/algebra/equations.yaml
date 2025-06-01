@@ -1,0 +1,436 @@
+metadata:
+  category: equations_and_algebra
+  description: Algebraic equations, systems, polynomials, and algebraic structures
+  version: 1.0.0
+patterns:
+- id: equation_linear
+  name: Linear equation
+  pattern: ([a-zA-Z0-9]+)\s*\+\s*([a-zA-Z0-9]+)\s*=\s*([a-zA-Z0-9]+)
+  output_template: the equation \1 plus \2 beautifully equals \3, which reveals the
+    mathematical relationship - expressing the balance of mathematical quantities.
+  priority: 1000
+  tags:
+  - equation
+  - linear
+  - basic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: equation_quadratic_standard
+  name: Quadratic equation standard form
+  pattern: ([a-zA-Z0-9]+)x\^2\s*\+\s*([a-zA-Z0-9]+)x\s*\+\s*([a-zA-Z0-9]+)\s*=\s*0
+  output_template: We have the quadratic equation \1 x squared plus \2 x plus \3 equals
+    zero, which reveals the mathematical relationship - expressing the balance of
+    mathematical quantities.
+  priority: 1100
+  tags:
+  - equation
+  - quadratic
+  - standard
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: equation_polynomial
+  name: Polynomial equation
+  pattern: P\(([a-zA-Z])\)\s*=\s*0
+  output_template: the polynomial P of \1 beautifully equals zero, which reveals the
+    mathematical relationship.
+  priority: 1050
+  tags:
+  - equation
+  - polynomial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: system_linear_2x2
+  name: 2x2 linear system
+  pattern: \\begin\{cases\}\s*([^\\]+)\\\\\s*([^\\]+)\s*\\end\{cases\}
+  output_template: 'We have the complete system of mathematical equations: \1, and
+    \2, which reveals the mathematical relationship - expressing the balance of mathematical
+    quantities.'
+  priority: 1150
+  tags:
+  - system
+  - linear
+  - 2x2
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: system_bmatrix
+  name: Matrix system
+  pattern: \\begin\{bmatrix\}([^\\]+)\\end\{bmatrix\}
+  output_template: We have the matrix with entries \1, which reveals the mathematical
+    relationship.
+  priority: 1140
+  tags:
+  - system
+  - matrix
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: inequality_linear
+  name: Linear inequality
+  pattern: ([^<>]+)\s*(<|>|\\leq|\\geq)\s*([^<>]+)
+  output_template: We have the mathematical algebraic inequality \1 \2 \3, which reveals
+    the mathematical relationship.
+  priority: 950
+  tags:
+  - inequality
+  - linear
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: inequality_compound
+  name: Compound inequality
+  pattern: ([^<>]+)\s*<\s*([^<>]+)\s*<\s*([^<>]+)
+  output_template: We have the compound inequality \1 is less than \2 is less than
+    \3, which reveals the mathematical relationship.
+  priority: 980
+  tags:
+  - inequality
+  - compound
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: polynomial_degree
+  name: Polynomial with degree
+  pattern: \\text\{deg\}\(([^)]+)\)\s*=\s*(\d+)
+  output_template: the degree of \1 beautifully equals \2, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - polynomial
+  - degree
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: polynomial_factored
+  name: Factored polynomial
+  pattern: \(([a-zA-Z])\s*-\s*([^)]+)\)\(([a-zA-Z])\s*-\s*([^)]+)\)
+  output_template: We have the factored form \1 minus \2 times \3 minus \4, which
+    reveals the mathematical relationship.
+  priority: 1080
+  tags:
+  - polynomial
+  - factored
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_expansion
+  name: Binomial expansion
+  pattern: \(([^+]+)\s*\+\s*([^)]+)\)\^n
+  output_template: Let's explore \1 plus \2 to the n, which reveals the mathematical
+    relationship.
+  priority: 1090
+  tags:
+  - binomial
+  - expansion
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_coefficient_inline
+  name: Binomial coefficient inline
+  pattern: C\((\d+),\s*(\d+)\)
+  output_template: We have the binomial coefficient \1 choose \2, which reveals the
+    mathematical relationship.
+  priority: 1110
+  tags:
+  - binomial
+  - coefficient
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: group_notation
+  name: Group notation
+  pattern: \(([A-Z]),\s*\\cdot\)
+  output_template: We have the group \1 with operation dot, which reveals the mathematical
+    relationship.
+  priority: 900
+  tags:
+  - algebra
+  - group
+  - structure
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ring_notation
+  name: Ring notation
+  pattern: \(([A-Z]),\s*\+,\s*\\cdot\)
+  output_template: We have the ring \1 with addition and multiplication, which reveals
+    the mathematical relationship.
+  priority: 900
+  tags:
+  - algebra
+  - ring
+  - structure
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: field_notation
+  name: Field notation
+  pattern: \\mathbb\{([A-Z])\}
+  output_template: We have the field \1, which reveals the mathematical relationship.
+  priority: 920
+  contexts:
+  - algebra
+  tags:
+  - algebra
+  - field
+  - structure
+  naturalness_score: 6
+- id: matrix_multiplication
+  name: Matrix multiplication
+  pattern: ([A-Z])([A-Z])
+  output_template: Let's explore \1 times \2, which reveals the mathematical relationship.
+  priority: 850
+  contexts:
+  - matrix
+  - linear_algebra
+  tags:
+  - matrix
+  - multiplication
+  naturalness_score: 6
+- id: matrix_transpose_algebra
+  name: Matrix transpose
+  pattern: ([A-Z])\^T
+  output_template: We have the transpose of matrix \1, which reveals the mathematical
+    relationship.
+  priority: 950
+  contexts:
+  - matrix
+  tags:
+  - matrix
+  - transpose
+  naturalness_score: 6
+- id: matrix_inverse_algebra
+  name: Matrix inverse
+  pattern: ([A-Z])\^\{-1\}
+  output_template: We have the inverse of matrix \1, which reveals the mathematical
+    relationship.
+  priority: 950
+  contexts:
+  - matrix
+  tags:
+  - matrix
+  - inverse
+  naturalness_score: 6
+- id: matrix_determinant
+  name: Matrix determinant
+  pattern: \\det\(([A-Z])\)
+  output_template: We have the determinant of matrix \1, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - matrix
+  - determinant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: matrix_trace
+  name: Matrix trace
+  pattern: \\tr\(([A-Z])\)
+  output_template: We have the trace of matrix \1, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - matrix
+  - trace
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_space
+  name: Vector space
+  pattern: V\s*=\s*\\text\{span\}\\\{([^}]+)\\\}
+  output_template: Let's explore V beautifully equals the span of \1, which reveals
+    the mathematical relationship.
+  priority: 920
+  tags:
+  - vector
+  - space
+  - span
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: linear_combination
+  name: Linear combination
+  pattern: ([a-zA-Z0-9]+)\\vec\{([a-zA-Z])\}\s*\+\s*([a-zA-Z0-9]+)\\vec\{([a-zA-Z])\}
+  output_template: Let's explore \1 times vector \2 plus \3 times vector \4, which
+    reveals the mathematical relationship.
+  priority: 940
+  tags:
+  - vector
+  - linear_combination
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: eigenvalue_equation
+  name: Eigenvalue equation
+  pattern: ([A-Z])\\vec\{v\}\s*=\s*\\lambda\\vec\{v\}
+  output_template: Let's explore \1 v beautifully equals lambda v, which reveals the
+    mathematical relationship.
+  priority: 1030
+  tags:
+  - eigenvalue
+  - equation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: characteristic_polynomial
+  name: Characteristic polynomial
+  pattern: \\det\(([A-Z])\s*-\s*\\lambda I\)
+  output_template: Let's explore determinant of \1 minus lambda I, which reveals the
+    mathematical relationship.
+  priority: 1040
+  tags:
+  - eigenvalue
+  - characteristic
+  - polynomial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: composition
+  name: Function composition
+  pattern: ([a-zA-Z])\s*\\circ\s*([a-zA-Z])
+  output_template: Let's explore \1 composed with \2, which reveals the mathematical
+    relationship.
+  priority: 880
+  tags:
+  - function
+  - composition
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: convolution
+  name: Convolution
+  pattern: ([a-zA-Z])\s*\*\s*([a-zA-Z])
+  output_template: Let's explore \1 convolved with \2, which reveals the mathematical
+    relationship.
+  priority: 870
+  contexts:
+  - signal_processing
+  - analysis
+  tags:
+  - operation
+  - convolution
+  naturalness_score: 6
+- id: modulo_operation
+  name: Modulo operation
+  pattern: ([^\s]+)\s*\\bmod\s*([^\s]+)
+  output_template: Let's explore \1 modulo \2, which reveals the mathematical relationship.
+  priority: 960
+  tags:
+  - modular
+  - arithmetic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: congruence
+  name: Congruence relation
+  pattern: ([^\s]+)\s*\\equiv\s*([^\s]+)\s*\\pmod\{([^{}]+)\}
+  output_template: Let's explore \1 is congruent to \2 modulo \3, which reveals the
+    mathematical relationship.
+  priority: 990
+  tags:
+  - modular
+  - congruence
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: complex_number
+  name: Complex number
+  pattern: ([^+]+)\s*\+\s*([^i]+)i
+  output_template: Let's explore \1 plus \2 i, which reveals the mathematical relationship.
+  priority: 1070
+  tags:
+  - complex
+  - number
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: complex_conjugate
+  name: Complex conjugate
+  pattern: \\overline\{([^{}]+)\}
+  output_template: We have the complex conjugate of \1, which reveals the mathematical
+    relationship.
+  priority: 1060
+  tags:
+  - complex
+  - conjugate
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: complex_modulus
+  name: Complex modulus
+  pattern: \|([^|]+)\|
+  output_template: We have the modulus of \1, which reveals the mathematical relationship.
+  priority: 1050
+  contexts:
+  - complex
+  tags:
+  - complex
+  - modulus
+  naturalness_score: 6
+- id: quadratic_formula
+  name: Quadratic formula
+  pattern: x\s*=\s*\\frac\{-b\s*\\pm\s*\\sqrt\{b\^2\s*-\s*4ac\}\}\{2a\}
+  output_template: x equals negative b plus or minus the square root of b squared
+    minus 4 a c, all over 2 a
+  priority: 1180
+  tags:
+  - formula
+  - quadratic
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: completing_square
+  name: Completing the square
+  pattern: \(([a-zA-Z])\s*\+\s*([^)]+)\)\^2
+  output_template: Let's explore \1 plus \2 quantity squared, which reveals the mathematical
+    relationship.
+  priority: 1120
+  tags:
+  - algebra
+  - completing_square
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: rational_expression
+  name: Rational expression
+  pattern: \\frac\{P\(([a-zA-Z])\)\}\{Q\(([a-zA-Z])\)\}
+  output_template: Let's explore P of \1 over Q of \2, which reveals the mathematical
+    relationship.
+  priority: 1030
+  tags:
+  - rational
+  - expression
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

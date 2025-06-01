@@ -1,0 +1,276 @@
+metadata:
+  category: audience_elementary
+  description: Mathematical language adapted for elementary students with simple,
+    clear explanations
+  version: 1.0.0
+  audience_level: elementary
+patterns:
+- id: fraction_half_elementary
+  name: One half for elementary
+  pattern: \\frac\{1\}\{2\}
+  output_template: one half, which means one piece out of two equal pieces
+  audience: elementary
+  contexts:
+  - introduction
+  - conceptual_explanation
+  priority: 1950
+  tags:
+  - fraction
+  - elementary
+  - conceptual
+  naturalness_score: 6
+- id: fraction_quarter_elementary
+  name: One quarter for elementary
+  pattern: \\frac\{1\}\{4\}
+  output_template: one quarter, which means one piece out of four equal pieces
+  audience: elementary
+  contexts:
+  - introduction
+  - conceptual_explanation
+  priority: 1950
+  tags:
+  - fraction
+  - elementary
+  - conceptual
+  naturalness_score: 6
+- id: fraction_simple_elementary
+  name: Simple fraction for elementary
+  pattern: \\frac\{([1-9])\}\{([1-9])\}
+  output_template: \1 out of \2 equal parts
+  audience: elementary
+  contexts:
+  - basic_introduction
+  - counting
+  priority: 1940
+  tags:
+  - fraction
+  - elementary
+  - simple
+  naturalness_score: 6
+- id: addition_elementary
+  name: Addition for elementary
+  pattern: ([0-9]+)\s*\+\s*([0-9]+)
+  output_template: \1 plus \2, which means adding \2 more to \1
+  audience: elementary
+  contexts:
+  - arithmetic_introduction
+  - counting
+  priority: 1960
+  tags:
+  - addition
+  - elementary
+  - counting
+  naturalness_score: 6
+- id: subtraction_elementary
+  name: Subtraction for elementary
+  pattern: ([0-9]+)\s*-\s*([0-9]+)
+  output_template: \1 minus \2, which means taking away \2 from \1
+  audience: elementary
+  contexts:
+  - arithmetic_introduction
+  - counting
+  priority: 1960
+  tags:
+  - subtraction
+  - elementary
+  - counting
+  naturalness_score: 6
+- id: multiplication_elementary
+  name: Multiplication for elementary
+  pattern: ([0-9]+)\s*\times\s*([0-9]+)
+  output_template: \1 times \2, which means \1 groups of \2
+  audience: elementary
+  contexts:
+  - arithmetic_introduction
+  - grouping
+  priority: 1960
+  tags:
+  - multiplication
+  - elementary
+  - grouping
+  naturalness_score: 6
+- id: division_elementary
+  name: Division for elementary
+  pattern: ([0-9]+)\s*÷\s*([0-9]+)
+  output_template: \1 divided by \2, which means sharing \1 things equally into \2
+    groups
+  audience: elementary
+  contexts:
+  - arithmetic_introduction
+  - sharing
+  priority: 1960
+  tags:
+  - division
+  - elementary
+  - sharing
+  naturalness_score: 6
+- id: squared_elementary
+  name: Squared for elementary
+  pattern: ([0-9]+)\^2
+  output_template: \1 squared, which means \1 times \1
+  audience: elementary
+  contexts:
+  - power_introduction
+  - repeated_multiplication
+  priority: 1950
+  tags:
+  - power
+  - elementary
+  - repeated
+  naturalness_score: 6
+- id: cubed_elementary
+  name: Cubed for elementary
+  pattern: ([0-9]+)\^3
+  output_template: \1 cubed, which means \1 times \1 times \1
+  audience: elementary
+  contexts:
+  - power_introduction
+  - repeated_multiplication
+  priority: 1950
+  tags:
+  - power
+  - elementary
+  - repeated
+  naturalness_score: 6
+- id: area_elementary
+  name: Area for elementary
+  pattern: \\text{Area}\s*=\s*([^=]+)
+  output_template: the area, which tells us how much space is inside the shape, equals
+    \1
+  audience: elementary
+  contexts:
+  - geometry_introduction
+  - measurement
+  priority: 1960
+  tags:
+  - geometry
+  - elementary
+  - area
+  naturalness_score: 6
+- id: perimeter_elementary
+  name: Perimeter for elementary
+  pattern: \\text{Perimeter}\s*=\s*([^=]+)
+  output_template: the perimeter, which is the distance around the outside of the
+    shape, equals \1
+  audience: elementary
+  contexts:
+  - geometry_introduction
+  - measurement
+  priority: 1960
+  tags:
+  - geometry
+  - elementary
+  - perimeter
+  naturalness_score: 6
+- id: simple_equation_elementary
+  name: Simple equation for elementary
+  pattern: x\s*=\s*([0-9]+)
+  output_template: x equals \1, which means the unknown number x is \1
+  audience: elementary
+  contexts:
+  - algebra_introduction
+  - unknown_numbers
+  priority: 1970
+  tags:
+  - equation
+  - elementary
+  - unknown
+  naturalness_score: 6
+- id: solve_for_x_elementary
+  name: Solve for x elementary
+  pattern: \\text{Solve for}\s+x
+  output_template: find the value of x, which is our unknown number
+  audience: elementary
+  contexts:
+  - problem_solving
+  - unknown_numbers
+  priority: 1960
+  tags:
+  - solving
+  - elementary
+  - unknown
+  naturalness_score: 6
+- id: length_elementary
+  name: Length for elementary
+  pattern: \\text{length}\s*=\s*([^=]+)
+  output_template: the length, which tells us how long something is, equals \1
+  audience: elementary
+  contexts:
+  - measurement
+  - size
+  priority: 1950
+  tags:
+  - measurement
+  - elementary
+  - length
+  naturalness_score: 6
+- id: width_elementary
+  name: Width for elementary
+  pattern: \\text{width}\s*=\s*([^=]+)
+  output_template: the width, which tells us how wide something is, equals \1
+  audience: elementary
+  contexts:
+  - measurement
+  - size
+  priority: 1950
+  tags:
+  - measurement
+  - elementary
+  - width
+  naturalness_score: 6
+- id: lets_find_elementary
+  name: Let's find for elementary
+  pattern: \\text{Find}\s+([^\s]+)
+  output_template: let's work together to find \1
+  audience: elementary
+  contexts:
+  - problem_introduction
+  - encouragement
+  priority: 1970
+  tags:
+  - guidance
+  - elementary
+  - encouragement
+  naturalness_score: 6
+- id: good_job_elementary
+  name: Positive reinforcement
+  pattern: \\text{Correct}|\\text{Right}
+  output_template: excellent work! that's exactly right
+  audience: elementary
+  contexts:
+  - feedback
+  - encouragement
+  priority: 1980
+  tags:
+  - feedback
+  - elementary
+  - positive
+  naturalness_score: 6
+- id: first_step_elementary
+  name: First step for elementary
+  pattern: \\text{Step 1}|\\text{First}
+  output_template: first, let's start by
+  audience: elementary
+  contexts:
+  - step_by_step
+  - guidance
+  priority: 1970
+  tags:
+  - steps
+  - elementary
+  - guidance
+  naturalness_score: 6
+- id: next_step_elementary
+  name: Next step for elementary
+  pattern: \\text{Step}\s+([2-9])|\\text{Next}
+  output_template: next, we need to
+  audience: elementary
+  contexts:
+  - step_by_step
+  - continuation
+  priority: 1960
+  tags:
+  - steps
+  - elementary
+  - continuation
+  naturalness_score: 6

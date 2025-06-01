@@ -1,0 +1,224 @@
+# Stage 4: Core Natural Language Enhancement Rules
+# Post-processing patterns for perfect naturalness
+
+metadata:
+  category: "natural_language_enhancers"
+  description: "Stage 4 post-processing rules for polishing mathematical speech to 100% naturalness"
+  version: "4.0.0"
+  stage: 4
+  processing_order: "post"
+
+enhancement_rules:
+  # Article insertion rules
+  article_rules:
+    - id: "definite_article_operations"
+      name: "Add 'the' to mathematical operations"
+      pattern: "\\b(derivative|integral|limit|sum|product|quotient|remainder)\\s+of\\b"
+      replacement: "the \\1 of"
+      contexts: ["all"]
+      description: "Mathematical operations always need definite articles"
+      
+    - id: "definite_article_results"
+      name: "Add 'the' to mathematical results"
+      pattern: "\\b(result|solution|answer|value|expression|equation|formula)\\s+(is|equals|gives)\\b"
+      replacement: "the \\1 \\2"
+      contexts: ["all"]
+      description: "Mathematical results need definite articles"
+      
+    - id: "indefinite_article_an"
+      name: "Add 'an' before vowel sounds"
+      pattern: "\\b(is|as|have|get)\\s+(integral|equation|expression|identity|inequality)\\b"
+      replacement: "\\1 an \\2"
+      contexts: ["educational", "explanation"]
+      description: "Proper indefinite article before vowels"
+      
+  # Connector enhancement rules
+  connector_rules:
+    - id: "which_means_flow"
+      name: "Enhance 'which means' transitions"
+      pattern: "\\bwhich means\\b"
+      replacement: ", which means"
+      contexts: ["explanation", "educational"]
+      description: "Add comma before 'which means' for flow"
+      
+    - id: "that_is_enhancement"
+      name: "Enhance 'that is' clarifications"
+      pattern: "\\bthat is\\b"
+      replacement: ", that is,"
+      contexts: ["clarification", "definition"]
+      description: "Set off clarifications with commas"
+      
+    - id: "in_other_words"
+      name: "Add 'in other words' transitions"
+      pattern: "\\bmeaning\\s+(\\w+)"
+      replacement: "in other words, \\1"
+      contexts: ["explanation", "simplification"]
+      description: "More natural transition for explanations"
+      
+  # Mathematical phrasing improvements
+  phrasing_rules:
+    - id: "with_respect_to_natural"
+      name: "Natural 'with respect to' phrasing"
+      pattern: "\\bd\\s+(\\w+)\\s+d\\s+(\\w+)\\b"
+      replacement: "the derivative of \\1 with respect to \\2"
+      contexts: ["derivative"]
+      description: "Replace symbolic notation with natural language"
+      
+    - id: "approaches_enhancement"
+      name: "Enhance limit approach language"
+      pattern: "\\bas\\s+(\\w+)\\s+approaches\\s+(\\w+)\\b"
+      replacement: "as \\1 gets arbitrarily close to \\2"
+      contexts: ["limit", "educational"]
+      description: "More intuitive limit language"
+      
+    - id: "squared_cubed_natural"
+      name: "Natural power expressions"
+      pattern: "\\b(\\w+)\\s+\\^\\s*2\\b"
+      replacement: "\\1 squared"
+      contexts: ["all"]
+      description: "Natural language for common powers"
+      
+  # Sentence flow improvements
+  flow_rules:
+    - id: "sentence_variation_start"
+      name: "Vary sentence beginnings"
+      pattern: "^The\\s+(\\w+)\\s+of"
+      replacement: "Let's find the \\1 of"
+      contexts: ["problem_solving", "interactive"]
+      probability: 0.3
+      description: "Occasionally vary sentence starts for engagement"
+      
+    - id: "result_introduction"
+      name: "Natural result introduction"
+      pattern: "\\bequals\\s+(\\d+|\\w+)$"
+      replacement: "gives us \\1"
+      contexts: ["calculation", "result"]
+      probability: 0.4
+      description: "Vary 'equals' for more natural flow"
+      
+    - id: "therefore_variety"
+      name: "Vary logical conclusions"
+      pattern: "\\btherefore\\b"
+      replacement: "and so"
+      probability: 0.3
+      description: "Occasional variation of 'therefore'"
+      
+  # Clarification and emphasis rules
+  clarity_rules:
+    - id: "parenthetical_clarification"
+      name: "Add clarifying phrases"
+      pattern: "\\b(discriminant|coefficient|exponent|logarithm)\\b"
+      replacement: "\\1 (the \\1)"
+      contexts: ["first_mention", "educational"]
+      probability: 0.5
+      description: "Clarify technical terms on first use"
+      
+    - id: "important_emphasis"
+      name: "Emphasize key insights"
+      pattern: "\\b(notice|observe|see)\\s+that\\b"
+      replacement: "it's important to \\1 that"
+      contexts: ["key_insight", "revelation"]
+      description: "Emphasize important observations"
+      
+    - id: "concept_reminder"
+      name: "Add concept reminders"
+      pattern: "\\b(derivative|integral|limit)\\s+(?!of|from)"
+      replacement: "\\1, remember,"
+      contexts: ["review", "educational"]
+      probability: 0.2
+      description: "Occasional conceptual reminders"
+      
+  # Professional polish rules
+  polish_rules:
+    - id: "formal_to_conversational"
+      name: "Balance formal and conversational"
+      pattern: "\\bone\\s+can\\s+(see|observe|deduce)\\b"
+      replacement: "we can \\1"
+      contexts: ["educational", "collaborative"]
+      description: "More inclusive language"
+      
+    - id: "active_voice_preference"
+      name: "Prefer active voice"
+      pattern: "\\bis\\s+given\\s+by\\b"
+      replacement: "equals"
+      contexts: ["definition", "formula"]
+      description: "Active voice for clarity"
+      
+    - id: "smooth_transitions"
+      name: "Add smooth transitions"
+      pattern: "\\.\\s+Now\\s+"
+      replacement: ". Moving forward, "
+      contexts: ["step_by_step", "progression"]
+      probability: 0.5
+      description: "Smoother step transitions"
+      
+  # Mathematical beauty and wonder
+  beauty_rules:
+    - id: "elegant_introduction"
+      name: "Introduce elegant results"
+      pattern: "\\bThis\\s+(equation|formula|result)\\b"
+      replacement: "This elegant \\1"
+      contexts: ["beautiful_math", "famous_result"]
+      probability: 0.6
+      description: "Highlight mathematical beauty"
+      
+    - id: "connection_wonder"
+      name: "Express wonder at connections"
+      pattern: "\\bconnects\\s+(\\w+)\\s+to\\s+(\\w+)\\b"
+      replacement: "beautifully connects \\1 to \\2"
+      contexts: ["unification", "connection"]
+      probability: 0.4
+      description: "Emphasize beautiful connections"
+      
+    - id: "profound_results"
+      name: "Acknowledge profound results"
+      pattern: "\\bshows\\s+that\\b"
+      replacement: "reveals the profound fact that"
+      contexts: ["fundamental_theorem", "deep_result"]
+      probability: 0.3
+      description: "Emphasize depth of important results"
+
+# Processing order and conditions
+processing_config:
+  # Order in which rule categories are applied
+  processing_order:
+    - article_rules
+    - phrasing_rules
+    - connector_rules
+    - flow_rules
+    - clarity_rules
+    - polish_rules
+    - beauty_rules
+    
+  # Conditions for applying rules
+  application_conditions:
+    - name: "context_sensitive"
+      description: "Only apply rules matching current context"
+    - name: "probability_based"
+      description: "Apply probabilistic rules based on configured probability"
+    - name: "avoid_over_processing"
+      description: "Don't apply multiple similar rules to same text segment"
+    - name: "preserve_technical_accuracy"
+      description: "Never change mathematical meaning"
+      
+# Quality metrics for enhanced text
+quality_metrics:
+  naturalness_indicators:
+    - "Varied sentence structures"
+    - "Appropriate use of articles"
+    - "Smooth transitions between ideas"
+    - "Natural mathematical phrasing"
+    - "Engaging and clear explanations"
+    - "Professor-like teaching style"
+    
+  perfection_criteria:
+    - metric: "article_usage"
+      target: "All mathematical objects have appropriate articles"
+    - metric: "sentence_variety"
+      target: "No more than 2 consecutive sentences with same structure"
+    - metric: "transition_smoothness"
+      target: "All major transitions have connecting phrases"
+    - metric: "technical_clarity"
+      target: "All technical terms explained or contextualized"
+    - metric: "engagement_level"
+      target: "Text maintains reader interest throughout"

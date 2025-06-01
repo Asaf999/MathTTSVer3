@@ -1,0 +1,576 @@
+metadata:
+  category: vectors_and_geometry
+  description: Vector operations, geometric shapes, angles, and spatial relationships
+  version: 1.0.0
+patterns:
+- id: vector_notation_arrow
+  name: Vector with arrow
+  pattern: \\vec\{([a-zA-Z])\}
+  output_template: Let's explore vector \1, which reveals the mathematical relationship.
+  priority: 1200
+  tags:
+  - vector
+  - notation
+  - arrow
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_notation_bold
+  name: Vector bold notation
+  pattern: \\mathbf\{([a-zA-Z])\}
+  output_template: Let's explore vector \1, which reveals the mathematical relationship.
+  priority: 1200
+  contexts:
+  - vector
+  - linear_algebra
+  tags:
+  - vector
+  - notation
+  - bold
+  naturalness_score: 6
+- id: vector_components_2d
+  name: 2D vector components
+  pattern: \\langle\s*([^,]+),\s*([^\rangle]+)\s*\\rangle
+  output_template: We have the vector \1 comma \2, which reveals the mathematical
+    relationship.
+  priority: 1180
+  tags:
+  - vector
+  - components
+  - 2d
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_components_3d
+  name: 3D vector components
+  pattern: \\langle\s*([^,]+),\s*([^,]+),\s*([^\rangle]+)\s*\\rangle
+  output_template: We have the vector \1 comma \2 comma \3, which reveals the mathematical
+    relationship.
+  priority: 1190
+  tags:
+  - vector
+  - components
+  - 3d
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_components_parentheses
+  name: Vector in parentheses
+  pattern: \(([^,]+),\s*([^,]+),\s*([^)]+)\)
+  output_template: Let's explore \1 comma \2 comma \3, which reveals the mathematical
+    relationship.
+  priority: 1150
+  contexts:
+  - vector
+  - coordinates
+  tags:
+  - vector
+  - components
+  - parentheses
+  naturalness_score: 6
+- id: vector_dot_product
+  name: Dot product
+  pattern: \\vec\{([a-zA-Z])\}\s*\\cdot\s*\\vec\{([a-zA-Z])\}
+  output_template: Let's explore vector \1 dot vector \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - vector
+  - dot_product
+  - operation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_cross_product
+  name: Cross product
+  pattern: \\vec\{([a-zA-Z])\}\s*\\times\s*\\vec\{([a-zA-Z])\}
+  output_template: Let's explore vector \1 cross vector \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - vector
+  - cross_product
+  - operation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_magnitude
+  name: Vector magnitude
+  pattern: \|\\vec\{([a-zA-Z])\}\|
+  output_template: We have the magnitude of vector \1, which reveals the mathematical
+    relationship.
+  priority: 1240
+  tags:
+  - vector
+  - magnitude
+  - norm
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_norm
+  name: Vector norm
+  pattern: \\|([^|]+)\\|
+  output_template: We have the norm of \1, which reveals the mathematical relationship.
+  priority: 1230
+  contexts:
+  - vector
+  - norm
+  tags:
+  - vector
+  - norm
+  naturalness_score: 6
+- id: unit_vector
+  name: Unit vector
+  pattern: \\hat\{([a-zA-Z])\}
+  output_template: Let's explore \1 hat, which reveals the mathematical relationship.
+  priority: 1220
+  tags:
+  - vector
+  - unit
+  - normalized
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: vector_projection
+  name: Vector projection
+  pattern: \\text\{proj\}_\{\\vec\{([a-zA-Z])\}\}\\vec\{([a-zA-Z])\}
+  output_template: We have the projection of vector \2 onto vector \1, which reveals
+    the mathematical relationship.
+  priority: 1210
+  tags:
+  - vector
+  - projection
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: scalar_projection
+  name: Scalar projection
+  pattern: \\text\{comp\}_\{\\vec\{([a-zA-Z])\}\}\\vec\{([a-zA-Z])\}
+  output_template: We have the component of vector \2 along vector \1, which reveals
+    the mathematical relationship.
+  priority: 1210
+  tags:
+  - vector
+  - projection
+  - scalar
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: angle_between_vectors
+  name: Angle between vectors
+  pattern: \\angle\(\\vec\{([a-zA-Z])\},\s*\\vec\{([a-zA-Z])\}\)
+  output_template: We have the angle between vector \1 and vector \2, which reveals
+    the mathematical relationship.
+  priority: 1200
+  tags:
+  - angle
+  - vector
+  - between
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: angle_notation
+  name: Angle notation
+  pattern: \\angle\s*([A-Z])([A-Z])([A-Z])
+  output_template: Let's explore angle \1 \2 \3, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - angle
+  - notation
+  - geometry
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: angle_degrees
+  name: Angle in degrees
+  pattern: (\d+)\^\\circ
+  output_template: Let's explore \1 degrees, which reveals the mathematical relationship.
+  priority: 1280
+  tags:
+  - angle
+  - degrees
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: angle_radians
+  name: Angle in radians
+  pattern: (\d+(?:\.\d+)?)\s*\\text\{rad\}
+  output_template: Let's explore \1 radians, which reveals the mathematical relationship.
+  priority: 1270
+  tags:
+  - angle
+  - radians
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: right_angle
+  name: Right angle
+  pattern: 90\^\\circ|\\frac\{\\pi\}\{2\}
+  output_template: Let's explore ninety degrees, which reveals the mathematical relationship.
+  priority: 1290
+  tags:
+  - angle
+  - right
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: triangle_notation
+  name: Triangle notation
+  pattern: \\triangle\s*([A-Z])([A-Z])([A-Z])
+  output_template: Let's explore triangle \1 \2 \3, which reveals the mathematical
+    relationship.
+  priority: 1180
+  tags:
+  - geometry
+  - triangle
+  - shape
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: circle_notation
+  name: Circle notation
+  pattern: \\bigcirc\s*([A-Z])
+  output_template: Let's explore circle \1, which reveals the mathematical relationship.
+  priority: 1170
+  tags:
+  - geometry
+  - circle
+  - shape
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: square_notation
+  name: Square notation
+  pattern: \\square\s*([A-Z])([A-Z])([A-Z])([A-Z])
+  output_template: Let's explore square \1 \2 \3 \4, which reveals the mathematical
+    relationship.
+  priority: 1170
+  tags:
+  - geometry
+  - square
+  - shape
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: line_segment
+  name: Line segment
+  pattern: \\overline\{([A-Z])([A-Z])\}
+  output_template: Let's explore line segment \1 \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - geometry
+  - line
+  - segment
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ray_notation
+  name: Ray notation
+  pattern: \\overrightarrow\{([A-Z])([A-Z])\}
+  output_template: Let's explore ray \1 \2, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - geometry
+  - ray
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: line_notation
+  name: Line notation
+  pattern: \\overleftrightarrow\{([A-Z])([A-Z])\}
+  output_template: Let's explore line \1 \2, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - geometry
+  - line
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: parallel
+  name: Parallel
+  pattern: \\parallel
+  output_template: Let's explore  is parallel to , which reveals the mathematical
+    relationship.
+  priority: 1150
+  tags:
+  - geometry
+  - parallel
+  - relationship
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: perpendicular
+  name: Perpendicular
+  pattern: \\perp
+  output_template: Let's explore  is perpendicular to , which reveals the mathematical
+    relationship.
+  priority: 1150
+  tags:
+  - geometry
+  - perpendicular
+  - relationship
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: distance_between_points
+  name: Distance between points
+  pattern: d\(([A-Z]),\s*([A-Z])\)
+  output_template: We have the distance from \1 to \2, which reveals the mathematical
+    relationship.
+  priority: 1160
+  tags:
+  - geometry
+  - distance
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: length_of_segment
+  name: Length of segment
+  pattern: \|([A-Z])([A-Z])\|
+  output_template: We have the length of \1 \2, which reveals the mathematical relationship.
+  priority: 1160
+  contexts:
+  - geometry
+  tags:
+  - geometry
+  - length
+  - segment
+  naturalness_score: 6
+- id: area_notation
+  name: Area notation
+  pattern: A\s*=\s*([^\s]+)
+  output_template: Let's explore area beautifully equals \1, which reveals the mathematical
+    relationship.
+  priority: 1140
+  contexts:
+  - geometry
+  tags:
+  - geometry
+  - area
+  naturalness_score: 6
+- id: volume_notation
+  name: Volume notation
+  pattern: V\s*=\s*([^\s]+)
+  output_template: Let's explore volume beautifully equals \1, which reveals the mathematical
+    relationship.
+  priority: 1140
+  contexts:
+  - geometry
+  tags:
+  - geometry
+  - volume
+  naturalness_score: 6
+- id: perimeter_notation
+  name: Perimeter notation
+  pattern: P\s*=\s*([^\s]+)
+  output_template: Let's explore perimeter beautifully equals \1, which reveals the
+    mathematical relationship.
+  priority: 1140
+  contexts:
+  - geometry
+  tags:
+  - geometry
+  - perimeter
+  naturalness_score: 6
+- id: cartesian_coordinates
+  name: Cartesian coordinates
+  pattern: \(x,\s*y\)
+  output_template: Let's explore x comma y, which reveals the mathematical relationship.
+  priority: 1100
+  contexts:
+  - coordinates
+  tags:
+  - coordinates
+  - cartesian
+  - 2d
+  naturalness_score: 6
+- id: polar_coordinates
+  name: Polar coordinates
+  pattern: \(r,\s*\\theta\)
+  output_template: Let's explore r comma theta, which reveals the mathematical relationship.
+  priority: 1100
+  contexts:
+  - coordinates
+  tags:
+  - coordinates
+  - polar
+  naturalness_score: 6
+- id: spherical_coordinates
+  name: Spherical coordinates
+  pattern: \(\\rho,\s*\\theta,\s*\\phi\)
+  output_template: rho comma theta comma phi
+  priority: 1100
+  contexts:
+  - coordinates
+  tags:
+  - coordinates
+  - spherical
+  - 3d
+  naturalness_score: 6
+- id: cylindrical_coordinates
+  name: Cylindrical coordinates
+  pattern: \(r,\s*\\theta,\s*z\)
+  output_template: r comma theta comma z
+  priority: 1100
+  contexts:
+  - coordinates
+  tags:
+  - coordinates
+  - cylindrical
+  - 3d
+  naturalness_score: 6
+- id: translation
+  name: Translation
+  pattern: T_\{\\vec\{([a-zA-Z])\}\}
+  output_template: Let's explore translation by vector \1, which reveals the mathematical
+    relationship.
+  priority: 1120
+  tags:
+  - transformation
+  - translation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: rotation
+  name: Rotation
+  pattern: R_\{([^{}]+)\}
+  output_template: Let's explore rotation by \1, which reveals the mathematical relationship.
+  priority: 1120
+  tags:
+  - transformation
+  - rotation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: reflection
+  name: Reflection
+  pattern: \\text\{Ref\}_\{([^{}]+)\}
+  output_template: Let's explore reflection across \1, which reveals the mathematical
+    relationship.
+  priority: 1120
+  tags:
+  - transformation
+  - reflection
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: congruent
+  name: Congruent
+  pattern: \\cong
+  output_template: Let's explore  is congruent to , which reveals the mathematical
+    relationship.
+  priority: 1130
+  tags:
+  - geometry
+  - congruent
+  - relationship
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: similar
+  name: Similar
+  pattern: \\sim
+  output_template: Let's explore  is similar to , which reveals the mathematical relationship.
+  priority: 1130
+  contexts:
+  - geometry
+  tags:
+  - geometry
+  - similar
+  - relationship
+  naturalness_score: 6
+- id: basis_vectors
+  name: Basis vectors
+  pattern: \\\{\\vec\{e\}_1,\s*\\vec\{e\}_2,\s*\\vec\{e\}_3\\\}
+  output_template: We have the basis vectors e 1, e 2, e 3
+  priority: 1110
+  tags:
+  - vector
+  - basis
+  - space
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: standard_basis
+  name: Standard basis vectors
+  pattern: \\vec\{i\},\s*\\vec\{j\},\s*\\vec\{k\}
+  output_template: i hat, j hat, k hat
+  priority: 1110
+  tags:
+  - vector
+  - basis
+  - standard
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: gradient
+  name: Gradient
+  pattern: \\nabla\s*([a-zA-Z])
+  output_template: Let's explore gradient of \1, which reveals the mathematical relationship.
+  priority: 1150
+  contexts:
+  - vector_calculus
+  tags:
+  - vector
+  - gradient
+  - calculus
+  naturalness_score: 6
+- id: divergence
+  name: Divergence
+  pattern: \\nabla\s*\\cdot\s*\\vec\{([a-zA-Z])\}
+  output_template: Let's explore divergence of vector \1, which reveals the mathematical
+    relationship.
+  priority: 1160
+  tags:
+  - vector
+  - divergence
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: curl
+  name: Curl
+  pattern: \\nabla\s*\\times\s*\\vec\{([a-zA-Z])\}
+  output_template: Let's explore curl of vector \1, which reveals the mathematical
+    relationship.
+  priority: 1160
+  tags:
+  - vector
+  - curl
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

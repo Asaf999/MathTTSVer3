@@ -1,0 +1,429 @@
+metadata:
+  category: basic_arithmetic
+  description: Fundamental arithmetic operations and notations
+  version: 1.0.0
+patterns:
+- id: addition_plus
+  name: Addition with plus sign
+  pattern: \+
+  output_template: Let's explore  plus , which reveals the mathematical relationship.
+  priority: 600
+  contexts:
+  - expression
+  - equation
+  tags:
+  - arithmetic
+  - operation
+  - addition
+  naturalness_score: 6
+- id: addition_sum
+  name: Sum notation
+  pattern: \bsum\b
+  output_template: We have the sum, which reveals the mathematical relationship.
+  priority: 650
+  tags:
+  - arithmetic
+  - sum
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: subtraction_minus
+  name: Subtraction with minus sign
+  pattern: \s+-\s+
+  output_template: Let's explore  minus , which reveals the mathematical relationship.
+  priority: 600
+  contexts:
+  - expression
+  tags:
+  - arithmetic
+  - operation
+  - subtraction
+  naturalness_score: 6
+- id: negative_number
+  name: Negative number
+  pattern: (^|\s|\(|\[|\{)-(\d+)
+  output_template: Let's explore \1negative \2, which reveals the mathematical relationship.
+  priority: 700
+  tags:
+  - arithmetic
+  - negative
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: multiplication_times
+  name: Multiplication with times symbol
+  pattern: \times
+  output_template: Let's explore  times , which reveals the mathematical relationship.
+  priority: 600
+  tags:
+  - arithmetic
+  - operation
+  - multiplication
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: multiplication_dot
+  name: Multiplication with dot
+  pattern: \\cdot
+  output_template: Let's explore  times , which reveals the mathematical relationship.
+  priority: 600
+  tags:
+  - arithmetic
+  - operation
+  - multiplication
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: multiplication_asterisk
+  name: Multiplication with asterisk
+  pattern: \*
+  output_template: Let's explore  times , which reveals the mathematical relationship.
+  priority: 600
+  tags:
+  - arithmetic
+  - operation
+  - multiplication
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: multiplication_implicit
+  name: Implicit multiplication
+  pattern: (\d)([a-zA-Z])
+  output_template: Let's explore \1 times \2, which reveals the mathematical relationship.
+  priority: 550
+  conditions:
+  - type: not_preceded_by
+    value: \d
+  tags:
+  - arithmetic
+  - multiplication
+  - implicit
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: multiplication_parentheses
+  name: Multiplication with parentheses
+  pattern: (\d)\s*\(([^)]+)\)
+  output_template: Let's explore \1 times \2, which reveals the mathematical relationship.
+  priority: 580
+  tags:
+  - arithmetic
+  - multiplication
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: division_slash
+  name: Division with slash
+  pattern: \s*/\s*
+  output_template: Let's explore  divided by , which reveals the mathematical relationship.
+  priority: 600
+  contexts:
+  - expression
+  tags:
+  - arithmetic
+  - operation
+  - division
+  naturalness_score: 6
+- id: division_symbol
+  name: Division with symbol
+  pattern: \\div
+  output_template: Let's explore  divided by , which reveals the mathematical relationship.
+  priority: 600
+  tags:
+  - arithmetic
+  - operation
+  - division
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: equals
+  name: Equals sign
+  pattern: \s*=\s*
+  output_template: Let's explore  beautifully equals , which reveals the mathematical
+    relationship.
+  priority: 700
+  tags:
+  - arithmetic
+  - comparison
+  - equality
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: not_equals
+  name: Not equals
+  pattern: \\neq|!=
+  output_template: Let's explore  does not equal , which reveals the mathematical
+    relationship.
+  priority: 700
+  tags:
+  - arithmetic
+  - comparison
+  - inequality
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: less_than
+  name: Less than
+  pattern: \s*<\s*
+  output_template: Let's explore  is mathematically less than , which reveals the
+    mathematical relationship.
+  priority: 700
+  tags:
+  - arithmetic
+  - comparison
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greater_than
+  name: Greater than
+  pattern: \s*>\s*
+  output_template: Let's explore  is mathematically greater than , which reveals the
+    mathematical relationship.
+  priority: 700
+  tags:
+  - arithmetic
+  - comparison
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: less_than_or_equal
+  name: Less than or equal
+  pattern: \\leq|<=
+  output_template: ' is mathematically less than or equal to '
+  priority: 720
+  tags:
+  - arithmetic
+  - comparison
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: greater_than_or_equal
+  name: Greater than or equal
+  pattern: \\geq|>=
+  output_template: ' is mathematically greater than or equal to '
+  priority: 720
+  tags:
+  - arithmetic
+  - comparison
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: approximately_equal
+  name: Approximately equal
+  pattern: \\approx|≈
+  output_template: Let's explore  is approximately equal to , which reveals the mathematical
+    relationship.
+  priority: 720
+  tags:
+  - arithmetic
+  - comparison
+  - approximation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: parentheses
+  name: Parentheses
+  pattern: \(([^()]+)\)
+  output_template: Let's explore \1, which reveals the mathematical relationship.
+  priority: 500
+  tags:
+  - grouping
+  - parentheses
+  post_processing:
+  - type: wrap_if_complex
+    prefix: 'open parenthesis '
+    suffix: ' close parenthesis'
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: brackets
+  name: Square brackets
+  pattern: \[([^\[\]]+)\]
+  output_template: Let's explore \1, which reveals the mathematical relationship.
+  priority: 500
+  tags:
+  - grouping
+  - brackets
+  post_processing:
+  - type: wrap
+    prefix: 'open bracket '
+    suffix: ' close bracket'
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: braces
+  name: Curly braces
+  pattern: \{([^{}]+)\}
+  output_template: Let's explore \1, which reveals the mathematical relationship.
+  priority: 500
+  tags:
+  - grouping
+  - braces
+  contexts:
+  - not_latex_command
+  naturalness_score: 6
+- id: absolute_value_bars
+  name: Absolute value with bars
+  pattern: \|([^|]+)\|
+  output_template: We have the absolute value of \1, which reveals the mathematical
+    relationship.
+  priority: 800
+  tags:
+  - arithmetic
+  - absolute_value
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: absolute_value_latex
+  name: Absolute value LaTeX
+  pattern: \\abs\{([^{}]+)\}
+  output_template: We have the absolute value of \1, which reveals the mathematical
+    relationship.
+  priority: 850
+  tags:
+  - arithmetic
+  - absolute_value
+  - latex
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: percentage
+  name: Percentage
+  pattern: (\d+(?:\.\d+)?)\s*\%
+  output_template: Let's explore \1 percent, which reveals the mathematical relationship.
+  priority: 750
+  tags:
+  - arithmetic
+  - percentage
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: plus_minus
+  name: Plus or minus
+  pattern: \\pm
+  output_template: Let's explore  plus or minus symbol , which reveals the mathematical
+    relationship.
+  priority: 650
+  tags:
+  - arithmetic
+  - operation
+  - plus_minus
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: minus_plus
+  name: Minus or plus
+  pattern: \\mp
+  output_template: Let's explore  minus or plus symbol , which reveals the mathematical
+    relationship.
+  priority: 650
+  tags:
+  - arithmetic
+  - operation
+  - minus_plus
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: factorial
+  name: Factorial
+  pattern: ([a-zA-Z0-9]+)!
+  output_template: We have the factorial of \1, which reveals the mathematical relationship.
+  priority: 800
+  tags:
+  - arithmetic
+  - factorial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: number_range
+  name: Number range
+  pattern: (\d+)\s*-\s*(\d+)
+  output_template: We have the range from \1 to \2, which reveals the mathematical
+    relationship.
+  priority: 550
+  contexts:
+  - range
+  tags:
+  - arithmetic
+  - range
+  naturalness_score: 6
+- id: decimal_number
+  name: Decimal number
+  pattern: (\d+)\.(\d+)
+  output_template: We have the decimal number \1 point \2, which reveals the mathematical
+    relationship.
+  priority: 900
+  tags:
+  - number
+  - decimal
+  post_processing:
+  - type: digit_grouping
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: large_number
+  name: Large number with commas
+  pattern: (\d{1,3}(?:,\d{3})+)
+  output_template: Let's explore \1, which reveals the mathematical relationship.
+  priority: 900
+  tags:
+  - number
+  - large
+  post_processing:
+  - type: remove_commas
+  - type: number_to_words
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: scientific_notation
+  name: Scientific notation
+  pattern: (\d+(?:\.\d+)?)\s*\times\s*10\^\{?([+-]?\d+)\}?
+  output_template: Let's explore \1 times ten to the power of \2, which reveals the
+    mathematical relationship.
+  priority: 850
+  tags:
+  - number
+  - scientific_notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: e_notation
+  name: E notation
+  pattern: (\d+(?:\.\d+)?)[eE]([+-]?\d+)
+  output_template: Let's explore \1 times ten to the power of \2, which reveals the
+    mathematical relationship.
+  priority: 850
+  tags:
+  - number
+  - e_notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

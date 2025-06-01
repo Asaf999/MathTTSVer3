@@ -1,0 +1,466 @@
+metadata:
+  category: powers_and_roots
+  description: Exponents, powers, roots, and related notations
+  version: 1.0.0
+patterns:
+- id: power_squared
+  name: Squared
+  pattern: ([a-zA-Z0-9]+)\^2
+  output_template: Let's explore \1 raised to the second power, which reveals the
+    mathematical relationship.
+  priority: 1350
+  tags:
+  - power
+  - squared
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_cubed
+  name: Cubed
+  pattern: ([a-zA-Z0-9]+)\^3
+  output_template: Let's explore \1 raised to the third power, which reveals the mathematical
+    relationship.
+  priority: 1350
+  tags:
+  - power
+  - cubed
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_fourth
+  name: To the fourth
+  pattern: ([a-zA-Z0-9]+)\^4
+  output_template: Let's explore \1 raised to the fourth power, which reveals the
+    mathematical relationship.
+  priority: 1340
+  tags:
+  - power
+  - fourth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_fifth
+  name: To the fifth
+  pattern: ([a-zA-Z0-9]+)\^5
+  output_template: Let's explore \1 raised to the fifth power, which reveals the mathematical
+    relationship.
+  priority: 1340
+  tags:
+  - power
+  - fifth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_ordinal
+  name: Power with ordinal
+  pattern: ([a-zA-Z0-9]+)\^(\d+)
+  output_template: Let's explore \1 to the {ordinal(\2)} power, which reveals the
+    mathematical relationship.
+  priority: 1300
+  conditions:
+  - type: value_range
+    field: \2
+    min: 6
+    max: 20
+  tags:
+  - power
+  - ordinal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_numeric
+  name: Numeric power
+  pattern: ([a-zA-Z0-9]+)\^(\d+)
+  output_template: Let's explore \1 to the power of \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - power
+  - numeric
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_variable
+  name: Variable power
+  pattern: ([a-zA-Z0-9]+)\^([a-zA-Z])
+  output_template: Let's explore \1 to the power of \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - power
+  - variable
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_expression
+  name: Expression power
+  pattern: ([a-zA-Z0-9]+)\^\{([^{}]+)\}
+  output_template: Let's explore \1 to the power of \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - power
+  - expression
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_negative
+  name: Negative power
+  pattern: ([a-zA-Z0-9]+)\^\{?-(\d+)\}?
+  output_template: Let's explore \1 raised to the negative power of \2, which reveals
+    the mathematical relationship.
+  priority: 1320
+  tags:
+  - power
+  - negative
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_fraction
+  name: Fractional power
+  pattern: ([a-zA-Z0-9]+)\^\{\\frac\{([^{}]+)\}\{([^{}]+)\}\}
+  output_template: Let's explore \1 raised to the power of \2 over \3, which reveals
+    the mathematical relationship.
+  priority: 1280
+  tags:
+  - power
+  - fraction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_parentheses
+  name: Parenthetical power
+  pattern: \(([^()]+)\)\^(\d+)
+  output_template: Let's explore open parenthesis \1 close parenthesis to the power
+    of \2, which reveals the mathematical relationship.
+  priority: 1300
+  tags:
+  - power
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: power_parentheses_expression
+  name: Parenthetical power with expression
+  pattern: \(([^()]+)\)\^\{([^{}]+)\}
+  output_template: Let's explore open parenthesis \1 close parenthesis to the power
+    of \2, which reveals the mathematical relationship.
+  priority: 1280
+  tags:
+  - power
+  - parentheses
+  - expression
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sqrt_simple
+  name: Simple square root
+  pattern: \\sqrt\{([^{}]+)\}
+  output_template: We have the square root of \1, which reveals the mathematical relationship.
+  priority: 1350
+  tags:
+  - root
+  - square
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sqrt_no_braces
+  name: Square root without braces
+  pattern: \\sqrt\s+([a-zA-Z0-9])
+  output_template: We have the square root of \1, which reveals the mathematical relationship.
+  priority: 1340
+  tags:
+  - root
+  - square
+  - simple
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sqrt_symbol
+  name: Square root symbol
+  pattern: √([^\s]+)
+  output_template: We have the square root of \1, which reveals the mathematical relationship.
+  priority: 1330
+  tags:
+  - root
+  - square
+  - symbol
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_cube
+  name: Cube root
+  pattern: \\sqrt\[3\]\{([^{}]+)\}
+  output_template: We have the cube root of \1, which reveals the mathematical relationship.
+  priority: 1360
+  tags:
+  - root
+  - cube
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_fourth
+  name: Fourth root
+  pattern: \\sqrt\[4\]\{([^{}]+)\}
+  output_template: We have the fourth root of \1, which reveals the mathematical relationship.
+  priority: 1350
+  tags:
+  - root
+  - fourth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_nth_ordinal
+  name: Nth root with ordinal
+  pattern: \\sqrt\[(\d+)\]\{([^{}]+)\}
+  output_template: We have the {ordinal(\1)} root of \2, which reveals the mathematical
+    relationship.
+  priority: 1340
+  conditions:
+  - type: value_range
+    field: \1
+    min: 2
+    max: 20
+  tags:
+  - root
+  - nth
+  - ordinal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_nth_general
+  name: Nth root general
+  pattern: \\sqrt\[(\d+)\]\{([^{}]+)\}
+  output_template: We have the \1 root of \2, which reveals the mathematical relationship.
+  priority: 1300
+  tags:
+  - root
+  - nth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_nth_variable
+  name: Variable root
+  pattern: \\sqrt\[([a-zA-Z])\]\{([^{}]+)\}
+  output_template: We have the \1 root of \2, which reveals the mathematical relationship.
+  priority: 1280
+  tags:
+  - root
+  - variable
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_as_power_half
+  name: Square root as power
+  pattern: ([a-zA-Z0-9]+)\^\{?1/2\}?
+  output_template: We have the square root of \1, which reveals the mathematical relationship.
+  priority: 1320
+  tags:
+  - root
+  - power
+  - square
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_as_power_third
+  name: Cube root as power
+  pattern: ([a-zA-Z0-9]+)\^\{?1/3\}?
+  output_template: We have the cube root of \1, which reveals the mathematical relationship.
+  priority: 1320
+  tags:
+  - root
+  - power
+  - cube
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_as_power_nth
+  name: Nth root as power
+  pattern: ([a-zA-Z0-9]+)\^\{?1/(\d+)\}?
+  output_template: We have the \2 root of \1, which reveals the mathematical relationship.
+  priority: 1300
+  tags:
+  - root
+  - power
+  - nth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_nested
+  name: Nested roots
+  pattern: \\sqrt\{\\sqrt\{([^{}]+)\}\}
+  output_template: We have the square root of the square root of \1, which reveals
+    the mathematical relationship.
+  priority: 1250
+  tags:
+  - root
+  - nested
+  - complex
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_sum
+  name: Root of sum
+  pattern: \\sqrt\{([^{}]+)\s*\+\s*([^{}]+)\}
+  output_template: We have the square root of \1 plus \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - root
+  - sum
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: root_product
+  name: Root of product
+  pattern: \\sqrt\{([^{}]+)\s*\\cdot\s*([^{}]+)\}
+  output_template: We have the square root of \1 times \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - root
+  - product
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: exp_function
+  name: Exponential function
+  pattern: \\exp\(([^)]+)\)
+  output_template: Let's explore e to the power of \1, which reveals the mathematical
+    relationship.
+  priority: 1380
+  tags:
+  - exponential
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: exp_function_braces
+  name: Exponential function with braces
+  pattern: \\exp\{([^{}]+)\}
+  output_template: Let's explore e to the power of \1, which reveals the mathematical
+    relationship.
+  priority: 1380
+  tags:
+  - exponential
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: e_power
+  name: e to power
+  pattern: e\^\{?([^{}\s]+)\}?
+  output_template: Let's explore e to the power of \1, which reveals the mathematical
+    relationship.
+  priority: 1370
+  tags:
+  - exponential
+  - e
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: exp_squared
+  name: e squared
+  pattern: e\^2
+  output_template: Let's explore e squared, which reveals the mathematical relationship.
+  priority: 1390
+  tags:
+  - exponential
+  - squared
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: exp_negative
+  name: e to negative power
+  pattern: e\^\{?-([^{}\s]+)\}?
+  output_template: Let's explore e to the negative \1, which reveals the mathematical
+    relationship.
+  priority: 1380
+  tags:
+  - exponential
+  - negative
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_power
+  name: Logarithm base as power
+  pattern: \\log_\{([^{}]+)\}\^\{([^{}]+)\}
+  output_template: Let's explore log base \1 to the power of \2, which reveals the
+    mathematical relationship.
+  priority: 1150
+  tags:
+  - logarithm
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: matrix_power
+  name: Matrix power
+  pattern: ([A-Z])\^\{([^{}]+)\}
+  output_template: Let's explore \1 to the power of \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  contexts:
+  - matrix
+  tags:
+  - matrix
+  - power
+  naturalness_score: 6
+- id: matrix_inverse
+  name: Matrix inverse
+  pattern: ([A-Z])\^\{-1\}
+  output_template: Let's explore \1 inverse, which reveals the mathematical relationship.
+  priority: 1350
+  contexts:
+  - matrix
+  - linear_algebra
+  tags:
+  - matrix
+  - inverse
+  naturalness_score: 6
+- id: matrix_transpose
+  name: Matrix transpose
+  pattern: ([A-Z])\^T
+  output_template: Let's explore \1 transpose, which reveals the mathematical relationship.
+  priority: 1350
+  contexts:
+  - matrix
+  - linear_algebra
+  tags:
+  - matrix
+  - transpose
+  naturalness_score: 6

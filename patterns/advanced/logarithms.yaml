@@ -1,0 +1,393 @@
+metadata:
+  category: logarithms
+  description: Natural log, common log, and logarithms with various bases
+  version: 1.0.0
+patterns:
+- id: log_natural
+  name: Natural logarithm
+  pattern: \\ln\s*\(([^)]+)\)
+  output_template: Let's explore natural log of \1, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - log
+  - natural
+  - ln
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_natural_no_parens
+  name: Natural log without parentheses
+  pattern: \\ln\s+([a-zA-Z0-9]+)
+  output_template: Let's explore natural log of \1, which reveals the mathematical
+    relationship.
+  priority: 1040
+  tags:
+  - log
+  - natural
+  - simple
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_natural_abs
+  name: Natural log of absolute value
+  pattern: \\ln\s*\|([^|]+)\|
+  output_template: Let's explore natural log of the absolute value of \1, which reveals
+    the mathematical relationship.
+  priority: 1060
+  tags:
+  - log
+  - natural
+  - absolute
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_common
+  name: Common logarithm
+  pattern: \\log\s*\(([^)]+)\)
+  output_template: Let's explore log of \1, which reveals the mathematical relationship.
+  priority: 1040
+  tags:
+  - log
+  - common
+  - base10
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_10_explicit
+  name: Log base 10 explicit
+  pattern: \\log_{10}\s*\(([^)]+)\)
+  output_template: Let's explore log base 10 of \1, which reveals the mathematical
+    relationship.
+  priority: 1070
+  tags:
+  - log
+  - base10
+  - explicit
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_2
+  name: Binary logarithm
+  pattern: \\log_2\s*\(([^)]+)\)
+  output_template: Let's explore log base 2 of \1, which reveals the mathematical
+    relationship.
+  priority: 1080
+  tags:
+  - log
+  - binary
+  - base2
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_e
+  name: Log base e
+  pattern: \\log_e\s*\(([^)]+)\)
+  output_template: Let's explore log base e of \1, which reveals the mathematical
+    relationship.
+  priority: 1070
+  tags:
+  - log
+  - natural
+  - base_e
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_numeric
+  name: Log with numeric base
+  pattern: \\log_{(\d+)}\s*\(([^)]+)\)
+  output_template: Let's explore log base \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1060
+  tags:
+  - log
+  - numeric_base
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_variable
+  name: Log with variable base
+  pattern: \\log_{([a-zA-Z])}\s*\(([^)]+)\)
+  output_template: Let's explore log base \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - log
+  - variable_base
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_expression
+  name: Log with expression base
+  pattern: \\log_{\(([^)]+)\)}\s*\(([^)]+)\)
+  output_template: Let's explore log base \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1040
+  tags:
+  - log
+  - expression_base
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_subscript
+  name: Log base with subscript
+  pattern: \\log\s*\\!\s*_{([^{}]+)}\s*\(([^)]+)\)
+  output_template: Let's explore log base \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1030
+  tags:
+  - log
+  - subscript
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_squared
+  name: Log squared
+  pattern: \\log\^2\s*\(([^)]+)\)
+  output_template: Let's explore log squared of \1, which reveals the mathematical
+    relationship.
+  priority: 1070
+  tags:
+  - log
+  - power
+  - squared
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_power
+  name: Log to power
+  pattern: \\log\^{([^{}]+)}\s*\(([^)]+)\)
+  output_template: Let's explore log to the power of \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - log
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ln_squared
+  name: Natural log squared
+  pattern: \\ln\^2\s*\(([^)]+)\)
+  output_template: Let's explore natural log squared of \1, which reveals the mathematical
+    relationship.
+  priority: 1070
+  tags:
+  - log
+  - natural
+  - power
+  - squared
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_product
+  name: Log of product
+  pattern: \\log\s*\(([^)]+)\s*\\cdot\s*([^)]+)\)
+  output_template: Let's explore log of \1 times \2, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - log
+  - product
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_quotient
+  name: Log of quotient
+  pattern: \\log\s*\(\\frac\{([^{}]+)\}\{([^{}]+)\}\)
+  output_template: Let's explore log of \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1010
+  tags:
+  - log
+  - quotient
+  - fraction
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_of_power
+  name: Log of power
+  pattern: \\log\s*\(([^)]+)\^{([^{}]+)}\)
+  output_template: Let's explore log of \1 to the power of \2, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - log
+  - power_argument
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_of_e
+  name: Log of e
+  pattern: \\ln\s*\(e\)
+  output_template: Let's explore natural log of e, which reveals the mathematical
+    relationship.
+  priority: 1090
+  tags:
+  - log
+  - natural
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_of_1
+  name: Log of 1
+  pattern: \\log\s*\(1\)
+  output_template: Let's explore log of 1, which reveals the mathematical relationship.
+  priority: 1090
+  tags:
+  - log
+  - special
+  - zero
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_lg
+  name: Binary log lg notation
+  pattern: \\lg\s*\(([^)]+)\)
+  output_template: Let's explore binary log of \1, which reveals the mathematical
+    relationship.
+  priority: 1060
+  tags:
+  - log
+  - binary
+  - lg
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_change_of_base
+  name: Change of base formula
+  pattern: \\frac\{\\log\s*\(([^)]+)\)\}\{\\log\s*\(([^)]+)\)\}
+  output_template: Let's explore log of \1 over log of \2, which reveals the mathematical
+    relationship.
+  priority: 980
+  tags:
+  - log
+  - change_of_base
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_sum
+  name: Sum of logs
+  pattern: \\log\s*\(([^)]+)\)\s*\+\s*\\log\s*\(([^)]+)\)
+  output_template: Let's explore log of \1 plus log of \2, which reveals the mathematical
+    relationship.
+  priority: 950
+  tags:
+  - log
+  - sum
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_difference
+  name: Difference of logs
+  pattern: \\log\s*\(([^)]+)\)\s*-\s*\\log\s*\(([^)]+)\)
+  output_template: Let's explore log of \1 minus log of \2, which reveals the mathematical
+    relationship.
+  priority: 950
+  tags:
+  - log
+  - difference
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_multi_arg
+  name: Multi-argument log
+  pattern: \\log\s*\(([^,]+),\s*([^)]+)\)
+  output_template: Let's explore log base \2 of \1, which reveals the mathematical
+    relationship.
+  priority: 1030
+  contexts:
+  - programming
+  tags:
+  - log
+  - multi_arg
+  naturalness_score: 6
+- id: log_derivative
+  name: Derivative of log
+  pattern: \\frac\{d\}\{dx\}\s*\\ln\s*\(([^)]+)\)
+  output_template: We have the the derivative, which measures the rate of change,
+    of natural log of \1 with respect to x
+  priority: 900
+  tags:
+  - log
+  - derivative
+  - calculus
+  naturalness_score: 6
+  contexts:
+  - calculus
+  - rate_of_change
+- id: log_of_log
+  name: Log of log
+  pattern: \\log\s*\(\\log\s*\(([^)]+)\)\)
+  output_template: Let's explore log of log of \1, which reveals the mathematical
+    relationship.
+  priority: 970
+  tags:
+  - log
+  - composition
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ln_of_ln
+  name: Natural log of natural log
+  pattern: \\ln\s*\(\\ln\s*\(([^)]+)\)\)
+  output_template: Let's explore natural log of natural log of \1, which reveals the
+    mathematical relationship.
+  priority: 970
+  tags:
+  - log
+  - natural
+  - composition
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_inequality
+  name: Log inequality
+  pattern: \\log\s*\(([^)]+)\)\s*(<|>|\\leq|\\geq)\s*([^\s]+)
+  output_template: Let's explore log of \1 \2 \3, which reveals the mathematical relationship.
+  priority: 920
+  tags:
+  - log
+  - inequality
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: log_base_subscript_parens
+  name: Log with parenthetical base
+  pattern: \\log\s*\(([^)]+)\)\s*\(([^)]+)\)
+  output_template: Let's explore log base \1 of \2, which reveals the mathematical
+    relationship.
+  priority: 1020
+  contexts:
+  - alternative_notation
+  tags:
+  - log
+  - alternative
+  naturalness_score: 6

@@ -1,0 +1,478 @@
+metadata:
+  category: number_theory
+  description: Prime numbers, divisibility, modular arithmetic, and number theoretic
+    functions
+  version: 1.0.0
+patterns:
+- id: divides
+  name: Divides
+  pattern: ([a-zA-Z0-9]+)\s*\|\s*([a-zA-Z0-9]+)
+  output_template: Let's explore \1 divides \2, which reveals the mathematical relationship.
+  priority: 1150
+  contexts:
+  - number_theory
+  tags:
+  - divisibility
+  - divides
+  naturalness_score: 6
+- id: does_not_divide
+  name: Does not divide
+  pattern: ([a-zA-Z0-9]+)\s*\nmid\s*([a-zA-Z0-9]+)
+  output_template: Let's explore \1 does not divide \2, which reveals the mathematical
+    relationship.
+  priority: 1150
+  tags:
+  - divisibility
+  - not_divides
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: divisible_by
+  name: Divisible by
+  pattern: ([a-zA-Z0-9]+)\s*\\equiv\s*0\s*\\pmod\{([^{}]+)\}
+  output_template: Let's explore \1 is divisible by \2, which reveals the mathematical
+    relationship.
+  priority: 1160
+  tags:
+  - divisibility
+  - modular
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: gcd
+  name: Greatest common divisor
+  pattern: \\gcd\(([^,)]+),\s*([^)]+)\)
+  output_template: We have the greatest common divisor of \1 and \2, which reveals
+    the mathematical relationship.
+  priority: 1180
+  tags:
+  - gcd
+  - divisibility
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: gcd_notation
+  name: GCD alternative notation
+  pattern: \(([^,)]+),\s*([^)]+)\)
+  output_template: We have the GCD of \1 and \2, which reveals the mathematical relationship.
+  priority: 1170
+  contexts:
+  - gcd
+  tags:
+  - gcd
+  - notation
+  naturalness_score: 6
+- id: lcm
+  name: Least common multiple
+  pattern: \\text\{lcm\}\(([^,)]+),\s*([^)]+)\)
+  output_template: We have the least common multiple of \1 and \2, which reveals the
+    mathematical relationship.
+  priority: 1180
+  tags:
+  - lcm
+  - divisibility
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: lcm_bracket
+  name: LCM bracket notation
+  pattern: \[([^,\]]+),\s*([^\]]+)\]
+  output_template: We have the LCM of \1 and \2, which reveals the mathematical relationship.
+  priority: 1170
+  contexts:
+  - lcm
+  tags:
+  - lcm
+  - notation
+  naturalness_score: 6
+- id: prime_notation
+  name: Prime notation
+  pattern: p_\{?([^{}\s]+)\}?
+  output_template: Let's explore p sub \1, which reveals the mathematical relationship.
+  priority: 1120
+  contexts:
+  - prime
+  tags:
+  - prime
+  - notation
+  naturalness_score: 6
+- id: nth_prime
+  name: Nth prime
+  pattern: \\pi\((\d+)\)
+  output_template: We have the \1th prime, which reveals the mathematical relationship.
+  priority: 1140
+  contexts:
+  - number_theory
+  tags:
+  - prime
+  - counting
+  naturalness_score: 6
+- id: prime_counting
+  name: Prime counting function
+  pattern: \\pi\(([^)]+)\)
+  output_template: Let's explore pi of \1, which reveals the mathematical relationship.
+  priority: 1130
+  contexts:
+  - number_theory
+  tags:
+  - prime
+  - counting_function
+  naturalness_score: 6
+- id: is_prime
+  name: Is prime
+  pattern: ([a-zA-Z0-9]+)\s*\\in\s*\\mathbb\{P\}
+  output_template: Let's explore \1 is prime, which reveals the mathematical relationship.
+  priority: 1140
+  tags:
+  - prime
+  - membership
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: coprime
+  name: Coprime
+  pattern: \\gcd\(([^,)]+),\s*([^)]+)\)\s*=\s*1
+  output_template: Let's explore \1 and \2 are coprime, which reveals the mathematical
+    relationship.
+  priority: 1190
+  tags:
+  - coprime
+  - gcd
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: relatively_prime
+  name: Relatively prime
+  pattern: ([a-zA-Z0-9]+)\s*\\perp\s*([a-zA-Z0-9]+)
+  output_template: Let's explore \1 is relatively prime to \2, which reveals the mathematical
+    relationship.
+  priority: 1160
+  tags:
+  - coprime
+  - notation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: euler_totient
+  name: Euler's totient function
+  pattern: \\phi\(([^)]+)\)
+  output_template: Let's explore phi of \1, which reveals the mathematical relationship.
+  priority: 1150
+  contexts:
+  - number_theory
+  tags:
+  - totient
+  - euler
+  naturalness_score: 6
+- id: euler_phi
+  name: Euler's phi function
+  pattern: \\varphi\(([^)]+)\)
+  output_template: Let's explore phi of \1, which reveals the mathematical relationship.
+  priority: 1150
+  tags:
+  - totient
+  - euler
+  - phi
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mobius_function
+  name: Möbius function
+  pattern: \\mu\(([^)]+)\)
+  output_template: Let's explore mu of \1, which reveals the mathematical relationship.
+  priority: 1140
+  contexts:
+  - number_theory
+  tags:
+  - mobius
+  - function
+  naturalness_score: 6
+- id: divisor_function
+  name: Divisor function
+  pattern: \\sigma_\{?([^{}\s]+)\}?\(([^)]+)\)
+  output_template: Let's explore sigma \1 of \2, which reveals the mathematical relationship.
+  priority: 1130
+  tags:
+  - divisor
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: divisor_count
+  name: Number of divisors
+  pattern: \\tau\(([^)]+)\)|d\(([^)]+)\)
+  output_template: Let's explore tau of \1\2, which reveals the mathematical relationship.
+  priority: 1130
+  tags:
+  - divisor
+  - count
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: sum_of_divisors
+  name: Sum of divisors
+  pattern: \\sigma\(([^)]+)\)
+  output_template: Let's explore sigma of \1, which reveals the mathematical relationship.
+  priority: 1130
+  tags:
+  - divisor
+  - sum
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: floor_function
+  name: Floor function
+  pattern: \\lfloor([^\\]+)\\rfloor
+  output_template: We have the floor of \1, which reveals the mathematical relationship.
+  priority: 1100
+  tags:
+  - floor
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: ceiling_function
+  name: Ceiling function
+  pattern: \\lceil([^\\]+)\\rceil
+  output_template: We have the ceiling of \1, which reveals the mathematical relationship.
+  priority: 1100
+  tags:
+  - ceiling
+  - function
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: nearest_integer
+  name: Nearest integer
+  pattern: \\lfloor([^\\]+)\\rceil
+  output_template: We have the nearest integer to \1, which reveals the mathematical
+    relationship.
+  priority: 1110
+  tags:
+  - rounding
+  - nearest
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fractional_part
+  name: Fractional part
+  pattern: \\\{([^}]+)\\\}
+  output_template: We have the fractional part of \1, which reveals the mathematical
+    relationship.
+  priority: 1090
+  contexts:
+  - number_theory
+  tags:
+  - fractional
+  - part
+  naturalness_score: 6
+- id: legendre_symbol
+  name: Legendre symbol
+  pattern: \\left\(\\frac\{([^{}]+)\}\{([^{}]+)\}\\right\)
+  output_template: We have the Legendre symbol \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1170
+  contexts:
+  - number_theory
+  tags:
+  - legendre
+  - symbol
+  naturalness_score: 6
+- id: jacobi_symbol
+  name: Jacobi symbol
+  pattern: \(\\frac\{([^{}]+)\}\{([^{}]+)\}\)
+  output_template: We have the Jacobi symbol \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1160
+  contexts:
+  - number_theory
+  tags:
+  - jacobi
+  - symbol
+  naturalness_score: 6
+- id: congruence_mod
+  name: Congruence modulo
+  pattern: ([^\s]+)\s*\\equiv\s*([^\s]+)\s*\\pmod\{([^{}]+)\}
+  output_template: Let's explore \1 is congruent to \2 modulo \3, which reveals the
+    mathematical relationship.
+  priority: 1180
+  tags:
+  - congruence
+  - modular
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: not_congruent
+  name: Not congruent
+  pattern: ([^\s]+)\s*\\not\\equiv\s*([^\s]+)\s*\\pmod\{([^{}]+)\}
+  output_template: Let's explore \1 is not congruent to \2 modulo \3, which reveals
+    the mathematical relationship.
+  priority: 1180
+  tags:
+  - congruence
+  - negation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mod_operation
+  name: Modulo operation
+  pattern: ([^\s]+)\s*\\bmod\s*([^\s]+)
+  output_template: Let's explore \1 mod \2, which reveals the mathematical relationship.
+  priority: 1150
+  tags:
+  - modulo
+  - operation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mod_inverse
+  name: Modular inverse
+  pattern: ([a-zA-Z0-9]+)\^\{-1\}\s*\\pmod\{([^{}]+)\}
+  output_template: Let's explore \1 inverse modulo \2, which reveals the mathematical
+    relationship.
+  priority: 1170
+  tags:
+  - modular
+  - inverse
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: perfect_number
+  name: Perfect number
+  pattern: \\sigma\(([^)]+)\)\s*=\s*2\1
+  output_template: Let's explore \1 is a perfect number, which reveals the mathematical
+    relationship.
+  priority: 1120
+  tags:
+  - perfect
+  - number
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: factorial_number_theory
+  name: Factorial
+  pattern: ([a-zA-Z0-9]+)!
+  output_template: Let's explore \1 factorial, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - factorial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: double_factorial
+  name: Double factorial
+  pattern: ([a-zA-Z0-9]+)!!
+  output_template: Let's explore \1 double factorial, which reveals the mathematical
+    relationship.
+  priority: 1190
+  tags:
+  - factorial
+  - double
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: primorial
+  name: Primorial
+  pattern: ([a-zA-Z0-9]+)\#
+  output_template: Let's explore \1 primorial, which reveals the mathematical relationship.
+  priority: 1180
+  tags:
+  - primorial
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_coefficient
+  name: Binomial coefficient
+  pattern: \\binom\{([^{}]+)\}\{([^{}]+)\}
+  output_template: Let's explore \1 choose \2, which reveals the mathematical relationship.
+  priority: 1190
+  tags:
+  - binomial
+  - coefficient
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_coefficient_paren
+  name: Binomial coefficient parentheses
+  pattern: \\left\(\\begin\{array\}\{c\}([^\\]+)\\\\([^\\]+)\\end\{array\}\\right\)
+  output_template: Let's explore \1 choose \2, which reveals the mathematical relationship.
+  priority: 1180
+  tags:
+  - binomial
+  - coefficient
+  - array
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: partition_function
+  name: Partition function
+  pattern: p\(([^)]+)\)
+  output_template: Let's explore p of \1, which reveals the mathematical relationship.
+  priority: 1110
+  contexts:
+  - partition
+  tags:
+  - partition
+  - function
+  naturalness_score: 6
+- id: continued_fraction
+  name: Continued fraction
+  pattern: \[([^;]+);\s*([^\]]+)\]
+  output_template: Let's explore \1 semicolon \2, which reveals the mathematical relationship.
+  priority: 1100
+  contexts:
+  - continued_fraction
+  tags:
+  - continued_fraction
+  - notation
+  naturalness_score: 6
+- id: diophantine_linear
+  name: Linear Diophantine equation
+  pattern: ([a-zA-Z0-9]+)x\s*\+\s*([a-zA-Z0-9]+)y\s*=\s*([a-zA-Z0-9]+)
+  output_template: Let's explore \1 x plus \2 y beautifully equals \3, which reveals
+    the mathematical relationship.
+  priority: 1120
+  contexts:
+  - diophantine
+  tags:
+  - diophantine
+  - linear
+  naturalness_score: 6
+- id: primes_less_than
+  name: Primes less than
+  pattern: \\mathbb\{P\}_\{<([^{}]+)\}
+  output_template: We have the primes less than \1, which reveals the mathematical
+    relationship.
+  priority: 1130
+  tags:
+  - prime
+  - set
+  - bounded
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

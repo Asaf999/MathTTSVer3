@@ -1,0 +1,564 @@
+metadata:
+  category: trigonometry
+  description: Trigonometric functions, inverse functions, and hyperbolic functions
+  version: 1.0.0
+patterns:
+- id: trig_sin
+  name: Sine
+  pattern: \\sin\s*\(([^)]+)\)
+  output_template: Let's explore sine of \1, which reveals the mathematical relationship.
+  priority: 1000
+  tags:
+  - trig
+  - sine
+  - basic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos
+  name: Cosine
+  pattern: \\cos\s*\(([^)]+)\)
+  output_template: Let's explore cosine of \1, which reveals the mathematical relationship.
+  priority: 1000
+  tags:
+  - trig
+  - cosine
+  - basic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_tan
+  name: Tangent
+  pattern: \\tan\s*\(([^)]+)\)
+  output_template: Let's explore tangent of \1, which reveals the mathematical relationship.
+  priority: 1000
+  tags:
+  - trig
+  - tangent
+  - basic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cot
+  name: Cotangent
+  pattern: \\cot\s*\(([^)]+)\)
+  output_template: Let's explore cotangent of \1, which reveals the mathematical relationship.
+  priority: 990
+  tags:
+  - trig
+  - cotangent
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sec
+  name: Secant
+  pattern: \\sec\s*\(([^)]+)\)
+  output_template: Let's explore secant of \1, which reveals the mathematical relationship.
+  priority: 990
+  tags:
+  - trig
+  - secant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_csc
+  name: Cosecant
+  pattern: \\csc\s*\(([^)]+)\)
+  output_template: Let's explore cosecant of \1, which reveals the mathematical relationship.
+  priority: 990
+  tags:
+  - trig
+  - cosecant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_no_parens
+  name: Sine without parentheses
+  pattern: \\sin\s+([a-zA-Z0-9]+)
+  output_template: Let's explore sine \1, which reveals the mathematical relationship.
+  priority: 980
+  tags:
+  - trig
+  - sine
+  - simple
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos_no_parens
+  name: Cosine without parentheses
+  pattern: \\cos\s+([a-zA-Z0-9]+)
+  output_template: Let's explore cosine \1, which reveals the mathematical relationship.
+  priority: 980
+  tags:
+  - trig
+  - cosine
+  - simple
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_tan_no_parens
+  name: Tangent without parentheses
+  pattern: \\tan\s+([a-zA-Z0-9]+)
+  output_template: Let's explore tangent \1, which reveals the mathematical relationship.
+  priority: 980
+  tags:
+  - trig
+  - tangent
+  - simple
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_squared
+  name: Sine squared
+  pattern: \\sin\^2\s*\(([^)]+)\)
+  output_template: Let's explore sine squared of \1, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - trig
+  - sine
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos_squared
+  name: Cosine squared
+  pattern: \\cos\^2\s*\(([^)]+)\)
+  output_template: Let's explore cosine squared of \1, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - trig
+  - cosine
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_cubed
+  name: Sine cubed
+  pattern: \\sin\^3\s*\(([^)]+)\)
+  output_template: Let's explore sine cubed of \1, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - trig
+  - sine
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_power
+  name: Sine to power
+  pattern: \\sin\^\{?([^{}\s]+)\}?\s*\(([^)]+)\)
+  output_template: Let's explore sine to the power of \1 of \2, which reveals the
+    mathematical relationship.
+  priority: 1030
+  tags:
+  - trig
+  - sine
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos_power
+  name: Cosine to power
+  pattern: \\cos\^\{?([^{}\s]+)\}?\s*\(([^)]+)\)
+  output_template: Let's explore cosine to the power of \1 of \2, which reveals the
+    mathematical relationship.
+  priority: 1030
+  tags:
+  - trig
+  - cosine
+  - power
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_squared_alt
+  name: Sine squared alternative
+  pattern: \(\\sin\s*\(([^)]+)\)\)\^2
+  output_template: Let's explore sine squared of \1, which reveals the mathematical
+    relationship.
+  priority: 1040
+  tags:
+  - trig
+  - sine
+  - power
+  - alternative
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arcsin
+  name: Arcsine
+  pattern: \\arcsin\s*\(([^)]+)\)
+  output_template: Let's explore arcsine of \1, which reveals the mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - arcsine
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arccos
+  name: Arccosine
+  pattern: \\arccos\s*\(([^)]+)\)
+  output_template: Let's explore arccosine of \1, which reveals the mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - arccosine
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arctan
+  name: Arctangent
+  pattern: \\arctan\s*\(([^)]+)\)
+  output_template: Let's explore arctangent of \1, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - arctangent
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arccot
+  name: Arccotangent
+  pattern: \\arccot\s*\(([^)]+)\)
+  output_template: Let's explore arccotangent of \1, which reveals the mathematical
+    relationship.
+  priority: 1010
+  tags:
+  - trig
+  - inverse
+  - arccotangent
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arcsec
+  name: Arcsecant
+  pattern: \\arcsec\s*\(([^)]+)\)
+  output_template: Let's explore arcsecant of \1, which reveals the mathematical relationship.
+  priority: 1010
+  tags:
+  - trig
+  - inverse
+  - arcsecant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arccsc
+  name: Arccosecant
+  pattern: \\arccsc\s*\(([^)]+)\)
+  output_template: Let's explore arccosecant of \1, which reveals the mathematical
+    relationship.
+  priority: 1010
+  tags:
+  - trig
+  - inverse
+  - arccosecant
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_inverse
+  name: Sine inverse
+  pattern: \\sin\^\{-1\}\s*\(([^)]+)\)
+  output_template: Let's explore inverse sine of \1, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - sine
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos_inverse
+  name: Cosine inverse
+  pattern: \\cos\^\{-1\}\s*\(([^)]+)\)
+  output_template: Let's explore inverse cosine of \1, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - cosine
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_tan_inverse
+  name: Tangent inverse
+  pattern: \\tan\^\{-1\}\s*\(([^)]+)\)
+  output_template: Let's explore inverse tangent of \1, which reveals the mathematical
+    relationship.
+  priority: 1020
+  tags:
+  - trig
+  - inverse
+  - tangent
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_atan2
+  name: Two-argument arctangent
+  pattern: \\atan2\s*\(([^,]+),\s*([^)]+)\)
+  output_template: Let's explore arctangent of \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1030
+  tags:
+  - trig
+  - inverse
+  - atan2
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sinh
+  name: Hyperbolic sine
+  pattern: \\sinh\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic sine of \1, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - trig
+  - hyperbolic
+  - sinh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cosh
+  name: Hyperbolic cosine
+  pattern: \\cosh\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic cosine of \1, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - trig
+  - hyperbolic
+  - cosh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_tanh
+  name: Hyperbolic tangent
+  pattern: \\tanh\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic tangent of \1, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - trig
+  - hyperbolic
+  - tanh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_coth
+  name: Hyperbolic cotangent
+  pattern: \\coth\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic cotangent of \1, which reveals the mathematical
+    relationship.
+  priority: 990
+  tags:
+  - trig
+  - hyperbolic
+  - coth
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sech
+  name: Hyperbolic secant
+  pattern: \\sech\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic secant of \1, which reveals the mathematical
+    relationship.
+  priority: 990
+  tags:
+  - trig
+  - hyperbolic
+  - sech
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_csch
+  name: Hyperbolic cosecant
+  pattern: \\csch\s*\(([^)]+)\)
+  output_template: Let's explore hyperbolic cosecant of \1, which reveals the mathematical
+    relationship.
+  priority: 990
+  tags:
+  - trig
+  - hyperbolic
+  - csch
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arcsinh
+  name: Inverse hyperbolic sine
+  pattern: \\arcsinh\s*\(([^)]+)\)
+  output_template: Let's explore inverse hyperbolic sine of \1, which reveals the
+    mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - hyperbolic
+  - inverse
+  - arcsinh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arccosh
+  name: Inverse hyperbolic cosine
+  pattern: \\arccosh\s*\(([^)]+)\)
+  output_template: Let's explore inverse hyperbolic cosine of \1, which reveals the
+    mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - hyperbolic
+  - inverse
+  - arccosh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_arctanh
+  name: Inverse hyperbolic tangent
+  pattern: \\arctanh\s*\(([^)]+)\)
+  output_template: Let's explore inverse hyperbolic tangent of \1, which reveals the
+    mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - hyperbolic
+  - inverse
+  - arctanh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sinh_inverse
+  name: Hyperbolic sine inverse
+  pattern: \\sinh\^\{-1\}\s*\(([^)]+)\)
+  output_template: Let's explore inverse hyperbolic sine of \1, which reveals the
+    mathematical relationship.
+  priority: 1020
+  tags:
+  - trig
+  - hyperbolic
+  - inverse
+  - sinh
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sum_formula
+  name: Trigonometric sum
+  pattern: \\sin\s*\(([^)]+)\)\s*\+\s*\\cos\s*\(([^)]+)\)
+  output_template: Let's explore sine of \1 plus cosine of \2, which reveals the mathematical
+    relationship.
+  priority: 950
+  tags:
+  - trig
+  - sum
+  - formula
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_product
+  name: Trigonometric product
+  pattern: \\sin\s*\(([^)]+)\)\s*\\cos\s*\(([^)]+)\)
+  output_template: Let's explore sine of \1 times cosine of \2, which reveals the
+    mathematical relationship.
+  priority: 950
+  tags:
+  - trig
+  - product
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_sin_pi
+  name: Sine of pi
+  pattern: \\sin\s*\(\\pi\)
+  output_template: Let's explore sine of pi, which reveals the mathematical relationship.
+  priority: 1080
+  tags:
+  - trig
+  - sine
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_cos_pi_over_2
+  name: Cosine of pi over 2
+  pattern: \\cos\s*\(\\frac\{\\pi\}\{2\}\)
+  output_template: cosine of pi over 2
+  priority: 1080
+  tags:
+  - trig
+  - cosine
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_degrees
+  name: Trigonometric with degrees
+  pattern: \\sin\s*\((\d+)\^\\circ\)
+  output_template: Let's explore sine of \1 degrees, which reveals the mathematical
+    relationship.
+  priority: 1060
+  tags:
+  - trig
+  - degrees
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: trig_composition
+  name: Trigonometric composition
+  pattern: \\sin\s*\(\\cos\s*\(([^)]+)\)\)
+  output_template: Let's explore sine of cosine of \1, which reveals the mathematical
+    relationship.
+  priority: 970
+  tags:
+  - trig
+  - composition
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical

@@ -1,0 +1,442 @@
+metadata:
+  category: fractions
+  description: All types of fractions including special cases, complex fractions,
+    and mixed numbers
+  version: 1.0.0
+patterns:
+- id: fraction_half
+  name: One half
+  pattern: \\frac\{1\}\{2\}
+  output_template: We have the fraction one half
+  priority: 1550
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_third
+  name: One third
+  pattern: \\frac\{1\}\{3\}
+  output_template: We have the fraction one third
+  priority: 1550
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_quarter
+  name: One quarter
+  pattern: \\frac\{1\}\{4\}
+  output_template: We have the fraction one quarter
+  priority: 1550
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_fifth
+  name: One fifth
+  pattern: \\frac\{1\}\{5\}
+  output_template: We have the fraction one fifth
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_sixth
+  name: One sixth
+  pattern: \\frac\{1\}\{6\}
+  output_template: We have the fraction one sixth
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_seventh
+  name: One seventh
+  pattern: \\frac\{1\}\{7\}
+  output_template: We have the fraction one seventh
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_eighth
+  name: One eighth
+  pattern: \\frac\{1\}\{8\}
+  output_template: We have the fraction one eighth
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_ninth
+  name: One ninth
+  pattern: \\frac\{1\}\{9\}
+  output_template: We have the fraction one ninth
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_tenth
+  name: One tenth
+  pattern: \\frac\{1\}\{10\}
+  output_template: We have the fraction one tenth
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_two_thirds
+  name: Two thirds
+  pattern: \\frac\{2\}\{3\}
+  output_template: We have the fraction two thirds
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_three_quarters
+  name: Three quarters
+  pattern: \\frac\{3\}\{4\}
+  output_template: We have the mathematical fraction three quarters
+  priority: 1540
+  tags:
+  - fraction
+  - special
+  - common
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_two_fifths
+  name: Two fifths
+  pattern: \\frac\{2\}\{5\}
+  output_template: We have the mathematical fraction two fifths
+  priority: 1530
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_three_fifths
+  name: Three fifths
+  pattern: \\frac\{3\}\{5\}
+  output_template: Let's explore three fifths, which reveals the mathematical relationship.
+  priority: 1530
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_four_fifths
+  name: Four fifths
+  pattern: \\frac\{4\}\{5\}
+  output_template: Let's explore four fifths, which reveals the mathematical relationship.
+  priority: 1530
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_five_sixths
+  name: Five sixths
+  pattern: \\frac\{5\}\{6\}
+  output_template: Let's explore five sixths, which reveals the mathematical relationship.
+  priority: 1530
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_seven_eighths
+  name: Seven eighths
+  pattern: \\frac\{7\}\{8\}
+  output_template: Let's explore seven eighths, which reveals the mathematical relationship.
+  priority: 1530
+  tags:
+  - fraction
+  - special
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_ordinal_pattern
+  name: Ordinal fractions (n/m where m <= 10)
+  pattern: \\frac\{(\d+)\}\{([2-9]|10)\}
+  output_template: Let's explore {numerator_words} {denominator_ordinal}, which reveals
+    the mathematical relationship.
+  priority: 1520
+  tags:
+  - fraction
+  - ordinal
+  post_processing:
+  - type: fraction_to_ordinal
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_inline_slash
+  name: Inline fraction with slash
+  pattern: (\d+)/(\d+)
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1400
+  contexts:
+  - not_date
+  - not_url
+  tags:
+  - fraction
+  - inline
+  naturalness_score: 6
+- id: fraction_complex_nested
+  name: Nested fraction
+  pattern: \\frac\{\\frac\{([^{}]+)\}\{([^{}]+)\}\}\{([^{}]+)\}
+  output_template: Let's explore \1 over \2, all over \3, which reveals the mathematical
+    relationship.
+  priority: 1450
+  tags:
+  - fraction
+  - complex
+  - nested
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_complex_denominator
+  name: Fraction with complex denominator
+  pattern: \\frac\{([^{}]+)\}\{\\frac\{([^{}]+)\}\{([^{}]+)\}\}
+  output_template: Let's explore \1 over, open parenthesis \2 over \3 close parenthesis,
+    which reveals the mathematical relationship.
+  priority: 1450
+  tags:
+  - fraction
+  - complex
+  - nested
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_with_parentheses
+  name: Fraction with parentheses
+  pattern: \\frac\{\(([^()]+)\)\}\{\(([^()]+)\)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1350
+  tags:
+  - fraction
+  - parentheses
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_algebraic
+  name: Algebraic fraction
+  pattern: \\frac\{([a-zA-Z][^{}]*)\}\{([a-zA-Z][^{}]*)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1300
+  tags:
+  - fraction
+  - algebraic
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_numeric
+  name: Numeric fraction
+  pattern: \\frac\{(\d+)\}\{(\d+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1250
+  tags:
+  - fraction
+  - numeric
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_general
+  name: General fraction
+  pattern: \\frac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1000
+  tags:
+  - fraction
+  - general
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mixed_number
+  name: Mixed number
+  pattern: (\d+)\s+\\frac\{(\d+)\}\{(\d+)\}
+  output_template: Let's explore \1 and \2 over \3, which reveals the mathematical
+    relationship.
+  priority: 1480
+  tags:
+  - fraction
+  - mixed_number
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: mixed_number_inline
+  name: Mixed number inline
+  pattern: (\d+)\s+(\d+)/(\d+)
+  output_template: Let's explore \1 and \2 over \3, which reveals the mathematical
+    relationship.
+  priority: 1470
+  tags:
+  - fraction
+  - mixed_number
+  - inline
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: continued_fraction_simple
+  name: Simple continued fraction
+  pattern: \\cfrac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1200
+  tags:
+  - fraction
+  - continued
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: partial_fraction_decomposition
+  name: Partial fraction decomposition
+  pattern: \\frac\{([^{}]+)\}\{([^{}]+)\}\s*\+\s*\\frac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: Let's explore \1 over \2 plus \3 over \4, which reveals the mathematical
+    relationship.
+  priority: 1100
+  tags:
+  - fraction
+  - partial
+  - decomposition
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_percentage_form
+  name: Fraction as percentage
+  pattern: \\frac\{(\d+)\}\{100\}
+  output_template: Let's explore \1 percent, which reveals the mathematical relationship.
+  priority: 1400
+  tags:
+  - fraction
+  - percentage
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_decimal_equivalent
+  name: Common fraction with decimal
+  pattern: \\frac\{1\}\{2\}\s*=\s*0\.5
+  output_template: one half beautifully equals zero point five
+  priority: 1500
+  tags:
+  - fraction
+  - decimal
+  - equation
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_display_style
+  name: Display style fraction
+  pattern: \\dfrac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - fraction
+  - display_style
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: fraction_text_style
+  name: Text style fraction
+  pattern: \\tfrac\{([^{}]+)\}\{([^{}]+)\}
+  output_template: We have the fraction \1 over \2, which reveals the mathematical
+    relationship.
+  priority: 1050
+  tags:
+  - fraction
+  - text_style
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_coefficient_fraction
+  name: Binomial coefficient
+  pattern: \\binom\{([^{}]+)\}\{([^{}]+)\}
+  output_template: Let's explore \1 choose \2, which reveals the mathematical relationship.
+  priority: 1400
+  tags:
+  - fraction
+  - binomial
+  - combination
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
+- id: binomial_coefficient_parentheses
+  name: Binomial coefficient with parentheses
+  pattern: \\left\(\\begin\{array\}\{c\}([^\\]+)\\\\([^\\]+)\\end\{array\}\\right\)
+  output_template: Let's explore \1 choose \2, which reveals the mathematical relationship.
+  priority: 1350
+  tags:
+  - fraction
+  - binomial
+  - array
+  naturalness_score: 6
+  contexts:
+  - general
+  - mathematical
