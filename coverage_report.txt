@@ -1,0 +1,172 @@
+Test Coverage Report - MathTTSVer3
+==================================
+Generated: 2025-06-01 13:26 +0300
+
+Overall Coverage: 12%
+
+Test Execution Issues:
+- 15 errors during collection
+- Missing dependencies: httpx
+- Import errors: TTSAdapter not found in domain.interfaces
+- Relative import issues in presentation layer
+
+Detailed Coverage by Module:
+
+ADAPTERS
+--------
+src/adapters/__init__.py                                    100%
+src/adapters/pattern_loaders.py                              0% (69 statements)
+src/adapters/pattern_loaders/__init__.py                   100%
+src/adapters/pattern_loaders/yaml_pattern_loader.py          20% (16/82 covered)
+src/adapters/tts_providers/__init__.py                       80%
+src/adapters/tts_providers/base.py                           59% (75/128 covered)
+src/adapters/tts_providers/edge_tts_adapter.py               17% (23/132 covered)
+src/adapters/tts_providers/gtts_adapter.py                   20% (21/105 covered)
+src/adapters/tts_providers/mock_tts_adapter.py                5% (2/41 covered)
+src/adapters/tts_providers/pyttsx3_adapter.py                14% (21/145 covered)
+src/adapters/tts_providers/ssml_converter.py                 10% (21/207 covered)
+
+APPLICATION LAYER
+-----------------
+src/application/__init__.py                                 100%
+src/application/dtos.py                                       0% (119 statements)
+src/application/dtos_v3.py                                   72% (51/71 covered)
+src/application/services/__init__.py                         50%
+src/application/services/mathtts_service.py                   3% (3/97 covered)
+src/application/use_cases/__init__.py                        50%
+src/application/use_cases/process_expression.py              10% (8/78 covered)
+
+DOMAIN LAYER
+------------
+src/domain/__init__.py                                      100%
+src/domain/entities.py                                        0% (99 statements)
+src/domain/entities/__init__.py                             100%
+src/domain/entities/expression.py                             0% (122 statements)
+src/domain/entities/mathematical_expression.py               27% (64/237 covered)
+src/domain/entities/pattern.py                               36% (69/194 covered)
+src/domain/exceptions.py                                     18% (34/187 covered)
+src/domain/interfaces.py                                      0% (48 statements)
+src/domain/interfaces/__init__.py                           100%
+src/domain/interfaces/cache_repository.py                     0% (31 statements)
+src/domain/interfaces/pattern_repository.py                  76% (37/49 covered)
+src/domain/services/__init__.py                             100%
+src/domain/services/mathematical_rhythm_processor.py          0% (200 statements)
+src/domain/services/natural_language_processor.py             0% (322 statements)
+src/domain/services/pattern_matcher.py                       17% (27/161 covered)
+src/domain/services/simple_pattern_matcher.py               21% (8/39 covered)
+src/domain/value_objects.py                                  28% (74/263 covered)
+src/domain/value_objects_simple.py                           52% (12/23 covered)
+src/domain/value_objects_tts.py                              54% (43/79 covered)
+
+INFRASTRUCTURE LAYER
+--------------------
+src/infrastructure/__init__.py                              100%
+src/infrastructure/auth/__init__.py                           0%
+src/infrastructure/auth/dependencies.py                       0% (108 statements)
+src/infrastructure/auth/jwt_handler.py                        0% (53 statements)
+src/infrastructure/auth/models.py                             0% (88 statements)
+src/infrastructure/auth/repositories.py                       0% (147 statements)
+src/infrastructure/cache/__init__.py                        100%
+src/infrastructure/cache/audio_cache.py                       0% (178 statements)
+src/infrastructure/cache/lru_cache_repository.py             18% (28/156 covered)
+src/infrastructure/cache/redis_cache.py                       0% (271 statements)
+src/infrastructure/config/__init__.py                       100%
+src/infrastructure/config/settings.py                        82% (89/108 covered)
+src/infrastructure/logging/__init__.py                       38%
+src/infrastructure/logging/logger.py                         40% (40/100 covered)
+src/infrastructure/logging/simple_logger.py                   0% (36 statements)
+src/infrastructure/logging/structured_logger.py               0% (192 statements)
+src/infrastructure/monitoring/__init__.py                     0%
+src/infrastructure/monitoring/prometheus_metrics.py           0% (105 statements)
+src/infrastructure/performance/__init__.py                    0%
+src/infrastructure/performance/optimized_pattern_loader.py    0% (188 statements)
+src/infrastructure/performance/optimized_pattern_service.py   0% (188 statements)
+src/infrastructure/performance/profiler.py                    0% (150 statements)
+src/infrastructure/persistence.py                             0% (143 statements)
+src/infrastructure/persistence/__init__.py                  100%
+src/infrastructure/persistence/memory_pattern_repository.py  17% (22/130 covered)
+src/infrastructure/persistence/simple_memory_repository.py   26% (19/72 covered)
+src/infrastructure/rate_limiting.py                          0% (101 statements)
+src/infrastructure/rate_limiting_deps.py                      0% (44 statements)
+
+PRESENTATION LAYER
+------------------
+src/presentation/__init__.py                                 50%
+src/presentation/api/__init__.py                             25%
+src/presentation/api/app.py                                  14% (10/74 covered)
+src/presentation/api/dependencies.py                          0% (112 statements)
+src/presentation/api/middleware.py                            0% (76 statements)
+src/presentation/api/openapi_config.py                        0% (19 statements)
+src/presentation/api/routers/__init__.py                      0%
+src/presentation/api/routers/auth.py                          0% (116 statements)
+src/presentation/api/routers/expressions.py                   0% (91 statements)
+src/presentation/api/routers/health.py                        0% (111 statements)
+src/presentation/api/routers/patterns.py                      0% (137 statements)
+src/presentation/api/routers/voices.py                        0% (76 statements)
+src/presentation/api/schemas.py                               0% (138 statements)
+src/presentation/cli/__init__.py                              0%
+src/presentation/cli/main.py                                  0% (248 statements)
+
+CRITICAL FINDINGS
+-----------------
+
+1. Modules with 0% Coverage (Need Immediate Attention):
+   - All API routers (auth, expressions, health, patterns, voices)
+   - All authentication infrastructure
+   - All monitoring and performance infrastructure
+   - Core application DTOs and services
+   - Domain services (mathematical_rhythm_processor, natural_language_processor)
+   - All CLI functionality
+   - Redis cache implementation
+   - Rate limiting infrastructure
+
+2. Modules with Low Coverage (<20%):
+   - mathtts_service.py: 3% (core service!)
+   - process_expression.py: 10% (main use case!)
+   - pattern_matcher.py: 17%
+   - edge_tts_adapter.py: 17%
+   - memory_pattern_repository.py: 17%
+
+3. Modules with Moderate Coverage (20-50%):
+   - mathematical_expression.py: 27%
+   - pattern.py: 36%
+   - logger.py: 40%
+   - simple_memory_repository.py: 26%
+
+4. Well-Tested Modules (>70%):
+   - settings.py: 82%
+   - pattern_repository.py: 76%
+   - dtos_v3.py: 72%
+
+RECOMMENDATIONS
+---------------
+
+1. Fix Test Infrastructure:
+   - Install missing dependency: pip install httpx
+   - Fix import error: Add TTSAdapter to domain.interfaces/__init__.py
+   - Fix relative imports in presentation layer
+
+2. Priority Areas for Test Coverage:
+   HIGH PRIORITY:
+   - Core service: mathtts_service.py
+   - Main use case: process_expression.py
+   - API endpoints: expressions.py, patterns.py
+   - Domain services: pattern_matcher.py
+   
+   MEDIUM PRIORITY:
+   - TTS adapters (edge_tts, gtts, pyttsx3)
+   - Repository implementations
+   - Authentication layer
+   
+   LOW PRIORITY:
+   - Monitoring/metrics
+   - Performance optimization modules
+   - CLI interface
+
+3. Test Strategy:
+   - Start with unit tests for domain services
+   - Add integration tests for application services
+   - Create API endpoint tests
+   - Add end-to-end tests once infrastructure is fixed
+
+TOTAL COVERAGE: 846/7168 statements (12%)
