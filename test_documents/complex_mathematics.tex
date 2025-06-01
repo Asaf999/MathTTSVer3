@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\title{Advanced Mathematical Concepts: A Comprehensive Test}
+\author{Phase 3.5 Testing System}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This document contains challenging mathematical expressions to test the naturalness of our LaTeX to speech conversion system.
+
+\section{Complex Analysis and Euler's Identity}
+
+\begin{theorem}[Euler's Formula]
+For any real number $\theta$, we have:
+\begin{equation}
+e^{i\theta} = \cos(\theta) + i\sin(\theta)
+\end{equation}
+\end{theorem}
+
+As a special case, when $\theta = \pi$, we obtain Euler's identity:
+\begin{equation}
+e^{i\pi} + 1 = 0
+\end{equation}
+
+This remarkable equation connects five fundamental mathematical constants: $e$, $i$, $\pi$, $1$, and $0$.
+
+\section{Differential Equations and Taylor Series}
+
+Consider the differential equation:
+\begin{equation}
+\frac{d^2y}{dx^2} + p(x)\frac{dy}{dx} + q(x)y = f(x)
+\end{equation}
+
+The Taylor series expansion of a function $f(x)$ around point $a$ is:
+\begin{equation}
+f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots
+\end{equation}
+
+\section{Advanced Calculus}
+
+\subsection{Multiple Integration}
+The triple integral over a region $E$ in $\mathbb{R}^3$ is:
+\begin{equation}
+\iiint_E f(x,y,z) \, dV = \int_{a}^{b} \int_{g_1(x)}^{g_2(x)} \int_{h_1(x,y)}^{h_2(x,y)} f(x,y,z) \, dz \, dy \, dx
+\end{equation}
+
+\subsection{The Fundamental Theorem of Calculus}
+\begin{theorem}
+If $f$ is continuous on $[a,b]$ and $F$ is an antiderivative of $f$, then:
+\begin{equation}
+\int_a^b f(x) \, dx = F(b) - F(a)
+\end{equation}
+
+Moreover, if $F(x) = \int_a^x f(t) \, dt$, then:
+\begin{equation}
+\frac{d}{dx}\int_a^x f(t) \, dt = f(x)
+\end{equation}
+\end{theorem}
+
+\section{Linear Algebra and Matrix Operations}
+
+For matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$, their product is:
+\begin{equation}
+(AB)_{ij} = \sum_{k=1}^{n} a_{ik}b_{kj}
+\end{equation}
+
+The determinant of a $2 \times 2$ matrix is:
+\begin{equation}
+\det\begin{pmatrix} a & b \\ c & d \end{pmatrix} = ad - bc
+\end{equation}
+
+\section{Number Theory and the Riemann Hypothesis}
+
+The Riemann zeta function is defined for $\text{Re}(s) > 1$ by:
+\begin{equation}
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}
+\end{equation}
+
+The Riemann Hypothesis conjectures that all non-trivial zeros of $\zeta(s)$ have real part $\frac{1}{2}$.
+
+\section{Probability and Statistics}
+
+\subsection{The Normal Distribution}
+The probability density function of the normal distribution is:
+\begin{equation}
+f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\end{equation}
+
+\subsection{Bayes' Theorem}
+For events $A$ and $B$ with $P(B) \neq 0$:
+\begin{equation}
+P(A|B) = \frac{P(B|A)P(A)}{P(B)} = \frac{P(B|A)P(A)}{\sum_{i} P(B|A_i)P(A_i)}
+\end{equation}
+
+\section{Partial Differential Equations}
+
+The heat equation in one dimension:
+\begin{equation}
+\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+
+The wave equation in three dimensions:
+\begin{equation}
+\frac{\partial^2 u}{\partial t^2} = c^2 \nabla^2 u = c^2 \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\right)
+\end{equation}
+
+\section{Complex Integrals and Residue Theory}
+
+\begin{theorem}[Cauchy's Residue Theorem]
+If $f$ is analytic inside and on a simple closed contour $C$ except at finitely many points $z_1, z_2, \ldots, z_n$, then:
+\begin{equation}
+\oint_C f(z) \, dz = 2\pi i \sum_{k=1}^{n} \text{Res}(f, z_k)
+\end{equation}
+\end{theorem}
+
+\section{Functional Analysis}
+
+For a Hilbert space $\mathcal{H}$ with inner product $\langle \cdot, \cdot \rangle$, the Cauchy-Schwarz inequality states:
+\begin{equation}
+|\langle x, y \rangle| \leq \|x\| \|y\|
+\end{equation}
+
+where $\|x\| = \sqrt{\langle x, x \rangle}$.
+
+\section{Conclusion}
+
+These mathematical expressions demonstrate various levels of complexity, from basic calculus to advanced topics in analysis and algebra. Each requires careful consideration for natural speech conversion.
+
+\end{document}
